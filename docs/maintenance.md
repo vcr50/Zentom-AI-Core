@@ -749,3 +749,17 @@ Milestone 26 - Post-v1 Stabilization and Customer Rollout
 - Escalation, customer responsibility, Tomcodex/Zentom responsibility, out-of-scope support, and review cadence documented.
 - Next phase documented: 26D Usage Monitoring + Adoption Metrics.
 - Rollback note: documentation-only milestone; remove `docs/support-sla-response-policy.md` and this maintenance entry if the SLA policy is replaced.
+
+26D usage monitoring + adoption metrics:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/usage-monitoring-adoption-metrics.md`.
+- Goal documented: track whether customers can install, configure, validate, use, trust, and repeatedly operate SentinelFlow after onboarding.
+- Monitoring scope documented for Salesforce package usage, Sentinel Incident volume/status, approval/execution workflow, Case creation, Replay Timeline, Dashboard, Org Health Score, hosted API health, hosted DB health, API intake outcomes, error logs, Render cold-start incidents, onboarding, and feedback activity.
+- Product usage metrics documented: Sentinel Incidents created, critical incidents, pending approvals, approved incidents, rejected incidents, executed actions, Cases created, and future Replay Timeline usage.
+- Hosted API metrics documented: API health, `/api/health/db`, intake success/failure count, 401 unauthorized count, 5xx error count, and future average response time.
+- Customer adoption and operational health metrics documented, including active admins/approvers, beta scenarios completed, feedback submitted, customers completing onboarding, Org Health Score, open critical incidents, error log count, and Render cold-start incidents.
+- Weekly review dashboard, success signals, risk signals, and future automation plan documented.
+- Next phase documented: 26E Feedback-to-Roadmap Process.
+- Rollback note: documentation-only milestone; remove `docs/usage-monitoring-adoption-metrics.md` and this maintenance entry if the metrics plan is replaced.
