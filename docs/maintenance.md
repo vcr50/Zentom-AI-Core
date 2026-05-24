@@ -297,7 +297,7 @@ Prepare SentinelFlow for marketplace and Salesforce security-review readiness.
 
 ## Milestone 20: Private Beta Release
 
-Status: Next
+Status: Started
 
 Planned scope:
 
@@ -306,3 +306,12 @@ Planned scope:
 - 20C: Feedback Capture.
 - 20D: Bug Fix Sprint.
 - 20E: Beta Release Notes.
+
+20A private beta planning:
+
+- Status: Started.
+- Document created: `docs/private-beta-plan.md`.
+- Beta goal documented: validate the hosted Salesforce-to-Zentom incident intelligence workflow with selected users before public marketplace submission.
+- Beta scope, org details, beta users, test scenarios, success criteria, feedback questions, known limitations, bug triage process, and exit criteria documented.
+- Hosted API documented as `https://zentom-api.onrender.com`.
+- Current beta limitations documented: hosted `AI_MODE=RULE`, local HYBRID Ollama mode for advanced demos only, no full autonomous remediation, planned Named Credential migration, Remote Site beta usage, Render cold starts, and setup wizard not yet implemented.
