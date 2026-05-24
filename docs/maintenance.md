@@ -428,4 +428,26 @@ Planned scope:
 
 ## Milestone 22: Production Implementation Sprint
 
-Status: Next
+Status: Started
+
+Planned scope:
+
+- 22A: Named Credential Implementation.
+- 22B: API Authentication / Shared Secret Header.
+- 22C: Render Cold Start / Uptime Strategy.
+- 22D: Hosted API Error Logging.
+- 22E: Salesforce Error Log Object.
+- 22F: Production Validation Run.
+- 22G: v1.0 Release Candidate Tag.
+
+22A Named Credential implementation:
+
+- Date: 2026-05-24.
+- Status: Started.
+- Branch: `milestone-22a-named-credential`.
+- Document created: `docs/named-credential-implementation-22a.md`.
+- Goal documented: replace the Remote Site Setting callout model with a Named Credential based callout while preserving Remote Site fallback until validation is complete.
+- Safe rollout documented: add Named Credential metadata, add Custom Metadata feature flag, update Apex to support both modes, validate Named Credential callout, and keep Remote Site fallback until stable.
+- Affected files planned: `ZentomIncidentClient.cls`, `ZentomIncidentClientTest.cls`, `Zentom_Setting__mdt` metadata fields, `Zentom_Setting.Default` custom metadata, `Zentom_API` Named Credential metadata, beta/package manifest, and production readiness docs.
+- Validation evidence required before completion: stable Apex tests, scratch/beta org deploy validation, Named Credential endpoint evidence, test incident creation, Salesforce write-back, replay timeline, and rollback verification.
+- Rollback note: set callout mode back to `REMOTE_SITE`, confirm `Base_URL__c = https://zentom-api.onrender.com`, confirm Remote Site Setting `Zentom_API` is active, and re-run the test incident.
