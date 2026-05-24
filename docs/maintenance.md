@@ -309,9 +309,16 @@ Planned scope:
 
 20A private beta planning:
 
-- Status: Started.
+- Status: Complete.
 - Document created: `docs/private-beta-plan.md`.
 - Beta goal documented: validate the hosted Salesforce-to-Zentom incident intelligence workflow with selected users before public marketplace submission.
 - Beta scope, org details, beta users, test scenarios, success criteria, feedback questions, known limitations, bug triage process, and exit criteria documented.
 - Hosted API documented as `https://zentom-api.onrender.com`.
 - Current beta limitations documented: hosted `AI_MODE=RULE`, local HYBRID Ollama mode for advanced demos only, no full autonomous remediation, planned Named Credential migration, Remote Site beta usage, Render cold starts, and setup wizard not yet implemented.
+
+20B beta testing scenarios:
+
+- Status: Complete.
+- Document created: `docs/beta-testing-scenarios.md`.
+- Thirteen private beta scenarios documented with objective, user role, preconditions, steps, expected result, pass/fail, and notes fields.
+- Scenarios cover install/setup verification, hosted Zentom API health, Flow failure incident intake, risk and policy verification, recommendation and runbook verification, approval, rejection, approved Case creation, replay timeline, dashboard and Org Health Score, permission sets, Render cold start retry, and support evidence capture.
