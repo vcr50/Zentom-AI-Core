@@ -722,3 +722,16 @@ Milestone 26 - Post-v1 Stabilization and Customer Rollout
 - Fix validation, release/patch mapping, customer communication, and weekly review process documented.
 - Next phase documented: 26B Customer Onboarding Checklist.
 - Rollback note: documentation-only milestone; remove `docs/production-issue-tracking.md` and this maintenance entry if the tracking process is replaced.
+
+26B customer onboarding checklist:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/customer-onboarding-checklist.md`.
+- Goal documented: provide a repeatable customer go-live path covering Salesforce access, package installation, permissions, Zentom API configuration, test incident processing, approval, execution, replay, dashboard, Org Health Score, and support handoff.
+- Target customer profile and pre-onboarding requirements documented, including Salesforce admin access, org type, Org Id, customer contacts, hosted API target, and release candidate.
+- Salesforce org readiness, package installation, permission assignment, Zentom API configuration, test incident, approval/execution, replay/dashboard, support handoff, and go-live criteria documented.
+- Required validation expectations documented: `FLOW_FAILURE` test incident, risk `95`, level `CRITICAL`, policy `HUMAN_APPROVAL_REQUIRED`, runbook `FLOW_FAILURE_BASIC_RECOVERY`, approved Case creation, Replay Timeline, Dashboard, and Org Health Score.
+- Customer feedback capture documented for installation clarity, permission roles, test incident result, approval/execution workflow, replay timeline, dashboard, go-live blockers, and rollout improvements.
+- Next phase documented: 26C Support SLA / Response Policy.
+- Rollback note: documentation-only milestone; remove `docs/customer-onboarding-checklist.md` and this maintenance entry if the onboarding checklist is replaced.
