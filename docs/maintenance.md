@@ -352,4 +352,22 @@ Planned scope:
 
 ## Milestone 21: Production v1.0 Preparation
 
-Status: Next
+Status: Started
+
+Planned scope:
+
+- 21A: Production Readiness Plan.
+- 21B: Monitoring + Error Alerts.
+- 21C: Backup + Recovery Plan.
+- 21D: Named Credential Migration Plan.
+- 21E: Security Review Final Checklist.
+- 21F: v1.0 Documentation Freeze.
+
+21A production readiness plan:
+
+- Status: Complete.
+- Document created: `docs/production-v1-readiness-plan.md`.
+- Production goal documented: SentinelFlow Private Beta v0.5.0 is complete and Milestone 21 prepares the product for SentinelFlow v1.0 production readiness.
+- Current beta status, production readiness checklist, hosted API stability requirements, Salesforce package stability requirements, database backup requirements, monitoring and alerting requirements, security review requirements, Named Credential migration requirement, and v1.0 exit criteria documented.
+- Hosted API documented as `https://zentom-api.onrender.com`.
+- Current hosted mode documented as `AI_MODE=RULE`.
