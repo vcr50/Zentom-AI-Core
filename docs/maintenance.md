@@ -472,3 +472,15 @@ Planned scope:
 - Existing `RemoteSiteSetting:Zentom_API` remains in the beta manifest as fallback.
 - Validation evidence: Named Credential XML added using existing repo metadata pattern and parsed successfully before commit.
 - Rollback note: remove `Zentom_API.namedCredential-meta.xml` and the `NamedCredential:Zentom_API` manifest entry; Remote Site fallback remains unchanged.
+
+22A-3 Dual callout mode Apex support:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Affected files: `apps/sentinelflow-salesforce/force-app/main/default/classes/ZentomIncidentClient.cls`, `apps/sentinelflow-salesforce/force-app/main/default/classes/ZentomIncidentClientTest.cls`, and `docs/maintenance.md`.
+- Change: `ZentomIncidentClient` now reads `Zentom_Setting__mdt.Callout_Mode__c` and supports both `REMOTE_SITE` and `NAMED_CREDENTIAL` endpoint modes.
+- Default/fallback behavior: blank callout mode defaults to `REMOTE_SITE`, preserving the current beta path through `Base_URL__c` and Remote Site Setting `Zentom_API`.
+- Named Credential behavior: `NAMED_CREDENTIAL` uses endpoint `callout:Zentom_API/api/incidents/receive`.
+- Test coverage added for both Remote Site endpoint construction and Named Credential endpoint construction.
+- Validation evidence: scoped diff reviewed; Salesforce validation succeeded against target org `astrosoft` with deploy ID `0AfdL00000az6erSAA`, 15 tests passing, 0 failing.
+- Rollback note: revert `ZentomIncidentClient.cls` and `ZentomIncidentClientTest.cls` to the previous Base URL only implementation, or set `Callout_Mode__c = REMOTE_SITE` to keep using the existing fallback path.

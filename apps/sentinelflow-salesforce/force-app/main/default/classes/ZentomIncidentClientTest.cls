@@ -1,10 +1,19 @@
 @IsTest
 private class ZentomIncidentClientTest {
     private class ZentomIncidentMock implements HttpCalloutMock {
+        private String expectedEndpoint;
+
+        ZentomIncidentMock(String expectedEndpoint) {
+            this.expectedEndpoint = expectedEndpoint;
+        }
+
         public HttpResponse respond(HttpRequest request) {
             System.assertEquals('POST', request.getMethod());
             System.assertEquals('application/json', request.getHeader('Content-Type'));
             System.assert(request.getEndpoint().contains('/api/incidents/receive'));
+            if (expectedEndpoint != null) {
+                System.assertEquals(expectedEndpoint, request.getEndpoint());
+            }
 
             Map<String, Object> payload =
                 (Map<String, Object>) JSON.deserializeUntyped(request.getBody());
@@ -34,7 +43,11 @@ private class ZentomIncidentClientTest {
     @IsTest
     static void sendIncident_postsPayloadToZentomApiAndPersistsResult() {
         ZentomIncidentClient.baseUrlOverride = 'https://example.test';
-        Test.setMock(HttpCalloutMock.class, new ZentomIncidentMock());
+        ZentomIncidentClient.calloutModeOverride = 'REMOTE_SITE';
+        Test.setMock(
+            HttpCalloutMock.class,
+            new ZentomIncidentMock('https://example.test/api/incidents/receive')
+        );
 
         Test.startTest();
         ZentomIncidentClient.sendIncident(
@@ -126,5 +139,34 @@ private class ZentomIncidentClientTest {
                 )
         ];
         System.assertEquals(3, replayLogs.size());
+    }
+
+    @IsTest
+    static void sendIncident_usesNamedCredentialEndpointWhenConfigured() {
+        ZentomIncidentClient.calloutModeOverride = 'NAMED_CREDENTIAL';
+        Test.setMock(
+            HttpCalloutMock.class,
+            new ZentomIncidentMock('callout:Zentom_API/api/incidents/receive')
+        );
+
+        Test.startTest();
+        ZentomIncidentClient.sendIncident(
+            'FLOW_FAILURE',
+            'Salesforce Flow',
+            'production',
+            'Flow failed due to missing Account Owner'
+        );
+        Test.stopTest();
+
+        Sentinel_Incident__c incident = [
+            SELECT Incident_Type__c, Policy_Decision__c, Runbook_Key__c,
+                Approval_Status__c
+            FROM Sentinel_Incident__c
+            LIMIT 1
+        ];
+        System.assertEquals('FLOW_FAILURE', incident.Incident_Type__c);
+        System.assertEquals('HUMAN_APPROVAL_REQUIRED', incident.Policy_Decision__c);
+        System.assertEquals('FLOW_FAILURE_BASIC_RECOVERY', incident.Runbook_Key__c);
+        System.assertEquals('Pending Approval', incident.Approval_Status__c);
     }
 }

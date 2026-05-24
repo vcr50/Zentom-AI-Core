@@ -1,5 +1,10 @@
 public with sharing class ZentomIncidentClient {
+    private static final String CALLOUT_MODE_NAMED_CREDENTIAL = 'NAMED_CREDENTIAL';
+    private static final String CALLOUT_MODE_REMOTE_SITE = 'REMOTE_SITE';
+    private static final String ZENTOM_NAMED_CREDENTIAL = 'Zentom_API';
+
     @TestVisible private static String baseUrlOverride;
+    @TestVisible private static String calloutModeOverride;
 
     @future(callout=true)
     public static void sendIncident(
@@ -50,10 +55,11 @@ public with sharing class ZentomIncidentClient {
 
     private static String getApiEndpoint() {
         String baseUrl = baseUrlOverride;
+        String calloutMode = calloutModeOverride;
 
-        if (String.isBlank(baseUrl)) {
+        if (String.isBlank(baseUrl) || String.isBlank(calloutMode)) {
             List<Zentom_Setting__mdt> settings = [
-                SELECT Base_URL__c
+                SELECT Base_URL__c, Callout_Mode__c
                 FROM Zentom_Setting__mdt
                 WHERE Is_Active__c = true
                 ORDER BY DeveloperName
@@ -61,8 +67,26 @@ public with sharing class ZentomIncidentClient {
             ];
 
             if (!settings.isEmpty()) {
-                baseUrl = settings[0].Base_URL__c;
+                if (String.isBlank(baseUrl)) {
+                    baseUrl = settings[0].Base_URL__c;
+                }
+
+                if (String.isBlank(calloutMode)) {
+                    calloutMode = settings[0].Callout_Mode__c;
+                }
             }
+        }
+
+        if (String.isBlank(calloutMode)) {
+            calloutMode = CALLOUT_MODE_REMOTE_SITE;
+        }
+
+        if (calloutMode == CALLOUT_MODE_NAMED_CREDENTIAL) {
+            return 'callout:' + ZENTOM_NAMED_CREDENTIAL + '/api/incidents/receive';
+        }
+
+        if (calloutMode != CALLOUT_MODE_REMOTE_SITE) {
+            throw new ZentomConfigurationException('Unsupported Zentom callout mode: ' + calloutMode);
         }
 
         if (String.isBlank(baseUrl)) {
