@@ -34,6 +34,7 @@
     <types>
         <members>Sentinel_Incident__c</members>
         <members>Sentinel_Audit_Log__c</members>
+        <members>Sentinel_Error_Log__c</members>
         <members>Zentom_Policy_Decision__c</members>
         <members>Zentom_Setting__mdt</members>
         <members>Zentom_Runbook__mdt</members>

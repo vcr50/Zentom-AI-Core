@@ -16,6 +16,7 @@
     <objectPermissions><allowCreate>true</allowCreate><allowDelete>false</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>false</modifyAllRecords><object>Case</object><viewAllRecords>false</viewAllRecords></objectPermissions>
     <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Sentinel_Incident__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
     <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Sentinel_Audit_Log__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Sentinel_Error_Log__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
     <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Zentom_Policy_Decision__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
     <objectPermissions><allowCreate>false</allowCreate><allowDelete>false</allowDelete><allowEdit>false</allowEdit><allowRead>true</allowRead><modifyAllRecords>false</modifyAllRecords><object>Zentom_Setting__mdt</object><viewAllRecords>false</viewAllRecords></objectPermissions>
     <objectPermissions><allowCreate>false</allowCreate><allowDelete>false</allowDelete><allowEdit>false</allowEdit><allowRead>true</allowRead><modifyAllRecords>false</modifyAllRecords><object>Zentom_Runbook__mdt</object><viewAllRecords>false</viewAllRecords></objectPermissions>
@@ -59,6 +60,16 @@
     <fieldPermissions><editable>true</editable><field>Sentinel_Audit_Log__c.Request_Payload__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>true</editable><field>Sentinel_Audit_Log__c.Response_Payload__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>true</editable><field>Sentinel_Audit_Log__c.Trace_Id__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Error_Log__c.Created_By_System__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Error_Log__c.Endpoint__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Error_Log__c.Error_Message__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Error_Log__c.Error_Type__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Error_Log__c.Incident_Type__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Error_Log__c.Org_Id__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Error_Log__c.Request_Payload__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Error_Log__c.Response_Payload__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Error_Log__c.Source_Class__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Error_Log__c.Status_Code__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>true</editable><field>Zentom_Policy_Decision__c.Action_Type__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>true</editable><field>Zentom_Policy_Decision__c.Decision__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>true</editable><field>Zentom_Policy_Decision__c.Incident__c</field><readable>true</readable></fieldPermissions>

@@ -2,9 +2,29 @@
 private class ZentomIncidentClientTest {
     private class ZentomIncidentMock implements HttpCalloutMock {
         private String expectedEndpoint;
+        private Integer statusCode;
+        private String responseBody;
 
         ZentomIncidentMock(String expectedEndpoint) {
             this.expectedEndpoint = expectedEndpoint;
+            this.statusCode = 200;
+            this.responseBody =
+                '{"message":"Incident received successfully",' +
+                '"incidentId":123,' +
+                '"risk":{"totalScore":95,"riskLevel":"CRITICAL"},' +
+                '"policy":{"decision":"HUMAN_APPROVAL_REQUIRED","requiresApproval":true,' +
+                '"reason":"Production environment requires human approval"},' +
+                '"recommendation":{"summary":"Salesforce Flow failed because Account Owner was missing.",' +
+                '"rootCause":"Required owner lookup was null during Flow execution.",' +
+                '"recommendedAction":"Create an admin case and review Flow input validation.",' +
+                '"confidenceScore":87,"runbookKey":"FLOW_FAILURE_BASIC_RECOVERY",' +
+                '"recommendationStatus":"Generated"}}';
+        }
+
+        ZentomIncidentMock(String expectedEndpoint, Integer statusCode, String responseBody) {
+            this.expectedEndpoint = expectedEndpoint;
+            this.statusCode = statusCode;
+            this.responseBody = responseBody;
         }
 
         public HttpResponse respond(HttpRequest request) {
@@ -29,19 +49,8 @@ private class ZentomIncidentClientTest {
             System.assertEquals('CREATE_CASE', payload.get('actionType'));
 
             HttpResponse response = new HttpResponse();
-            response.setStatusCode(200);
-            response.setBody(
-                '{"message":"Incident received successfully",' +
-                '"incidentId":123,' +
-                '"risk":{"totalScore":95,"riskLevel":"CRITICAL"},' +
-                '"policy":{"decision":"HUMAN_APPROVAL_REQUIRED","requiresApproval":true,' +
-                '"reason":"Production environment requires human approval"},' +
-                '"recommendation":{"summary":"Salesforce Flow failed because Account Owner was missing.",' +
-                '"rootCause":"Required owner lookup was null during Flow execution.",' +
-                '"recommendedAction":"Create an admin case and review Flow input validation.",' +
-                '"confidenceScore":87,"runbookKey":"FLOW_FAILURE_BASIC_RECOVERY",' +
-                '"recommendationStatus":"Generated"}}'
-            );
+            response.setStatusCode(statusCode);
+            response.setBody(responseBody);
             return response;
         }
     }
@@ -175,5 +184,71 @@ private class ZentomIncidentClientTest {
         System.assertEquals('HUMAN_APPROVAL_REQUIRED', incident.Policy_Decision__c);
         System.assertEquals('FLOW_FAILURE_BASIC_RECOVERY', incident.Runbook_Key__c);
         System.assertEquals('Pending Approval', incident.Approval_Status__c);
+    }
+
+    @IsTest
+    static void sendIncident_persistsErrorLogForNonSuccessResponse() {
+        ZentomIncidentClient.baseUrlOverride = 'https://example.test';
+        ZentomIncidentClient.calloutModeOverride = 'REMOTE_SITE';
+        Test.setMock(
+            HttpCalloutMock.class,
+            new ZentomIncidentMock(
+                'https://example.test/api/incidents/receive',
+                401,
+                '{"detail":"Unauthorized"}'
+            )
+        );
+
+        Test.startTest();
+        ZentomIncidentClient.sendIncident(
+            'FLOW_FAILURE',
+            'Salesforce Flow',
+            'production',
+            'Flow failed due to missing Account Owner'
+        );
+        Test.stopTest();
+
+        System.assertEquals(0, [SELECT COUNT() FROM Sentinel_Incident__c]);
+
+        Sentinel_Error_Log__c errorLog = [
+            SELECT Source_Class__c, Error_Type__c, Error_Message__c, Status_Code__c,
+                Endpoint__c, Incident_Type__c, Request_Payload__c, Response_Payload__c,
+                Created_By_System__c
+            FROM Sentinel_Error_Log__c
+            LIMIT 1
+        ];
+        System.assertEquals('ZentomIncidentClient', errorLog.Source_Class__c);
+        System.assertEquals('ZENTOM_API_NON_SUCCESS', errorLog.Error_Type__c);
+        System.assertEquals('Zentom API returned status 401', errorLog.Error_Message__c);
+        System.assertEquals(401, errorLog.Status_Code__c);
+        System.assertEquals('https://example.test/api/incidents/receive', errorLog.Endpoint__c);
+        System.assertEquals('FLOW_FAILURE', errorLog.Incident_Type__c);
+        System.assert(errorLog.Request_Payload__c.contains('"incidentType":"FLOW_FAILURE"'));
+        System.assertEquals('{"detail":"Unauthorized"}', errorLog.Response_Payload__c);
+        System.assertEquals(true, errorLog.Created_By_System__c);
+    }
+
+    @IsTest
+    static void sendIncident_persistsErrorLogForConfigurationException() {
+        ZentomIncidentClient.calloutModeOverride = 'UNSUPPORTED_MODE';
+
+        Test.startTest();
+        ZentomIncidentClient.sendIncident(
+            'FLOW_FAILURE',
+            'Salesforce Flow',
+            'production',
+            'Flow failed due to missing Account Owner'
+        );
+        Test.stopTest();
+
+        Sentinel_Error_Log__c errorLog = [
+            SELECT Error_Type__c, Error_Message__c, Status_Code__c, Endpoint__c
+            FROM Sentinel_Error_Log__c
+            LIMIT 1
+        ];
+        System.assertEquals('ZENTOM_API_CALLOUT_EXCEPTION', errorLog.Error_Type__c);
+        System.assert(errorLog.Error_Message__c.contains('Unsupported Zentom callout mode'));
+        System.assertEquals(null, errorLog.Status_Code__c);
+        System.assertEquals(null, errorLog.Endpoint__c);
     }
 }

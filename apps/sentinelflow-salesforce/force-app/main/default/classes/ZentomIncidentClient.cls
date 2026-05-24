@@ -18,23 +18,44 @@ public with sharing class ZentomIncidentClient {
         HttpRequest request = new HttpRequest();
         Map<String, Object> payload = buildPayload(incidentType, source, environment, errorMessage);
         String requestBody = JSON.serialize(payload);
-
-        request.setEndpoint(getApiEndpoint());
-        request.setMethod('POST');
-        request.setHeader('Content-Type', 'application/json');
-        setApiKeyHeader(request);
-        request.setBody(requestBody);
+        String endpoint;
 
         try {
+            endpoint = getApiEndpoint();
+            request.setEndpoint(endpoint);
+            request.setMethod('POST');
+            request.setHeader('Content-Type', 'application/json');
+            setApiKeyHeader(request);
+            request.setBody(requestBody);
+
             HttpResponse response = http.send(request);
             System.debug('Zentom API Response Status: ' + response.getStatusCode());
             System.debug('Zentom API Response Body: ' + response.getBody());
 
             if (response.getStatusCode() >= 200 && response.getStatusCode() < 300) {
                 persistZentomResult(payload, requestBody, response.getBody());
+            } else {
+                persistErrorLog(
+                    payload,
+                    requestBody,
+                    response.getBody(),
+                    endpoint,
+                    'ZENTOM_API_NON_SUCCESS',
+                    'Zentom API returned status ' + response.getStatusCode(),
+                    response.getStatusCode()
+                );
             }
         } catch (Exception e) {
             System.debug('Zentom API Callout Failed: ' + e.getMessage());
+            persistErrorLog(
+                payload,
+                requestBody,
+                null,
+                endpoint,
+                'ZENTOM_API_CALLOUT_EXCEPTION',
+                e.getMessage(),
+                null
+            );
         }
     }
 
@@ -121,6 +142,33 @@ public with sharing class ZentomIncidentClient {
 
         if (!String.isBlank(apiKey)) {
             request.setHeader('X-Zentom-Api-Key', apiKey);
+        }
+    }
+
+    private static void persistErrorLog(
+        Map<String, Object> requestPayload,
+        String requestBody,
+        String responseBody,
+        String endpoint,
+        String errorType,
+        String errorMessage,
+        Integer statusCode
+    ) {
+        try {
+            insert new Sentinel_Error_Log__c(
+                Source_Class__c = 'ZentomIncidentClient',
+                Error_Type__c = errorType,
+                Error_Message__c = truncateLongText(errorMessage),
+                Status_Code__c = statusCode,
+                Endpoint__c = truncateText(endpoint, 255),
+                Org_Id__c = truncateText(asString(requestPayload.get('orgId')), 32),
+                Incident_Type__c = truncateText(asString(requestPayload.get('incidentType')), 100),
+                Request_Payload__c = truncateLongText(requestBody),
+                Response_Payload__c = truncateLongText(responseBody),
+                Created_By_System__c = true
+            );
+        } catch (Exception logException) {
+            System.debug('Sentinel error log insert failed: ' + logException.getMessage());
         }
     }
 
@@ -279,6 +327,14 @@ public with sharing class ZentomIncidentClient {
         }
 
         return value.left(32768);
+    }
+
+    private static String truncateText(String value, Integer maxLength) {
+        if (value == null || value.length() <= maxLength) {
+            return value;
+        }
+
+        return value.left(maxLength);
     }
 
     public class ZentomConfigurationException extends Exception {}

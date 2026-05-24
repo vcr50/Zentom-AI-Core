@@ -559,3 +559,16 @@ Planned scope:
 - Secret handling: `X-Zentom-Api-Key` values are never stored in the error log.
 - Validation evidence: hosted API error logging smoke test passed in `services/zentom-api/venv` with in-memory SQLite; missing API key returned HTTP 401 and inserted one `api_error_logs` row.
 - Rollback note: remove `ApiErrorLog`, `log_api_error`, the `/api/health/errors` endpoint, and the incident endpoint logging wrapper; incident processing can continue without error persistence.
+
+22E Salesforce error log object:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Goal: persist Salesforce-side callout failures so beta admins can diagnose failed Zentom API requests without relying only on debug logs.
+- Metadata added: `Sentinel_Error_Log__c` with source class, error type, error message, status code, endpoint, org id, incident type, request payload, response payload, and system-created marker fields.
+- Apex change: `ZentomIncidentClient` now logs non-2xx Zentom API responses and callout/configuration exceptions to `Sentinel_Error_Log__c`.
+- Secret handling: API headers and `X-Zentom-Api-Key` are not stored in Salesforce error logs.
+- Permission update: `SentinelFlow_Admin` has full error log access; `SentinelFlow_Approver` and `SentinelFlow_Viewer` have read-only access.
+- Test coverage added for failed HTTP response logging and configuration exception logging.
+- Validation evidence: beta manifest validation succeeded against target org `astrosoft` with deploy ID `0AfdL00000azA8zSAE`, 17 tests passing, 0 failing.
+- Rollback note: remove `Sentinel_Error_Log__c` metadata and revert `ZentomIncidentClient` failure logging helper; successful incident processing is unaffected.
