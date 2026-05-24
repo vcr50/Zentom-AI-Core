@@ -274,3 +274,12 @@ Prepare SentinelFlow for marketplace and Salesforce security-review readiness.
 - Marketplace short description and long description drafted.
 - Key features, business value, target users, use cases, setup summary, support placeholder, and beta limitations documented.
 - Security and governance summary documented with hosted beta `AI_MODE=RULE`, no public Ollama exposure, no direct hosted LLM execution, policy-gated actions, human approval, and replay timeline auditability.
+
+19F support and troubleshooting guide:
+
+- Status: Complete.
+- Document created: `docs/support-troubleshooting-guide.md`.
+- Installation, API callout, permission, incident processing, approval, execution, dashboard, replay, Render hosting, and Salesforce debugging issues documented.
+- Render cold start, Remote Site Setting, wrong Base URL, no incident created, approval panel visibility, dashboard loading, and Case creation troubleshooting documented.
+- Escalation checklist documented with Salesforce Org Id, Sentinel Incident Id, Apex debug log, Render request timestamp, error message, user permission set, incident screenshot, and replay timeline events.
+- Known beta limitations documented for hosted `AI_MODE=RULE`, no public Ollama exposure, Remote Site beta usage, future Named Credential migration, and Render free-tier cold starts.
