@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <!-- Stable Apex runtime classes -->
+    <types>
+        <members>ZentomIncidentClient</members>
+        <members>ZentomApprovalController</members>
+        <members>ZentomExecutionController</members>
+        <members>ZentomReplayController</members>
+        <members>ZentomDashboardController</members>
+        <members>ZentomRunbookService</members>
+        <name>ApexClass</name>
+    </types>
+
+    <!-- Stable Apex tests for beta package validation -->
+    <types>
+        <members>ZentomIncidentClientTest</members>
+        <members>ZentomApprovalControllerTest</members>
+        <members>ZentomExecutionControllerTest</members>
+        <members>ZentomReplayControllerTest</members>
+        <members>ZentomDashboardControllerTest</members>
+        <name>ApexClass</name>
+    </types>
+
+    <!-- Stable Lightning Web Components -->
+    <types>
+        <members>zentomApprovalPanel</members>
+        <members>zentomReplayTimeline</members>
+        <members>zentomDashboard</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
+    <!-- Core SentinelFlow objects -->
+    <types>
+        <members>Sentinel_Incident__c</members>
+        <members>Sentinel_Audit_Log__c</members>
+        <members>Zentom_Policy_Decision__c</members>
+        <members>Zentom_Setting__mdt</members>
+        <members>Zentom_Runbook__mdt</members>
+        <name>CustomObject</name>
+    </types>
+
+    <!-- Core configuration records -->
+    <types>
+        <members>Zentom_Setting.Default</members>
+        <members>Zentom_Runbook.FLOW_FAILURE_BASIC_RECOVERY</members>
+        <name>CustomMetadata</name>
+    </types>
+
+    <!-- SentinelFlow application tabs -->
+    <types>
+        <members>SentinelFlow_Home</members>
+        <members>Sentinel_Incident__c</members>
+        <members>Sentinel_Audit_Log__c</members>
+        <members>Zentom_Policy_Decision__c</members>
+        <name>CustomTab</name>
+    </types>
+
+    <!-- SentinelFlow app shell -->
+    <types>
+        <members>SentinelFlow</members>
+        <name>CustomApplication</name>
+    </types>
+
+    <!-- Stable Lightning pages -->
+    <types>
+        <members>SentinelFlow_Home</members>
+        <members>Sentinel_Incident_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+
+    <!-- Stable page layouts -->
+    <types>
+        <members>Sentinel_Incident__c-Sentinel Incident Layout</members>
+        <members>Sentinel_Audit_Log__c-Sentinel Audit Log Layout</members>
+        <members>Zentom_Policy_Decision__c-Zentom Policy Decision Layout</members>
+        <name>Layout</name>
+    </types>
+
+    <!-- Beta permission sets -->
+    <types>
+        <members>Zentom_Milestone3_Admin</members>
+        <members>SentinelFlow_Admin</members>
+        <members>SentinelFlow_Operator</members>
+        <members>SentinelFlow_Viewer</members>
+        <name>PermissionSet</name>
+    </types>
+
+    <!-- Beta callout configuration -->
+    <types>
+        <members>Zentom_API</members>
+        <name>RemoteSiteSetting</name>
+    </types>
+
+    <version>60.0</version>
+</Package>
