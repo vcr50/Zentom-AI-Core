@@ -352,7 +352,7 @@ Planned scope:
 
 ## Milestone 21: Production v1.0 Preparation
 
-Status: Started
+Status: Complete
 
 Planned scope:
 
@@ -413,3 +413,19 @@ Planned scope:
 - Key Apex checks documented: `with sharing` where appropriate, callout test coverage, no hardcoded secrets, no unsafe dynamic SOQL, and no direct autonomous execution without approval.
 - AI governance checks documented: hosted `AI_MODE=RULE`, local Ollama not public, AI cannot directly execute high-risk actions, and risk/policy/approval/replay are enforced.
 - Known gaps documented: Named Credential not implemented yet, Render free-tier cold start, and full security scan not yet submitted.
+
+21F v1.0 documentation freeze:
+
+- Status: Complete.
+- Document created: `docs/v1-documentation-freeze.md`.
+- Freeze version documented: `SentinelFlow Production Readiness Documentation Freeze v0.9`.
+- Frozen documentation list documented, including maintenance, production readiness, monitoring, backup/recovery, Named Credential migration, security checklist, security review preparation, privacy/retention, install guide, support troubleshooting, private beta plan, and beta release notes.
+- Current product status documented: SentinelFlow Private Beta v0.5.0 is complete and Milestone 21 prepares the product for production v1.0 readiness.
+- Current hosted architecture documented: Render-hosted Zentom API, hosted PostgreSQL + pgvector, Salesforce beta package, RULE-mode recommendation, human approval, Case creation, replay timeline, dashboard, and Org Health Score.
+- Current known gaps documented: Named Credential migration planned but not implemented, hosted beta uses `AI_MODE=RULE`, local HYBRID Ollama mode is not hosted, Render free-tier cold starts, and full marketplace/security review submission not complete.
+- Change control rule documented: after freeze, all production-readiness changes must be recorded in `docs/maintenance.md` with date, milestone, affected files, validation evidence, and rollback note.
+- Milestone 21 marked complete.
+
+## Milestone 22: Production Implementation Sprint
+
+Status: Next
