@@ -393,3 +393,13 @@ Planned scope:
 - Recovery scenarios documented for hosted API down, hosted database unavailable, accidental database data loss, Salesforce metadata deployment issue, wrong Zentom API URL, Render rollback, GitHub repo/branch issue, and documentation loss.
 - Minimum production backup policy documented for GitHub source, hosted DB, Salesforce metadata, Salesforce customer data, documentation, and release tags.
 - Recovery testing checklist documented for DB restore, scratch org deploy, hosted API health, DB health, test incident, Salesforce write-back, replay timeline, and dashboard validation.
+
+21D Named Credential migration plan:
+
+- Status: Complete.
+- Document created: `docs/named-credential-migration-plan.md`.
+- Current beta callout model documented: `ZentomIncidentClient` reads `Zentom_Setting__mdt.Default.Base_URL__c`, uses Remote Site Setting `Zentom_API`, and calls `https://zentom-api.onrender.com/api/incidents/receive`.
+- Target production callout model documented: `ZentomIncidentClient` uses Named Credential endpoint `callout:Zentom_API/api/incidents/receive` with future auth through External Credential.
+- Apex endpoint migration documented from `request.setEndpoint(baseUrl + '/api/incidents/receive')` to `request.setEndpoint('callout:Zentom_API/api/incidents/receive')`.
+- Decision documented: do not change working beta callout code yet; document migration first.
+- Required Salesforce metadata, Apex changes, permission set changes, deployment plan, rollback plan, testing checklist, and production readiness criteria documented.
