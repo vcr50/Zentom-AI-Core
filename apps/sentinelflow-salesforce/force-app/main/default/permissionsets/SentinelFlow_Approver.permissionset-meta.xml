@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Read-only beta access for stable SentinelFlow dashboards, incidents, audit logs, replay, and policy records.</description>
+    <description>Action access for SentinelFlow approvers. Can review incidents, approve or reject recommendations, and execute approved recovery actions.</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>SentinelFlow Viewer</label>
+    <label>SentinelFlow Approver</label>
     <applicationVisibilities>
         <application>SentinelFlow</application>
         <visible>true</visible>
     </applicationVisibilities>
+    <classAccesses><apexClass>ZentomApprovalController</apexClass><enabled>true</enabled></classAccesses>
     <classAccesses><apexClass>ZentomDashboardController</apexClass><enabled>true</enabled></classAccesses>
+    <classAccesses><apexClass>ZentomExecutionController</apexClass><enabled>true</enabled></classAccesses>
     <classAccesses><apexClass>ZentomReplayController</apexClass><enabled>true</enabled></classAccesses>
     <classAccesses><apexClass>ZentomRunbookService</apexClass><enabled>true</enabled></classAccesses>
-    <objectPermissions><allowCreate>false</allowCreate><allowDelete>false</allowDelete><allowEdit>false</allowEdit><allowRead>true</allowRead><modifyAllRecords>false</modifyAllRecords><object>Sentinel_Incident__c</object><viewAllRecords>false</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>false</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>false</modifyAllRecords><object>Case</object><viewAllRecords>false</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>false</allowCreate><allowDelete>false</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>false</modifyAllRecords><object>Sentinel_Incident__c</object><viewAllRecords>false</viewAllRecords></objectPermissions>
     <objectPermissions><allowCreate>false</allowCreate><allowDelete>false</allowDelete><allowEdit>false</allowEdit><allowRead>true</allowRead><modifyAllRecords>false</modifyAllRecords><object>Sentinel_Audit_Log__c</object><viewAllRecords>false</viewAllRecords></objectPermissions>
     <objectPermissions><allowCreate>false</allowCreate><allowDelete>false</allowDelete><allowEdit>false</allowEdit><allowRead>true</allowRead><modifyAllRecords>false</modifyAllRecords><object>Zentom_Policy_Decision__c</object><viewAllRecords>false</viewAllRecords></objectPermissions>
     <objectPermissions><allowCreate>false</allowCreate><allowDelete>false</allowDelete><allowEdit>false</allowEdit><allowRead>true</allowRead><modifyAllRecords>false</modifyAllRecords><object>Zentom_Runbook__mdt</object><viewAllRecords>false</viewAllRecords></objectPermissions>
@@ -20,23 +23,23 @@
     <tabSettings><tab>Zentom_Policy_Decision__c</tab><visibility>Visible</visibility></tabSettings>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.AI_Confidence__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.AI_Summary__c</field><readable>true</readable></fieldPermissions>
-    <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Approval_Status__c</field><readable>true</readable></fieldPermissions>
-    <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Approved_At__c</field><readable>true</readable></fieldPermissions>
-    <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Approved_By__c</field><readable>true</readable></fieldPermissions>
-    <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Created_Case__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Incident__c.Approval_Status__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Incident__c.Approved_At__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Incident__c.Approved_By__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Incident__c.Created_Case__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Environment__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Error_Message__c</field><readable>true</readable></fieldPermissions>
-    <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Executed_At__c</field><readable>true</readable></fieldPermissions>
-    <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Execution_Action__c</field><readable>true</readable></fieldPermissions>
-    <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Execution_Result__c</field><readable>true</readable></fieldPermissions>
-    <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Execution_Status__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Incident__c.Executed_At__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Incident__c.Execution_Action__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Incident__c.Execution_Result__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Incident__c.Execution_Status__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Incident_Type__c</field><readable>true</readable></fieldPermissions>
-    <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Next_Action__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Incident__c.Next_Action__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Policy_Decision__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Policy_Reason__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Recommendation_Status__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Recommended_Action__c</field><readable>true</readable></fieldPermissions>
-    <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Rejection_Reason__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Incident__c.Rejection_Reason__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Risk_Level__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Risk_Score__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Root_Cause__c</field><readable>true</readable></fieldPermissions>
@@ -45,7 +48,7 @@
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Runbook_Steps__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Runbook_Title__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Source__c</field><readable>true</readable></fieldPermissions>
-    <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Status__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Sentinel_Incident__c.Status__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Incident__c.Zentom_Incident_Id__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Audit_Log__c.Created_By_System__c</field><readable>true</readable></fieldPermissions>
     <fieldPermissions><editable>false</editable><field>Sentinel_Audit_Log__c.Decision__c</field><readable>true</readable></fieldPermissions>

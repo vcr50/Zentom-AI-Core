@@ -97,3 +97,14 @@ apps/sentinelflow-salesforce/manifest/package-sentinelflow-beta.xml
 - Deploy validation ID: `0AfdL00000ayMNVSA2`.
 - Stable tests passed: 14.
 - Stable tests failed: 0.
+
+18C permission set hardening:
+
+- `SentinelFlow_Admin` narrowed to stable beta components with full access to SentinelFlow incidents, audit logs, policy decisions, app tabs, and runtime Apex.
+- `SentinelFlow_Approver` added for approve, reject, replay, dashboard, and execute workflows.
+- `SentinelFlow_Viewer` narrowed to read-only incident, audit, policy, replay, and dashboard access.
+- Legacy broad `SentinelFlow_Operator` remains in source but is excluded from the beta manifest.
+- Hardened permission validation org: `astrosoft`.
+- Hardened permission deploy validation ID: `0AfdL00000ayY5JSAU`.
+- Stable tests passed: 14.
+- Stable tests failed: 0.

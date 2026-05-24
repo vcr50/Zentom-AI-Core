@@ -81,7 +81,7 @@
     <types>
         <members>Zentom_Milestone3_Admin</members>
         <members>SentinelFlow_Admin</members>
-        <members>SentinelFlow_Operator</members>
+        <members>SentinelFlow_Approver</members>
         <members>SentinelFlow_Viewer</members>
         <name>PermissionSet</name>
     </types>
