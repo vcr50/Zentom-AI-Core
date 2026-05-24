@@ -1,7 +1,8 @@
 from fastapi import Depends, FastAPI, HTTPException, Response
+from sqlalchemy import inspect, text
 from sqlalchemy.orm import Session
 
-from app.database import get_db, init_database
+from app.database import DATABASE_URL, engine, get_db, init_database
 from app.services.dataset_service import (
     SUPPORTED_DATASET_FORMATS,
     dataset_to_jsonl,
@@ -33,6 +34,50 @@ def health_check():
         "status": "running",
         "service": "zentom-api",
         "message": "Zentom API is ready",
+    }
+
+
+@app.get("/api/health/db")
+def database_health_check():
+    required_tables = [
+        "incidents",
+        "risk_scores",
+        "policy_decisions",
+        "ai_recommendations",
+        "memory_entries",
+    ]
+
+    inspector = inspect(engine)
+    existing_tables = set(inspector.get_table_names())
+    missing_tables = [
+        table_name for table_name in required_tables if table_name not in existing_tables
+    ]
+    database_type = engine.dialect.name
+    pgvector_enabled = False
+    pgvector_status = "not_applicable"
+
+    if database_type == "postgresql":
+        try:
+            with engine.connect() as conn:
+                pgvector_enabled = bool(
+                    conn.execute(
+                        text("SELECT EXISTS (SELECT 1 FROM pg_extension WHERE extname = 'vector')")
+                    ).scalar()
+                )
+            pgvector_status = "enabled" if pgvector_enabled else "missing"
+        except Exception as exc:
+            pgvector_status = f"check_failed: {exc.__class__.__name__}"
+
+    return {
+        "status": "ok" if not missing_tables else "degraded",
+        "databaseType": database_type,
+        "databaseConfigured": bool(DATABASE_URL),
+        "requiredTables": required_tables,
+        "missingTables": missing_tables,
+        "pgvector": {
+            "enabled": pgvector_enabled,
+            "status": pgvector_status,
+        },
     }
 
 
