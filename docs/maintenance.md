@@ -254,3 +254,14 @@ Prepare SentinelFlow for marketplace and Salesforce security-review readiness.
 - Anonymous Apex test incident documented.
 - Expected incident, approval, execution, Case, and replay timeline results documented.
 - Troubleshooting documented for Render cold start, Remote Site errors, permission issues, missing incident records, and Case Origin issues.
+
+19D admin setup wizard plan:
+
+- Status: Complete.
+- Document created: `docs/admin-setup-wizard-plan.md`.
+- Beta decision documented: planning document only.
+- Future implementation documented for LWC `sentinelflowSetupWizard` and Apex `SentinelFlowSetupController`.
+- Wizard flow documented for package confirmation, permission checks, Zentom API URL configuration, Remote Site / future Named Credential verification, API connection test, test incident submission, SentinelFlow app verification, and next steps.
+- Hosted beta mode documented as `RULE` with `https://zentom-api.onrender.com`.
+- Custom Metadata update caution documented for `Zentom_Setting__mdt.Default.Base_URL__c`.
+- Security guardrails documented: no public Ollama exposure, no policy bypass, no autonomous production execution, and future Named Credential / External Credential migration before marketplace security review.
