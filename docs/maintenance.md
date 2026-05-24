@@ -137,3 +137,24 @@ apps/sentinelflow-salesforce/manifest/package-sentinelflow-beta.xml
 - Beta manifest validation ID: `0AfdL00000aya8jSAA`.
 - Stable tests passed: 14.
 - Stable tests failed: 0.
+
+18F fresh org / clean install validation:
+
+- Scratch org alias: `sentinelflow-beta-18f`.
+- Scratch org username: `test-0mttjga339cr@example.com`.
+- Scratch org expires: 2026-05-25.
+- Beta package manifest deployed cleanly to scratch org.
+- Scratch deploy ID: `0AfBi000007rTsgKAE`.
+- Stable tests passed: 14.
+- Stable tests failed: 0.
+- Permission sets assigned: `SentinelFlow_Admin`, `SentinelFlow_Approver`, `SentinelFlow_Viewer`.
+- `Zentom_Setting__mdt.Default.Base_URL__c` verified as `https://zentom-api.onrender.com`.
+- Direct scratch-org callout to hosted Render API returned HTTP 200.
+- Hosted incident flow created scratch-org incident `SI-000000`.
+- Scratch-org hosted DB incident id: `6`.
+- Incident result verified: risk `95`, level `CRITICAL`, policy `HUMAN_APPROVAL_REQUIRED`, runbook `FLOW_FAILURE_BASIC_RECOVERY`.
+- SentinelFlow app verified in scratch org.
+- LWC bundles verified through Tooling API: `zentomApprovalPanel`, `zentomDashboard`, `zentomReplayTimeline`.
+- Approval flow verified: incident moved to `Approved`.
+- Execution flow verified: Case `00001028` created with `Origin = SentinelFlow` and priority `High`.
+- Replay/audit timeline verified with eight events from incident intake through case creation.
