@@ -28,12 +28,13 @@ private class ZentomExecutionControllerTest {
         System.assertEquals(executed.Created_Case__c, result.caseId);
 
         Case createdCase = [
-            SELECT Subject, Priority, Description
+            SELECT Subject, Priority, Origin, Description
             FROM Case
             WHERE Id = :executed.Created_Case__c
         ];
         System.assertEquals('[SentinelFlow] FLOW_FAILURE - CRITICAL', createdCase.Subject);
         System.assertEquals('High', createdCase.Priority);
+        System.assertEquals('SentinelFlow', createdCase.Origin);
         System.assert(createdCase.Description.contains('Required owner lookup was null'));
         System.assert(createdCase.Description.contains('Runbook Steps:'));
         System.assert(createdCase.Description.contains('Review the failed Flow interview.'));

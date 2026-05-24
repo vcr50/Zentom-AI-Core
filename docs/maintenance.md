@@ -120,3 +120,20 @@ apps/sentinelflow-salesforce/manifest/package-sentinelflow-beta.xml
 - Beta manifest validation ID: `0AfdL00000ayYlFSAU`.
 - Stable tests passed: 14.
 - Stable tests failed: 0.
+
+18E case origin / picklist metadata cleanup:
+
+- `CaseOrigin` included in `package-sentinelflow-beta.xml`.
+- `Case.Origin` includes `SentinelFlow`.
+- `ZentomExecutionController` already uses `SentinelFlow` and falls back to `Web` if unavailable.
+- `ZentomExecutionControllerTest` now asserts created Cases use `Origin = SentinelFlow`.
+- `Sentinel_Incident__c.Status__c` verified: `New`, `Analyzed`, `Approval Required`, `Approved`, `Action Created`, `Closed`.
+- `Approval_Status__c` verified: `Pending Approval`, `Approved`, `Rejected`, `Not Required`.
+- `Execution_Status__c` verified: `Not Started`, `Ready for Execution`, `Executed`, `Failed`, `Skipped`.
+- `Recommendation_Status__c` verified: `Generated`, `Needs Review`, `Approved`, `Rejected`, `Executed`.
+- `Risk_Level__c` verified: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+- `Environment__c` verified for beta payloads: `sandbox`, `production`.
+- Page layout and list views verified against stable beta incident, audit, and policy fields.
+- Beta manifest validation ID: `0AfdL00000aya8jSAA`.
+- Stable tests passed: 14.
+- Stable tests failed: 0.

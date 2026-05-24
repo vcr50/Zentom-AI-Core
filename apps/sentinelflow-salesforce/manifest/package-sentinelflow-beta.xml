@@ -92,5 +92,11 @@
         <name>RemoteSiteSetting</name>
     </types>
 
+    <!-- Standard picklist values used by SentinelFlow execution -->
+    <types>
+        <members>CaseOrigin</members>
+        <name>StandardValueSet</name>
+    </types>
+
     <version>60.0</version>
 </Package>
