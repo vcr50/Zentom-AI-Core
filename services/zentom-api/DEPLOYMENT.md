@@ -138,6 +138,16 @@ Recommended 17C validation:
 4. POST a hosted incident to `/api/incidents/receive`.
 5. Re-run Salesforce anonymous Apex and confirm Salesforce write-back.
 
+17C verification result:
+
+- `GET /api/health/db` returned `status: ok`.
+- Hosted database type returned `postgresql`.
+- Missing table list returned empty.
+- `pgvector` returned `enabled`.
+- Direct hosted incident POST returned incident id `4`.
+- Salesforce anonymous Apex created `SI-000010` with hosted DB incident id `5`.
+- Salesforce audit logs were created for incident receive, risk, policy, recommendation, and runbook selection.
+
 Backup/export plan for beta:
 
 - Use Neon dashboard backups/restore points where available.
