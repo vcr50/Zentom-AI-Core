@@ -67,7 +67,7 @@ docs/hosted-ai-strategy.md
 
 ## Milestone 18: Salesforce Package Hardening
 
-Status: Started
+Status: Complete
 
 Date: 2026-05-24
 
@@ -158,3 +158,53 @@ apps/sentinelflow-salesforce/manifest/package-sentinelflow-beta.xml
 - Approval flow verified: incident moved to `Approved`.
 - Execution flow verified: Case `00001028` created with `Origin = SentinelFlow` and priority `High`.
 - Replay/audit timeline verified with eight events from incident intake through case creation.
+
+18G package hardening wrap-up:
+
+Beta package status:
+
+```text
+SentinelFlow Salesforce Beta Package: Hardened and fresh-org validated.
+```
+
+Milestone 18 package hardening summary:
+
+- 18A: Clean beta package manifest complete.
+- 18B: Stable test validation complete.
+- 18C: Permission set hardening complete.
+- 18D: Remote Site / Named Credential cleanup plan complete.
+- 18E: Case Origin and picklist metadata cleanup complete.
+- 18F: Fresh scratch org validation complete.
+- 18G: Package hardening wrap-up complete.
+
+18F validation result:
+
+- Scratch org: `sentinelflow-beta-18f`.
+- Deploy ID: `0AfBi000007rTsgKAE`.
+- Stable tests: 14 passing, 0 failing.
+- Permission sets: `SentinelFlow_Admin`, `SentinelFlow_Approver`, `SentinelFlow_Viewer`.
+- Hosted API: `https://zentom-api.onrender.com`.
+
+Verified package workflows:
+
+- SentinelFlow app opens.
+- Dashboard loads.
+- Approval panel works.
+- Replay timeline works.
+- Hosted callout works.
+- Case creation works.
+- Case Origin equals `SentinelFlow`.
+
+Next milestone:
+
+```text
+Milestone 19: AgentExchange / AppExchange Readiness
+```
+
+Planned 19 scope:
+
+- 19A: Security Review Preparation.
+- 19B: Data Privacy and Retention Documentation.
+- 19C: Install Guide.
+- 19D: Admin Setup Wizard.
+- 19E: Publisher Listing Copy.
