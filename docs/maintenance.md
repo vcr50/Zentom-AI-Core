@@ -330,3 +330,12 @@ Planned scope:
 - Feedback purpose, participant roles, feedback channels, feedback form questions, bug report template, feature request template, severity levels, review cadence, beta success signals, and feedback-to-fix workflow documented.
 - Severity levels documented from P0 through P4.
 - Feedback questions documented for installation, app launch, hosted API connection, risk score, policy decision, recommendation, runbook, approval/rejection, Case creation, Replay Timeline, dashboard clarity, confusing areas, public-release improvements, and real-org trust.
+
+20D bug fix sprint plan:
+
+- Status: Complete.
+- Document created: `docs/beta-bug-fix-sprint.md`.
+- Sprint purpose, scope, bug intake sources, severity levels, triage rules, fix workflow, validation workflow, regression test checklist, release candidate criteria, and known beta risks documented.
+- Bug intake sources documented: beta feedback form, Salesforce debug logs, SentinelFlow Replay Timeline, Render logs, hosted DB health endpoint, user screenshots, and support/troubleshooting guide.
+- Triage rules documented from P0 through P4.
+- Regression checklist documented for hosted API health, hosted DB health, Apex callout, incident write-back, risk/policy/recommendation, approval, rejection, Case creation, replay timeline, dashboard, Org Health Score, and permission set behavior.
