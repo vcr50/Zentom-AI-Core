@@ -211,7 +211,7 @@ Planned 19 scope:
 
 ## Milestone 19: AgentExchange / AppExchange Readiness
 
-Status: Started
+Status: Complete
 
 Date: 2026-05-24
 
@@ -283,3 +283,26 @@ Prepare SentinelFlow for marketplace and Salesforce security-review readiness.
 - Render cold start, Remote Site Setting, wrong Base URL, no incident created, approval panel visibility, dashboard loading, and Case creation troubleshooting documented.
 - Escalation checklist documented with Salesforce Org Id, Sentinel Incident Id, Apex debug log, Render request timestamp, error message, user permission set, incident screenshot, and replay timeline events.
 - Known beta limitations documented for hosted `AI_MODE=RULE`, no public Ollama exposure, Remote Site beta usage, future Named Credential migration, and Render free-tier cold starts.
+
+19G marketplace readiness wrap-up:
+
+- Status: Complete.
+- Document created: `docs/marketplace-readiness-wrap-up.md`.
+- Milestone 19 marked complete.
+- Completed 19A through 19G marketplace readiness work documented.
+- Readiness status documented: SentinelFlow is marketplace-preparation ready for private beta.
+- Current beta package readiness documented with fresh-org validation, hosted Zentom API, hosted PostgreSQL + pgvector, security review preparation documentation, data privacy and retention documentation, install guide, setup wizard plan, publisher listing copy, and support troubleshooting guide.
+- Known beta limitations documented: hosted `AI_MODE=RULE`, local HYBRID Ollama mode for advanced demos only, Named Credential migration planned, full autonomous remediation disabled, and Render free-tier cold starts.
+- Next phase documented: Milestone 20 Private Beta Release.
+
+## Milestone 20: Private Beta Release
+
+Status: Next
+
+Planned scope:
+
+- 20A: Beta Org Setup.
+- 20B: Beta User Testing.
+- 20C: Feedback Capture.
+- 20D: Bug Fix Sprint.
+- 20E: Beta Release Notes.
