@@ -546,3 +546,16 @@ Planned scope:
 - Options documented: keep Render free for beta only, upgrade Render to always-on paid plan, move to AWS/Azure/GCP, or add uptime monitor/keep-alive ping.
 - Monitoring plan documented for API health, DB health, Salesforce callout failures, incident creation gaps, Render logs, and future uptime tooling.
 - Go/no-go criteria documented: free-tier sleeping infrastructure is acceptable for beta only, not production.
+
+22D hosted API error logging:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Goal: record hosted API incident/auth failures server-side without exposing secrets.
+- API change: added `api_error_logs` table for path, method, status code, error type, sanitized error message, org id, incident type, source, client host, and timestamp.
+- Endpoint change: `POST /api/incidents/receive` logs unauthorized shared-secret failures and unexpected processing exceptions.
+- Health check added: `GET /api/health/errors` returns error log table status and count.
+- DB health updated: `/api/health/db` now includes `api_error_logs` in the required table list.
+- Secret handling: `X-Zentom-Api-Key` values are never stored in the error log.
+- Validation evidence: hosted API error logging smoke test passed in `services/zentom-api/venv` with in-memory SQLite; missing API key returned HTTP 401 and inserted one `api_error_logs` row.
+- Rollback note: remove `ApiErrorLog`, `log_api_error`, the `/api/health/errors` endpoint, and the incident endpoint logging wrapper; incident processing can continue without error persistence.

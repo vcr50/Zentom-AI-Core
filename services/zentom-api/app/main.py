@@ -1,16 +1,18 @@
 import secrets
 
-from fastapi import Depends, FastAPI, Header, HTTPException, Response
+from fastapi import Depends, FastAPI, Header, HTTPException, Request, Response
 from sqlalchemy import inspect, text
 from sqlalchemy.orm import Session
 
 from app.config import settings
 from app.database import DATABASE_URL, engine, get_db, init_database
+from app.models import ApiErrorLog
 from app.services.dataset_service import (
     SUPPORTED_DATASET_FORMATS,
     dataset_to_jsonl,
     export_dataset,
 )
+from app.services.error_log_service import log_api_error
 from app.services.incident_service import process_incident
 from app.services.memory_service import (
     backfill_embeddings,
@@ -48,6 +50,7 @@ def database_health_check():
         "policy_decisions",
         "ai_recommendations",
         "memory_entries",
+        "api_error_logs",
     ]
 
     inspector = inspect(engine)
@@ -86,12 +89,38 @@ def database_health_check():
 
 @app.post("/api/incidents/receive")
 def receive_incident(
+    request: Request,
     payload: dict,
     db: Session = Depends(get_db),
     x_zentom_api_key: str | None = Header(default=None),
 ):
-    validate_api_key(x_zentom_api_key)
-    return process_incident(payload, db)
+    try:
+        validate_api_key(x_zentom_api_key)
+        return process_incident(payload, db)
+    except HTTPException as exc:
+        log_api_error(
+            db,
+            path=str(request.url.path),
+            method=request.method,
+            status_code=exc.status_code,
+            error_type=exc.__class__.__name__,
+            error_message=str(exc.detail),
+            payload=payload,
+            client_host=request.client.host if request.client else None,
+        )
+        raise
+    except Exception as exc:
+        log_api_error(
+            db,
+            path=str(request.url.path),
+            method=request.method,
+            status_code=500,
+            error_type=exc.__class__.__name__,
+            error_message=str(exc),
+            payload=payload,
+            client_host=request.client.host if request.client else None,
+        )
+        raise HTTPException(status_code=500, detail="Incident processing failed")
 
 
 @app.get("/api/memory/search")
@@ -219,6 +248,15 @@ def to_memory_response(memory) -> dict:
         "runbookKey": memory.runbook_key,
         "riskLevel": memory.risk_level,
         "summary": memory.summary,
+    }
+
+
+@app.get("/api/health/errors")
+def api_error_log_health(db: Session = Depends(get_db)):
+    return {
+        "status": "ok",
+        "errorLogTable": "api_error_logs",
+        "count": db.query(ApiErrorLog).count(),
     }
 
 

@@ -144,3 +144,19 @@ class MemoryEntry(Base):
         server_default=func.now(),
         onupdate=datetime.utcnow,
     )
+
+
+class ApiErrorLog(Base):
+    __tablename__ = "api_error_logs"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    path: Mapped[str | None] = mapped_column(String(255), index=True)
+    method: Mapped[str | None] = mapped_column(String(20))
+    status_code: Mapped[int | None] = mapped_column(Integer, index=True)
+    error_type: Mapped[str | None] = mapped_column(String(100), index=True)
+    error_message: Mapped[str | None] = mapped_column(Text)
+    org_id: Mapped[str | None] = mapped_column(String(100), index=True)
+    incident_type: Mapped[str | None] = mapped_column(String(100), index=True)
+    source: Mapped[str | None] = mapped_column(String(100))
+    client_host: Mapped[str | None] = mapped_column(String(100))
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
