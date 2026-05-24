@@ -735,3 +735,17 @@ Milestone 26 - Post-v1 Stabilization and Customer Rollout
 - Customer feedback capture documented for installation clarity, permission roles, test incident result, approval/execution workflow, replay timeline, dashboard, go-live blockers, and rollout improvements.
 - Next phase documented: 26C Support SLA / Response Policy.
 - Rollback note: documentation-only milestone; remove `docs/customer-onboarding-checklist.md` and this maintenance entry if the onboarding checklist is replaced.
+
+26C support SLA / response policy:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/support-sla-response-policy.md`.
+- Goal documented: set expectations for support scope, channels, severity classification, response targets, resolution/workaround targets, escalation, customer responsibilities, Tomcodex/Zentom responsibilities, out-of-scope support, beta/early customer notes, and review cadence.
+- Severity levels documented from P0 through P4 with initial response targets and resolution/workaround targets.
+- Response targets documented: P0 within 4 business hours, P1 within 1 business day, P2 within 2 business days, P3 within 3 business days, and P4 best effort.
+- Resolution/workaround targets documented: P0 within 1 business day, P1 within 2 business days, P2 within 5 business days, P3 in the next planned patch, and P4 through roadmap review.
+- Render cold-start caveat documented: hosted beta uses Render, cold-start delay may occur, and critical production customers should use always-on hosting before strict SLA.
+- Escalation, customer responsibility, Tomcodex/Zentom responsibility, out-of-scope support, and review cadence documented.
+- Next phase documented: 26D Usage Monitoring + Adoption Metrics.
+- Rollback note: documentation-only milestone; remove `docs/support-sla-response-policy.md` and this maintenance entry if the SLA policy is replaced.
