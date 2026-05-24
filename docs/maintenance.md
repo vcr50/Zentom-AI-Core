@@ -591,3 +591,44 @@ Planned scope:
 - Error logging evidence: temporary same-host bad path `https://zentom-api.onrender.com/invalid-22f` produced `Sentinel_Error_Log__c` record `SEL-000000` (`a0XdL00000VW1C1UAL`) with `Error_Type__c = ZENTOM_API_NON_SUCCESS`, `Status_Code__c = 404`, and endpoint `https://zentom-api.onrender.com/invalid-22f/api/incidents/receive`.
 - Restore evidence: `Zentom_Setting.Default.Base_URL__c` restored to `https://zentom-api.onrender.com`, `Callout_Mode__c = REMOTE_SITE`, and `Is_Active__c = true` with deploy ID `0AfdL00000azAiTSAU`.
 - Rollback note: no rollback required. If any issue appears after this validation, set `Zentom_Setting.Default.Base_URL__c` to `https://zentom-api.onrender.com`, keep `Callout_Mode__c = REMOTE_SITE`, and redeploy the last known good beta manifest.
+
+## Milestone 23: Security Review Submission Preparation
+
+Status: Started
+
+Planned scope:
+
+- 23A: Final Security Review Evidence Pack.
+- 23B: CRUD/FLS + Sharing Review.
+- 23C: Apex/LWC Security Scan Checklist.
+- 23D: External Callout + Named Credential Final Decision.
+
+23A final security review evidence pack:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/security-review-evidence-pack.md`.
+- Release candidate evidence documented for tag `v1.0.0-rc.1`, target commit `92e344c6fc865ab339d20ee37fec888bafaae1bc`, package validation, fresh-org validation, production validation, security-review preparation docs, data privacy docs, callout security docs, Named Credential validation, API authentication evidence, known gaps, and mitigations.
+- Rollback note: documentation-only milestone; no runtime rollback required.
+
+23B CRUD/FLS + sharing review:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/crud-fls-sharing-review.md`.
+- Key objects reviewed: `Sentinel_Incident__c`, `Sentinel_Audit_Log__c`, `Zentom_Policy_Decision__c`, `Sentinel_Error_Log__c`, and `Case`.
+- Key permission sets reviewed: `SentinelFlow_Admin`, `SentinelFlow_Approver`, and `SentinelFlow_Viewer`.
+- Important gap captured: stable Apex uses `with sharing`, but explicit CRUD/FLS enforcement still needs to be added or verified in the next implementation/security track.
+- Rollback note: documentation-only milestone; no runtime rollback required.
+
+23C Apex/LWC security scan checklist:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/apex-lwc-security-scan-checklist.md`.
+- Scope documented for stable Apex classes, stable LWCs, SOQL/DML review, Salesforce callouts, error handling, secrets handling, static analysis tools, findings log template, remediation workflow, and final security scan checklist.
+- Key Apex checks documented: `with sharing`, no hardcoded secrets, no unsafe dynamic SOQL, no unrestricted DML, CRUD/FLS enforcement review, approved endpoint strategy, and safe error logging.
+- Key LWC checks documented: no secrets in JavaScript, permission/record-state aware buttons, no unsafe DOM manipulation, no direct external client calls, and safe user-visible errors.
+- Static analysis tools documented: Salesforce Code Analyzer, PMD rules, ESLint for LWC, and manual CRUD/FLS review.
+- Next phase documented: 23D External Callout + Named Credential Final Decision.
+- Rollback note: documentation-only milestone; remove `docs/apex-lwc-security-scan-checklist.md` and this maintenance entry if the checklist needs to be replaced.
