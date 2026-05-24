@@ -572,3 +572,22 @@ Planned scope:
 - Test coverage added for failed HTTP response logging and configuration exception logging.
 - Validation evidence: beta manifest validation succeeded against target org `astrosoft` with deploy ID `0AfdL00000azA8zSAE`, 17 tests passing, 0 failing.
 - Rollback note: remove `Sentinel_Error_Log__c` metadata and revert `ZentomIncidentClient` failure logging helper; successful incident processing is unaffected.
+
+22F production validation run:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Goal: run an end-to-end production-readiness validation using the hardened Salesforce package and hosted Zentom API.
+- Package validation evidence: beta manifest validation succeeded against target org `astrosoft` with deploy ID `0AfdL00000az6W5SAI`, 17 tests passing, 0 failing.
+- Hardened package deploy evidence: beta manifest deploy succeeded against target org `astrosoft` with deploy ID `0AfdL00000azAXBSA2`, 17 tests passing, 0 failing.
+- Hosted API evidence: `GET https://zentom-api.onrender.com/` returned `status = running`, `service = zentom-api`, and `message = Zentom API is ready`.
+- Hosted DB evidence: first `/api/health/db` request returned a transient HTTP 500, retry passed with `status = ok`, `databaseType = postgresql`, `databaseConfigured = true`, `missingTables = []`, and pgvector `enabled = true`.
+- Incident write-back evidence: anonymous Apex `ZentomIncidentClient.sendIncident(...)` created Sentinel Incident `SI-000013` (`a0VdL00000R11lhUAB`) with hosted `Zentom_Incident_Id__c = 9`.
+- Incident result evidence: `SI-000013` had `Risk_Score__c = 95`, `Risk_Level__c = CRITICAL`, `Policy_Decision__c = HUMAN_APPROVAL_REQUIRED`, `Runbook_Key__c = FLOW_FAILURE_BASIC_RECOVERY`, `Status__c = Approval Required`, and `Approval_Status__c = Pending Approval`.
+- Approval/execution evidence: `ZentomApprovalController.approveIncident(...)` and `ZentomExecutionController.executeApprovedAction(...)` completed successfully for `SI-000013`.
+- Execution result evidence: `SI-000013` moved to `Status__c = Action Created`, `Approval_Status__c = Approved`, `Recommendation_Status__c = Approved`, `Execution_Status__c = Executed`, and `Execution_Action__c = CREATE_CASE`.
+- Case creation evidence: Case `00001051` (`500dL00003F2muRQAR`) was created with `Origin = SentinelFlow`, `Priority = High`, and subject `[SentinelFlow] FLOW_FAILURE - CRITICAL`.
+- Replay timeline evidence: audit events were present in order: `INCIDENT_RECEIVED`, `RISK_CALCULATED`, `ZENTOM_POLICY_EVALUATED`, `AI_RECOMMENDATION_GENERATED`, `RUNBOOK_SELECTED`, `HUMAN_APPROVED`, `RUNBOOK_ACTION_EXECUTED`, and `CASE_CREATED`.
+- Error logging evidence: temporary same-host bad path `https://zentom-api.onrender.com/invalid-22f` produced `Sentinel_Error_Log__c` record `SEL-000000` (`a0XdL00000VW1C1UAL`) with `Error_Type__c = ZENTOM_API_NON_SUCCESS`, `Status_Code__c = 404`, and endpoint `https://zentom-api.onrender.com/invalid-22f/api/incidents/receive`.
+- Restore evidence: `Zentom_Setting.Default.Base_URL__c` restored to `https://zentom-api.onrender.com`, `Callout_Mode__c = REMOTE_SITE`, and `Is_Active__c = true` with deploy ID `0AfdL00000azAiTSAU`.
+- Rollback note: no rollback required. If any issue appears after this validation, set `Zentom_Setting.Default.Base_URL__c` to `https://zentom-api.onrender.com`, keep `Callout_Mode__c = REMOTE_SITE`, and redeploy the last known good beta manifest.
