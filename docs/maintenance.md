@@ -708,3 +708,17 @@ Current active milestone:
 ```text
 Milestone 26 - Post-v1 Stabilization and Customer Rollout
 ```
+
+26A production issue tracking:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/production-issue-tracking.md`.
+- Goal documented: make every production issue traceable from intake through triage, ownership, validation, customer communication, release mapping, and weekly review.
+- Issue sources documented: customer support, Salesforce admins/users, Salesforce debug logs, `Sentinel_Error_Log__c`, hosted API logs, hosted API error logs, Render logs, hosted DB health checks, production validation, uptime/health monitors, dashboard/replay discrepancies, GitHub issues, internal QA, and release-candidate regression testing.
+- Severity levels documented: P0, P1, P2, and P3 with escalation rules for security, data privacy, secret handling, approval bypass, and customer-facing outages.
+- Workflow documented from New through Closed, Accepted Risk, Duplicate, and Won't Fix.
+- Required evidence documented for Salesforce records, hosted API/DB health, callout mode, error logs, replay events, and secret-safe collection rules.
+- Fix validation, release/patch mapping, customer communication, and weekly review process documented.
+- Next phase documented: 26B Customer Onboarding Checklist.
+- Rollback note: documentation-only milestone; remove `docs/production-issue-tracking.md` and this maintenance entry if the tracking process is replaced.
