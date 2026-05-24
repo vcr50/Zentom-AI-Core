@@ -484,3 +484,27 @@ Planned scope:
 - Test coverage added for both Remote Site endpoint construction and Named Credential endpoint construction.
 - Validation evidence: scoped diff reviewed; Salesforce validation succeeded against target org `astrosoft` with deploy ID `0AfdL00000az6erSAA`, 15 tests passing, 0 failing.
 - Rollback note: revert `ZentomIncidentClient.cls` and `ZentomIncidentClientTest.cls` to the previous Base URL only implementation, or set `Callout_Mode__c = REMOTE_SITE` to keep using the existing fallback path.
+
+22A-4 Remote Site mode validation:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Target org: `astrosoft`.
+- Deployment evidence: beta manifest deployed successfully with deploy ID `0AfdL00000az7FxSAI`, 15 tests passing, 0 failing.
+- Hosted API health evidence: `GET https://zentom-api.onrender.com/` returned `status = running`.
+- Hosted DB health evidence: `GET https://zentom-api.onrender.com/api/health/db` returned `status = ok`, `databaseType = postgresql`, `missingTables = []`, and pgvector enabled.
+- Execution evidence: anonymous Apex `ZentomIncidentClient.sendIncident(...)` completed successfully with `Callout_Mode__c = REMOTE_SITE`.
+- Result evidence: new Sentinel Incident `SI-000011` created with `Risk_Score__c = 95`, `Risk_Level__c = CRITICAL`, `Policy_Decision__c = HUMAN_APPROVAL_REQUIRED`, `Runbook_Key__c = FLOW_FAILURE_BASIC_RECOVERY`, `Approval_Status__c = Pending Approval`, `Status__c = Approval Required`, and hosted `Zentom_Incident_Id__c = 7`.
+- Rollback note: no rollback required; Remote Site remains the default repo setting and fallback path.
+
+22A-5 Named Credential mode validation:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Target org: `astrosoft`.
+- Metadata switch evidence: `Zentom_Setting.Default.Callout_Mode__c` temporarily deployed as `NAMED_CREDENTIAL` with deploy ID `0AfdL00000az7XhSAI`.
+- Verification evidence: SOQL confirmed `Callout_Mode__c = NAMED_CREDENTIAL`, `Base_URL__c = https://zentom-api.onrender.com`, and `Is_Active__c = true`.
+- Execution evidence: anonymous Apex `ZentomIncidentClient.sendIncident(...)` completed successfully through `callout:Zentom_API/api/incidents/receive`.
+- Result evidence: new Sentinel Incident `SI-000012` created with `Risk_Score__c = 95`, `Risk_Level__c = CRITICAL`, `Policy_Decision__c = HUMAN_APPROVAL_REQUIRED`, `Runbook_Key__c = FLOW_FAILURE_BASIC_RECOVERY`, `Approval_Status__c = Pending Approval`, `Status__c = Approval Required`, and hosted `Zentom_Incident_Id__c = 8`.
+- Repo default restored: local `Zentom_Setting.Default.Callout_Mode__c` remains `REMOTE_SITE` for safe beta fallback.
+- Rollback note: set `Callout_Mode__c = REMOTE_SITE`; no code rollback is required because dual mode support is already implemented.
