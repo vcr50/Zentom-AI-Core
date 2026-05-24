@@ -461,3 +461,14 @@ Planned scope:
 - Default beta setting: `Zentom_Setting.Default.Callout_Mode__c = REMOTE_SITE`.
 - Validation evidence: XML metadata added and scoped diff reviewed before commit.
 - Rollback note: remove `Callout_Mode__c` field metadata and the `Callout_Mode__c` value from `Zentom_Setting.Default`; existing `Base_URL__c` and Remote Site Setting `Zentom_API` remain unchanged.
+
+22A-2 Named Credential metadata:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Affected files: `apps/sentinelflow-salesforce/force-app/main/default/namedCredentials/Zentom_API.namedCredential-meta.xml`, `apps/sentinelflow-salesforce/manifest/package-sentinelflow-beta.xml`, and `docs/maintenance.md`.
+- Change: added Named Credential metadata `Zentom_API` pointing to `https://zentom-api.onrender.com` with `NoAuthentication` and anonymous principal.
+- Beta manifest updated to include `NamedCredential:Zentom_API`.
+- Existing `RemoteSiteSetting:Zentom_API` remains in the beta manifest as fallback.
+- Validation evidence: Named Credential XML added using existing repo metadata pattern and parsed successfully before commit.
+- Rollback note: remove `Zentom_API.namedCredential-meta.xml` and the `NamedCredential:Zentom_API` manifest entry; Remote Site fallback remains unchanged.

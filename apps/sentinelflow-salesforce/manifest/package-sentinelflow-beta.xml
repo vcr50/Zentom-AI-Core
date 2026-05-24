@@ -92,6 +92,12 @@
         <name>RemoteSiteSetting</name>
     </types>
 
+    <!-- Production callout configuration candidate; Remote Site remains fallback -->
+    <types>
+        <members>Zentom_API</members>
+        <name>NamedCredential</name>
+    </types>
+
     <!-- Standard picklist values used by SentinelFlow execution -->
     <types>
         <members>CaseOrigin</members>
