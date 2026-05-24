@@ -451,3 +451,13 @@ Planned scope:
 - Affected files planned: `ZentomIncidentClient.cls`, `ZentomIncidentClientTest.cls`, `Zentom_Setting__mdt` metadata fields, `Zentom_Setting.Default` custom metadata, `Zentom_API` Named Credential metadata, beta/package manifest, and production readiness docs.
 - Validation evidence required before completion: stable Apex tests, scratch/beta org deploy validation, Named Credential endpoint evidence, test incident creation, Salesforce write-back, replay timeline, and rollback verification.
 - Rollback note: set callout mode back to `REMOTE_SITE`, confirm `Base_URL__c = https://zentom-api.onrender.com`, confirm Remote Site Setting `Zentom_API` is active, and re-run the test incident.
+
+22A-1 Callout mode feature flag:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Affected files: `apps/sentinelflow-salesforce/force-app/main/default/objects/Zentom_Setting__mdt/fields/Callout_Mode__c.field-meta.xml`, `apps/sentinelflow-salesforce/force-app/main/default/customMetadata/Zentom_Setting.Default.md-meta.xml`, and `docs/maintenance.md`.
+- Change: added `Callout_Mode__c` picklist to `Zentom_Setting__mdt` with values `REMOTE_SITE` and `NAMED_CREDENTIAL`.
+- Default beta setting: `Zentom_Setting.Default.Callout_Mode__c = REMOTE_SITE`.
+- Validation evidence: XML metadata added and scoped diff reviewed before commit.
+- Rollback note: remove `Callout_Mode__c` field metadata and the `Callout_Mode__c` value from `Zentom_Setting.Default`; existing `Base_URL__c` and Remote Site Setting `Zentom_API` remain unchanged.
