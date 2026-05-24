@@ -428,4 +428,96 @@ Planned scope:
 
 ## Milestone 22: Production Implementation Sprint
 
-Status: Next
+Status: Started
+
+Planned scope:
+
+- 22A: Named Credential Implementation.
+- 22B: API Authentication / Shared Secret Header.
+- 22C: Render Cold Start / Uptime Strategy.
+- 22D: Hosted API Error Logging.
+- 22E: Salesforce Error Log Object.
+- 22F: Production Validation Run.
+- 22G: v1.0 Release Candidate Tag.
+
+22A Named Credential implementation:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Branch: `milestone-22a-named-credential`.
+- Document created: `docs/named-credential-implementation-22a.md`.
+- Goal documented: replace the Remote Site Setting callout model with a Named Credential based callout while preserving Remote Site fallback until validation is complete.
+- Safe rollout documented: add Named Credential metadata, add Custom Metadata feature flag, update Apex to support both modes, validate Named Credential callout, and keep Remote Site fallback until stable.
+- Affected files planned: `ZentomIncidentClient.cls`, `ZentomIncidentClientTest.cls`, `Zentom_Setting__mdt` metadata fields, `Zentom_Setting.Default` custom metadata, `Zentom_API` Named Credential metadata, beta/package manifest, and production readiness docs.
+- Validation evidence required before completion: stable Apex tests, scratch/beta org deploy validation, Named Credential endpoint evidence, test incident creation, Salesforce write-back, replay timeline, and rollback verification.
+- Rollback note: set callout mode back to `REMOTE_SITE`, confirm `Base_URL__c = https://zentom-api.onrender.com`, confirm Remote Site Setting `Zentom_API` is active, and re-run the test incident.
+
+22A-1 Callout mode feature flag:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Affected files: `apps/sentinelflow-salesforce/force-app/main/default/objects/Zentom_Setting__mdt/fields/Callout_Mode__c.field-meta.xml`, `apps/sentinelflow-salesforce/force-app/main/default/customMetadata/Zentom_Setting.Default.md-meta.xml`, and `docs/maintenance.md`.
+- Change: added `Callout_Mode__c` picklist to `Zentom_Setting__mdt` with values `REMOTE_SITE` and `NAMED_CREDENTIAL`.
+- Default beta setting: `Zentom_Setting.Default.Callout_Mode__c = REMOTE_SITE`.
+- Validation evidence: XML metadata added and scoped diff reviewed before commit.
+- Rollback note: remove `Callout_Mode__c` field metadata and the `Callout_Mode__c` value from `Zentom_Setting.Default`; existing `Base_URL__c` and Remote Site Setting `Zentom_API` remain unchanged.
+
+22A-2 Named Credential metadata:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Affected files: `apps/sentinelflow-salesforce/force-app/main/default/namedCredentials/Zentom_API.namedCredential-meta.xml`, `apps/sentinelflow-salesforce/manifest/package-sentinelflow-beta.xml`, and `docs/maintenance.md`.
+- Change: added Named Credential metadata `Zentom_API` pointing to `https://zentom-api.onrender.com` with `NoAuthentication` and anonymous principal.
+- Beta manifest updated to include `NamedCredential:Zentom_API`.
+- Existing `RemoteSiteSetting:Zentom_API` remains in the beta manifest as fallback.
+- Validation evidence: Named Credential XML added using existing repo metadata pattern and parsed successfully before commit.
+- Rollback note: remove `Zentom_API.namedCredential-meta.xml` and the `NamedCredential:Zentom_API` manifest entry; Remote Site fallback remains unchanged.
+
+22A-3 Dual callout mode Apex support:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Affected files: `apps/sentinelflow-salesforce/force-app/main/default/classes/ZentomIncidentClient.cls`, `apps/sentinelflow-salesforce/force-app/main/default/classes/ZentomIncidentClientTest.cls`, and `docs/maintenance.md`.
+- Change: `ZentomIncidentClient` now reads `Zentom_Setting__mdt.Callout_Mode__c` and supports both `REMOTE_SITE` and `NAMED_CREDENTIAL` endpoint modes.
+- Default/fallback behavior: blank callout mode defaults to `REMOTE_SITE`, preserving the current beta path through `Base_URL__c` and Remote Site Setting `Zentom_API`.
+- Named Credential behavior: `NAMED_CREDENTIAL` uses endpoint `callout:Zentom_API/api/incidents/receive`.
+- Test coverage added for both Remote Site endpoint construction and Named Credential endpoint construction.
+- Validation evidence: scoped diff reviewed; Salesforce validation succeeded against target org `astrosoft` with deploy ID `0AfdL00000az6erSAA`, 15 tests passing, 0 failing.
+- Rollback note: revert `ZentomIncidentClient.cls` and `ZentomIncidentClientTest.cls` to the previous Base URL only implementation, or set `Callout_Mode__c = REMOTE_SITE` to keep using the existing fallback path.
+
+22A-4 Remote Site mode validation:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Target org: `astrosoft`.
+- Deployment evidence: beta manifest deployed successfully with deploy ID `0AfdL00000az7FxSAI`, 15 tests passing, 0 failing.
+- Hosted API health evidence: `GET https://zentom-api.onrender.com/` returned `status = running`.
+- Hosted DB health evidence: `GET https://zentom-api.onrender.com/api/health/db` returned `status = ok`, `databaseType = postgresql`, `missingTables = []`, and pgvector enabled.
+- Execution evidence: anonymous Apex `ZentomIncidentClient.sendIncident(...)` completed successfully with `Callout_Mode__c = REMOTE_SITE`.
+- Result evidence: new Sentinel Incident `SI-000011` created with `Risk_Score__c = 95`, `Risk_Level__c = CRITICAL`, `Policy_Decision__c = HUMAN_APPROVAL_REQUIRED`, `Runbook_Key__c = FLOW_FAILURE_BASIC_RECOVERY`, `Approval_Status__c = Pending Approval`, `Status__c = Approval Required`, and hosted `Zentom_Incident_Id__c = 7`.
+- Rollback note: no rollback required; Remote Site remains the default repo setting and fallback path.
+
+22A-5 Named Credential mode validation:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Target org: `astrosoft`.
+- Metadata switch evidence: `Zentom_Setting.Default.Callout_Mode__c` temporarily deployed as `NAMED_CREDENTIAL` with deploy ID `0AfdL00000az7XhSAI`.
+- Verification evidence: SOQL confirmed `Callout_Mode__c = NAMED_CREDENTIAL`, `Base_URL__c = https://zentom-api.onrender.com`, and `Is_Active__c = true`.
+- Execution evidence: anonymous Apex `ZentomIncidentClient.sendIncident(...)` completed successfully through `callout:Zentom_API/api/incidents/receive`.
+- Result evidence: new Sentinel Incident `SI-000012` created with `Risk_Score__c = 95`, `Risk_Level__c = CRITICAL`, `Policy_Decision__c = HUMAN_APPROVAL_REQUIRED`, `Runbook_Key__c = FLOW_FAILURE_BASIC_RECOVERY`, `Approval_Status__c = Pending Approval`, `Status__c = Approval Required`, and hosted `Zentom_Incident_Id__c = 8`.
+- Repo default restored: local `Zentom_Setting.Default.Callout_Mode__c` remains `REMOTE_SITE` for safe beta fallback.
+- Rollback note: set `Callout_Mode__c = REMOTE_SITE`; no code rollback is required because dual mode support is already implemented.
+
+22A-6 Named Credential implementation wrap-up:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Branch: `milestone-22a-named-credential`.
+- Summary: SentinelFlow now supports both Remote Site and Named Credential callout modes through `Zentom_Setting__mdt.Callout_Mode__c`.
+- REMOTE_SITE validation passed with Sentinel Incident `SI-000011`.
+- NAMED_CREDENTIAL validation passed with Sentinel Incident `SI-000012`.
+- Salesforce validation passed with deploy ID `0AfdL00000az7FxSAI`, 15 tests passing, 0 failing.
+- Repo default restored and kept as `REMOTE_SITE` until the v1 production switch.
+- Remote Site Setting `Zentom_API` and `Base_URL__c` remain available as fallback.
+- Rollback note: switch `Zentom_Setting.Default.Callout_Mode__c` back to `REMOTE_SITE`; no code rollback required.
