@@ -382,3 +382,14 @@ Planned scope:
 - Alert severity levels documented from P0 through P4.
 - Manual monitoring checklist documented for hosted API health, `/docs`, `/api/health/db`, Salesforce test incident, Sentinel Incident creation, audit logs, approval panel, Case creation, and Replay Timeline.
 - Future automated monitoring documented for UptimeRobot or Better Stack, Render logs, email/Slack alerts, Salesforce scheduled health check Apex, daily DB health check, and Salesforce error log object.
+
+21C backup and recovery plan:
+
+- Status: Complete.
+- Document created: `docs/backup-recovery-plan.md`.
+- Backup scope documented for hosted PostgreSQL, Zentom API configuration, Salesforce package metadata, Salesforce incident/audit data, documentation, GitHub source code, and release snapshots.
+- Hosted PostgreSQL backup plan documented for `incidents`, `risk_scores`, `policy_decisions`, `ai_recommendations`, and `memory_entries`.
+- Salesforce metadata and data backup expectations documented for SentinelFlow objects, audit logs, policy decisions, permission sets, custom metadata, and runbook metadata.
+- Recovery scenarios documented for hosted API down, hosted database unavailable, accidental database data loss, Salesforce metadata deployment issue, wrong Zentom API URL, Render rollback, GitHub repo/branch issue, and documentation loss.
+- Minimum production backup policy documented for GitHub source, hosted DB, Salesforce metadata, Salesforce customer data, documentation, and release tags.
+- Recovery testing checklist documented for DB restore, scratch org deploy, hosted API health, DB health, test incident, Salesforce write-back, replay timeline, and dashboard validation.
