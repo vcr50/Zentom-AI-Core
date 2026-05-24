@@ -265,3 +265,12 @@ Prepare SentinelFlow for marketplace and Salesforce security-review readiness.
 - Hosted beta mode documented as `RULE` with `https://zentom-api.onrender.com`.
 - Custom Metadata update caution documented for `Zentom_Setting__mdt.Default.Base_URL__c`.
 - Security guardrails documented: no public Ollama exposure, no policy bypass, no autonomous production execution, and future Named Credential / External Credential migration before marketplace security review.
+
+19E publisher listing copy:
+
+- Status: Complete.
+- Document created: `docs/publisher-listing-copy.md`.
+- Recommended product names documented: `SentinelFlow by Tomcodex` and `SentinelFlow - Powered by Zentom AI`.
+- Marketplace short description and long description drafted.
+- Key features, business value, target users, use cases, setup summary, support placeholder, and beta limitations documented.
+- Security and governance summary documented with hosted beta `AI_MODE=RULE`, no public Ollama exposure, no direct hosted LLM execution, policy-gated actions, human approval, and replay timeline auditability.
