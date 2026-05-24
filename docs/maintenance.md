@@ -371,3 +371,14 @@ Planned scope:
 - Current beta status, production readiness checklist, hosted API stability requirements, Salesforce package stability requirements, database backup requirements, monitoring and alerting requirements, security review requirements, Named Credential migration requirement, and v1.0 exit criteria documented.
 - Hosted API documented as `https://zentom-api.onrender.com`.
 - Current hosted mode documented as `AI_MODE=RULE`.
+
+21B monitoring and error alerts:
+
+- Status: Complete.
+- Document created: `docs/monitoring-error-alerts.md`.
+- Monitoring scope documented for hosted Zentom API, hosted PostgreSQL, Salesforce callouts, incident processing, approval/execution flow, Render service health, dashboard, replay timeline, and Org Health Score.
+- Health endpoints documented: `GET https://zentom-api.onrender.com/` and `GET https://zentom-api.onrender.com/api/health/db`.
+- Expected health responses documented: API status `running`, DB status `ok`, `databaseType = postgresql`, `missingTables = []`, and pgvector enabled.
+- Alert severity levels documented from P0 through P4.
+- Manual monitoring checklist documented for hosted API health, `/docs`, `/api/health/db`, Salesforce test incident, Sentinel Incident creation, audit logs, approval panel, Case creation, and Replay Timeline.
+- Future automated monitoring documented for UptimeRobot or Better Stack, Render logs, email/Slack alerts, Salesforce scheduled health check Apex, daily DB health check, and Salesforce error log object.
