@@ -108,3 +108,15 @@ apps/sentinelflow-salesforce/manifest/package-sentinelflow-beta.xml
 - Hardened permission deploy validation ID: `0AfdL00000ayY5JSAU`.
 - Stable tests passed: 14.
 - Stable tests failed: 0.
+
+18D remote site / named credential cleanup:
+
+- Beta callout model remains Remote Site Setting plus `Zentom_Setting__mdt.Default.Base_URL__c`.
+- `Zentom_Setting__mdt.Default.Base_URL__c` verified as `https://zentom-api.onrender.com`.
+- `Zentom_API.remoteSite-meta.xml` verified as `https://zentom-api.onrender.com`.
+- Remote Site Setting contains only the base URL, not `/api/incidents/receive`.
+- No Cloudflare/local URL remains in beta callout metadata.
+- Named Credential, External Credential, and Permission Set Mapping migration plan documented in `docs/salesforce-callout-security.md`.
+- Beta manifest validation ID: `0AfdL00000ayYlFSAU`.
+- Stable tests passed: 14.
+- Stable tests failed: 0.
