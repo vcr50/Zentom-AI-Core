@@ -594,7 +594,7 @@ Planned scope:
 
 ## Milestone 23: Security Review Submission Preparation
 
-Status: Started
+Status: Complete
 
 Planned scope:
 
@@ -632,3 +632,79 @@ Planned scope:
 - Static analysis tools documented: Salesforce Code Analyzer, PMD rules, ESLint for LWC, and manual CRUD/FLS review.
 - Next phase documented: 23D External Callout + Named Credential Final Decision.
 - Rollback note: documentation-only milestone; remove `docs/apex-lwc-security-scan-checklist.md` and this maintenance entry if the checklist needs to be replaced.
+
+23D external callout + Named Credential final decision:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Final decision: keep the validated Remote Site path as the safe fallback while treating the validated `Zentom_API` Named Credential path as the production/security-review target.
+- Current repo default remains `Callout_Mode__c = REMOTE_SITE` for safe fallback after production validation.
+- Named Credential evidence remains captured in 22A and `docs/security-review-evidence-pack.md`.
+- External Credential and Permission Set Mapping remain documented as the future marketplace-ready authentication model.
+- Rollback note: no runtime rollback required; this was a decision/documentation milestone.
+
+Milestone 23 wrap-up:
+
+- Status: Complete.
+- Completed scope: 23A final security review evidence pack, 23B CRUD/FLS + sharing review, 23C Apex/LWC security scan checklist, and 23D external callout + Named Credential final decision.
+- Important carried-forward gap: stable Apex uses `with sharing`, but explicit CRUD/FLS enforcement still needs to be added or verified in the next implementation/security track.
+
+## Milestone 24: Merged
+
+Status: Merged
+
+Milestone 24 was merged into Milestone 23/25 documentation and release preparation work.
+
+Reconciliation note:
+
+- No standalone Milestone 24 execution track remains active.
+- Security-review evidence, release preparation, callout decisioning, and roadmap cleanup were handled through Milestone 23 and Milestone 25 workstreams.
+- Future references should treat Milestone 24 as intentionally merged, not skipped by accident.
+
+## Milestone 25: v1 Release Preparation Closure
+
+Status: Complete
+
+Reconciliation note:
+
+- Milestone 25 is complete.
+- Milestone 25 closed the v1 release preparation path after the v1.0.0-rc.1 tag, production validation evidence, security-review documentation, and release-readiness cleanup.
+- Current release candidate remains `v1.0.0-rc.1`.
+- Current active milestone after 25Z is Milestone 26.
+
+## Milestone 25Z: Roadmap Reconciliation
+
+Status: Complete
+
+Goal:
+
+- Update roadmap and maintenance documentation so official project status clearly reflects completed release-preparation milestones and the next active rollout phase.
+
+Changes:
+
+- Milestone 23 marked complete.
+- Milestone 25 marked complete.
+- Milestone 24 documented as merged into Milestone 23/25 documentation and release preparation work.
+- Current active milestone documented as Milestone 26.
+- Milestone 26 post-v1 stabilization and customer rollout scope documented.
+
+Rollback note: documentation-only milestone; restore the prior roadmap/maintenance wording if the milestone numbering plan changes.
+
+## Milestone 26: Post-v1 Stabilization and Customer Rollout
+
+Status: Active
+
+Planned scope:
+
+- 26A: Production Issue Tracking.
+- 26B: Customer Onboarding Checklist.
+- 26C: Support SLA / Response Policy.
+- 26D: Usage Monitoring + Adoption Metrics.
+- 26E: Feedback-to-Roadmap Process.
+- 26F: v1.0.1 Patch Planning.
+
+Current active milestone:
+
+```text
+Milestone 26 - Post-v1 Stabilization and Customer Rollout
+```
