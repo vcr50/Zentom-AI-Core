@@ -521,3 +521,16 @@ Planned scope:
 - Repo default restored and kept as `REMOTE_SITE` until the v1 production switch.
 - Remote Site Setting `Zentom_API` and `Base_URL__c` remain available as fallback.
 - Rollback note: switch `Zentom_Setting.Default.Callout_Mode__c` back to `REMOTE_SITE`; no code rollback required.
+
+22B API authentication / shared secret header:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Goal: Salesforce sends `X-Zentom-Api-Key`, Zentom API validates it, unauthorized callers are rejected, and no secret is committed to Git.
+- API change: `POST /api/incidents/receive` validates `X-Zentom-Api-Key` when `ZENTOM_API_KEY` is configured in the hosted environment.
+- Salesforce change: `ZentomIncidentClient` sends `X-Zentom-Api-Key` when `Zentom_Setting__mdt.Api_Key__c` is populated.
+- Secret handling: `ZENTOM_API_KEY` and `Api_Key__c` values remain blank in Git and must be configured in Render/Salesforce environment-specific setup.
+- Backward compatibility: if `ZENTOM_API_KEY` is not configured, the API keeps current beta behavior for safe rollout.
+- Validation evidence: Salesforce validation succeeded against target org `astrosoft` with deploy ID `0AfdL00000az8lVSAQ`, 15 tests passing, 0 failing.
+- API validation evidence: direct auth helper smoke test passed in `services/zentom-api/venv`; correct key accepted, missing/wrong key rejected with HTTP 401.
+- Rollback note: clear `ZENTOM_API_KEY` in the hosted environment and clear `Zentom_Setting__mdt.Api_Key__c`; incident callouts continue without shared-secret enforcement.

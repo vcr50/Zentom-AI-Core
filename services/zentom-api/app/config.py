@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     local_llm_url: str = Field(default="http://localhost:11434", alias="LOCAL_LLM_URL")
     local_llm_model: str = Field(default="llama3.1:8b", alias="LOCAL_LLM_MODEL")
     embedding_model: str = Field(default="all-minilm", alias="EMBEDDING_MODEL")
+    zentom_api_key: str | None = Field(default=None, alias="ZENTOM_API_KEY")
 
     @property
     def AI_MODE(self) -> str:
@@ -40,6 +41,10 @@ class Settings(BaseSettings):
     @property
     def EMBEDDING_MODEL(self) -> str:
         return self.embedding_model
+
+    @property
+    def ZENTOM_API_KEY(self) -> str | None:
+        return self.zentom_api_key
 
     class Config:
         env_file = ".env"

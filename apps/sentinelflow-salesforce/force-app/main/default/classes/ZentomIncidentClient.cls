@@ -5,6 +5,7 @@ public with sharing class ZentomIncidentClient {
 
     @TestVisible private static String baseUrlOverride;
     @TestVisible private static String calloutModeOverride;
+    @TestVisible private static String apiKeyOverride;
 
     @future(callout=true)
     public static void sendIncident(
@@ -21,6 +22,7 @@ public with sharing class ZentomIncidentClient {
         request.setEndpoint(getApiEndpoint());
         request.setMethod('POST');
         request.setHeader('Content-Type', 'application/json');
+        setApiKeyHeader(request);
         request.setBody(requestBody);
 
         try {
@@ -98,6 +100,28 @@ public with sharing class ZentomIncidentClient {
         }
 
         return baseUrl + '/api/incidents/receive';
+    }
+
+    private static void setApiKeyHeader(HttpRequest request) {
+        String apiKey = apiKeyOverride;
+
+        if (String.isBlank(apiKey)) {
+            List<Zentom_Setting__mdt> settings = [
+                SELECT Api_Key__c
+                FROM Zentom_Setting__mdt
+                WHERE Is_Active__c = true
+                ORDER BY DeveloperName
+                LIMIT 1
+            ];
+
+            if (!settings.isEmpty()) {
+                apiKey = settings[0].Api_Key__c;
+            }
+        }
+
+        if (!String.isBlank(apiKey)) {
+            request.setHeader('X-Zentom-Api-Key', apiKey);
+        }
     }
 
     private static void persistZentomResult(

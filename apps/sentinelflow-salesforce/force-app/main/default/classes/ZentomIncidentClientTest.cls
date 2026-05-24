@@ -10,6 +10,12 @@ private class ZentomIncidentClientTest {
         public HttpResponse respond(HttpRequest request) {
             System.assertEquals('POST', request.getMethod());
             System.assertEquals('application/json', request.getHeader('Content-Type'));
+            if (ZentomIncidentClient.apiKeyOverride != null) {
+                System.assertEquals(
+                    ZentomIncidentClient.apiKeyOverride,
+                    request.getHeader('X-Zentom-Api-Key')
+                );
+            }
             System.assert(request.getEndpoint().contains('/api/incidents/receive'));
             if (expectedEndpoint != null) {
                 System.assertEquals(expectedEndpoint, request.getEndpoint());
@@ -144,6 +150,7 @@ private class ZentomIncidentClientTest {
     @IsTest
     static void sendIncident_usesNamedCredentialEndpointWhenConfigured() {
         ZentomIncidentClient.calloutModeOverride = 'NAMED_CREDENTIAL';
+        ZentomIncidentClient.apiKeyOverride = 'test-shared-secret';
         Test.setMock(
             HttpCalloutMock.class,
             new ZentomIncidentMock('callout:Zentom_API/api/incidents/receive')

@@ -1,7 +1,10 @@
-from fastapi import Depends, FastAPI, HTTPException, Response
+import secrets
+
+from fastapi import Depends, FastAPI, Header, HTTPException, Response
 from sqlalchemy import inspect, text
 from sqlalchemy.orm import Session
 
+from app.config import settings
 from app.database import DATABASE_URL, engine, get_db, init_database
 from app.services.dataset_service import (
     SUPPORTED_DATASET_FORMATS,
@@ -82,7 +85,12 @@ def database_health_check():
 
 
 @app.post("/api/incidents/receive")
-def receive_incident(payload: dict, db: Session = Depends(get_db)):
+def receive_incident(
+    payload: dict,
+    db: Session = Depends(get_db),
+    x_zentom_api_key: str | None = Header(default=None),
+):
+    validate_api_key(x_zentom_api_key)
     return process_incident(payload, db)
 
 
@@ -212,3 +220,16 @@ def to_memory_response(memory) -> dict:
         "riskLevel": memory.risk_level,
         "summary": memory.summary,
     }
+
+
+def validate_api_key(provided_api_key: str | None) -> None:
+    expected_api_key = settings.ZENTOM_API_KEY
+
+    if not expected_api_key:
+        return
+
+    if not provided_api_key or not secrets.compare_digest(
+        provided_api_key,
+        expected_api_key,
+    ):
+        raise HTTPException(status_code=401, detail="Unauthorized")
