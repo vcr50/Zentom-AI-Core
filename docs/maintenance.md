@@ -403,3 +403,13 @@ Planned scope:
 - Apex endpoint migration documented from `request.setEndpoint(baseUrl + '/api/incidents/receive')` to `request.setEndpoint('callout:Zentom_API/api/incidents/receive')`.
 - Decision documented: do not change working beta callout code yet; document migration first.
 - Required Salesforce metadata, Apex changes, permission set changes, deployment plan, rollback plan, testing checklist, and production readiness criteria documented.
+
+21E security review final checklist:
+
+- Status: Complete.
+- Document created: `docs/security-review-final-checklist.md`.
+- Package readiness, Apex security, LWC security, Salesforce Object/FLS/CRUD, external callout, data privacy, AI governance, hosted API security, database security, documentation, known gaps, and final go/no-go criteria documented.
+- Key package checks documented: beta manifest validates, fresh scratch org deploy passed, stable tests pass, and no experimental metadata included.
+- Key Apex checks documented: `with sharing` where appropriate, callout test coverage, no hardcoded secrets, no unsafe dynamic SOQL, and no direct autonomous execution without approval.
+- AI governance checks documented: hosted `AI_MODE=RULE`, local Ollama not public, AI cannot directly execute high-risk actions, and risk/policy/approval/replay are enforced.
+- Known gaps documented: Named Credential not implemented yet, Render free-tier cold start, and full security scan not yet submitted.
