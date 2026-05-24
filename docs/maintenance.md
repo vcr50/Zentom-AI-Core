@@ -230,3 +230,15 @@ Prepare SentinelFlow for marketplace and Salesforce security-review readiness.
 - Stable Salesforce objects, Apex classes, LWC components, permission sets, external callouts, stored data, and known beta limitations documented.
 - Remote Site Setting kept for beta.
 - Named Credential, External Credential, and Permission Set Mapping documented as the future marketplace/security-review path.
+
+19B data privacy and retention documentation:
+
+- Status: Started and completed.
+- Document created: `docs/data-privacy-retention.md`.
+- Data sent from Salesforce to Zentom API documented.
+- Data stored in Salesforce documented.
+- Data stored in hosted PostgreSQL documented.
+- Hosted beta mode documented as `AI_MODE=RULE`.
+- No public Ollama and no paid third-party LLM usage documented for hosted beta.
+- Human approval and policy-gated execution principle documented.
+- Beta retention, deletion, export, access control, security controls, limitations, and future improvements documented.
