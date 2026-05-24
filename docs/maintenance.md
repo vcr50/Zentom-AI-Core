@@ -534,3 +534,15 @@ Planned scope:
 - Validation evidence: Salesforce validation succeeded against target org `astrosoft` with deploy ID `0AfdL00000az8lVSAQ`, 15 tests passing, 0 failing.
 - API validation evidence: direct auth helper smoke test passed in `services/zentom-api/venv`; correct key accepted, missing/wrong key rejected with HTTP 401.
 - Rollback note: clear `ZENTOM_API_KEY` in the hosted environment and clear `Zentom_Setting__mdt.Api_Key__c`; incident callouts continue without shared-secret enforcement.
+
+22C Render cold start / uptime strategy:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Document created: `docs/render-uptime-strategy.md`.
+- Cold start risk documented: first Salesforce Apex call may timeout if Render free-tier service is sleeping.
+- Beta mitigation documented: wake `https://zentom-api.onrender.com/`, verify `/api/health/db`, retry after 30-60 seconds, and record cold-start behavior separately from product failures.
+- Production strategy documented: use paid always-on hosting or another always-on cloud runtime before v1.0 production.
+- Options documented: keep Render free for beta only, upgrade Render to always-on paid plan, move to AWS/Azure/GCP, or add uptime monitor/keep-alive ping.
+- Monitoring plan documented for API health, DB health, Salesforce callout failures, incident creation gaps, Render logs, and future uptime tooling.
+- Go/no-go criteria documented: free-tier sleeping infrastructure is acceptable for beta only, not production.
