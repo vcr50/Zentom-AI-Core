@@ -443,7 +443,7 @@ Planned scope:
 22A Named Credential implementation:
 
 - Date: 2026-05-24.
-- Status: Started.
+- Status: Complete.
 - Branch: `milestone-22a-named-credential`.
 - Document created: `docs/named-credential-implementation-22a.md`.
 - Goal documented: replace the Remote Site Setting callout model with a Named Credential based callout while preserving Remote Site fallback until validation is complete.
@@ -508,3 +508,16 @@ Planned scope:
 - Result evidence: new Sentinel Incident `SI-000012` created with `Risk_Score__c = 95`, `Risk_Level__c = CRITICAL`, `Policy_Decision__c = HUMAN_APPROVAL_REQUIRED`, `Runbook_Key__c = FLOW_FAILURE_BASIC_RECOVERY`, `Approval_Status__c = Pending Approval`, `Status__c = Approval Required`, and hosted `Zentom_Incident_Id__c = 8`.
 - Repo default restored: local `Zentom_Setting.Default.Callout_Mode__c` remains `REMOTE_SITE` for safe beta fallback.
 - Rollback note: set `Callout_Mode__c = REMOTE_SITE`; no code rollback is required because dual mode support is already implemented.
+
+22A-6 Named Credential implementation wrap-up:
+
+- Date: 2026-05-24.
+- Status: Complete.
+- Branch: `milestone-22a-named-credential`.
+- Summary: SentinelFlow now supports both Remote Site and Named Credential callout modes through `Zentom_Setting__mdt.Callout_Mode__c`.
+- REMOTE_SITE validation passed with Sentinel Incident `SI-000011`.
+- NAMED_CREDENTIAL validation passed with Sentinel Incident `SI-000012`.
+- Salesforce validation passed with deploy ID `0AfdL00000az7FxSAI`, 15 tests passing, 0 failing.
+- Repo default restored and kept as `REMOTE_SITE` until the v1 production switch.
+- Remote Site Setting `Zentom_API` and `Base_URL__c` remain available as fallback.
+- Rollback note: switch `Zentom_Setting.Default.Callout_Mode__c` back to `REMOTE_SITE`; no code rollback required.
