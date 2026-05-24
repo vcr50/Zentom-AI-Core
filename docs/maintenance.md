@@ -242,3 +242,15 @@ Prepare SentinelFlow for marketplace and Salesforce security-review readiness.
 - No public Ollama and no paid third-party LLM usage documented for hosted beta.
 - Human approval and policy-gated execution principle documented.
 - Beta retention, deletion, export, access control, security controls, limitations, and future improvements documented.
+
+19C install guide:
+
+- Status: Started and completed.
+- Document created: `docs/install-guide.md`.
+- Hosted Zentom API documented as `https://zentom-api.onrender.com`.
+- Beta package deployment and validation commands documented.
+- Required permission sets documented: `SentinelFlow_Admin`, `SentinelFlow_Approver`, `SentinelFlow_Viewer`.
+- `Zentom_Setting__mdt.Default.Base_URL__c` and `Zentom_API` Remote Site Setting documented.
+- Anonymous Apex test incident documented.
+- Expected incident, approval, execution, Case, and replay timeline results documented.
+- Troubleshooting documented for Render cold start, Remote Site errors, permission issues, missing incident records, and Case Origin issues.
