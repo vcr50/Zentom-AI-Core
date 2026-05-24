@@ -297,7 +297,7 @@ Prepare SentinelFlow for marketplace and Salesforce security-review readiness.
 
 ## Milestone 20: Private Beta Release
 
-Status: Started
+Status: Complete
 
 Planned scope:
 
@@ -339,3 +339,17 @@ Planned scope:
 - Bug intake sources documented: beta feedback form, Salesforce debug logs, SentinelFlow Replay Timeline, Render logs, hosted DB health endpoint, user screenshots, and support/troubleshooting guide.
 - Triage rules documented from P0 through P4.
 - Regression checklist documented for hosted API health, hosted DB health, Apex callout, incident write-back, risk/policy/recommendation, approval, rejection, Case creation, replay timeline, dashboard, Org Health Score, and permission set behavior.
+
+20E beta release notes:
+
+- Status: Complete.
+- Document created: `docs/beta-release-notes.md`.
+- Release name documented: `SentinelFlow Private Beta v0.5.0`.
+- Product summary documented for hosted Salesforce-to-Zentom incident intelligence workflow.
+- Included beta capabilities documented: SentinelFlow Lightning App, Dashboard, Sentinel Incident object, Audit Log object, Policy Decision object, hosted Zentom API integration, hosted PostgreSQL + pgvector backend, RULE-mode AI recommendation, Runbook Engine, human approval workflow, safe Case creation, Replay Timeline, Org Health Score, and Admin / Approver / Viewer permission sets.
+- Known limitations documented: hosted `AI_MODE=RULE`, local HYBRID Ollama mode for advanced demos only, Render free-tier cold starts, planned Named Credential migration, no full autonomous remediation, and Agentforce integration planned later.
+- Milestone 20 marked complete.
+
+## Milestone 21: Production v1.0 Preparation
+
+Status: Next
