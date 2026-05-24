@@ -1,0 +1,140 @@
+<template>
+    <section class={shellClass} aria-label="SentinelFlow">
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+        <header class="shell-header">
+            <div class="brand">
+                <span class="brand-mark">
+                    <img src={logoUrl} alt="SentinelFlow" />
+                </span>
+                <!-- 
+                <div>
+                    <h1>SentinelFlow</h1>
+                    <p>Autonomous operations cockpit</p>
+                </div> 
+                -->
+            </div>
+
+            <div class="header-actions">
+                <div class="health-pill" data-status={healthTone}>
+                    <span class="status-dot"></span>
+                    <span>{healthLabel}</span>
+                </div>
+                <div class="time-pill">{currentTime}</div>
+                <button class={themeToggleClass} type="button" onclick={toggleTheme} title={themeToggleTitle} aria-label={themeToggleTitle}>
+                    <span class="theme-track">
+                        <span class="theme-icon sun">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        </span>
+                        <span class="theme-icon moon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                        </span>
+                    </span>
+                    <span class="theme-thumb"></span>
+                </button>
+                <button class="custom-refresh-btn" type="button" onclick={refreshView} title="Refresh view" aria-label="Refresh view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="shell-body">
+            <aside class="shell-sidebar" aria-label="SentinelFlow sections">
+                <nav class="nav-list">
+                    <button class={homeNavClass} data-page="home" onclick={navigate}>
+                        <lightning-icon icon-name="utility:home" size="x-small"></lightning-icon>
+                        <span>Home</span>
+                    </button>
+                    <button class={incidentsNavClass} data-page="incidents" onclick={navigate}>
+                        <lightning-icon icon-name="utility:warning" size="x-small"></lightning-icon>
+                        <span>Incidents</span>
+                        <span class="nav-count">{criticalCount}</span>
+                    </button>
+                    <button class={integrationsNavClass} data-page="integrations" onclick={navigate}>
+                        <lightning-icon icon-name="utility:connected_apps" size="x-small"></lightning-icon>
+                        <span>Integrations</span>
+                    </button>
+                    <button class={impactNavClass} data-page="impact" onclick={navigate}>
+                        <lightning-icon icon-name="utility:trending" size="x-small"></lightning-icon>
+                        <span>Impact</span>
+                    </button>
+                    <button class={copilotNavClass} data-page="copilot" onclick={navigate}>
+                        <span class="zai-icon">Zai</span>
+                        <span>Zentom AI</span>
+                    </button>
+                    <button class={workflowNavClass} data-page="workflow" onclick={navigate}>
+                        <lightning-icon icon-name="utility:flow" size="x-small"></lightning-icon>
+                        <span>Workflow Map</span>
+                    </button>
+                    <button class={complianceNavClass} data-page="compliance" onclick={navigate}>
+                        <lightning-icon icon-name="utility:shield" size="x-small"></lightning-icon>
+                        <span>Compliance</span>
+                    </button>
+                    <button class={founderNavClass} data-page="founder" onclick={navigate}>
+                        <lightning-icon icon-name="utility:strategy" size="x-small"></lightning-icon>
+                        <span>Founder Mode</span>
+                    </button>
+                    <button class={settingsNavClass} data-page="settings" onclick={navigate}>
+                        <lightning-icon icon-name="utility:settings" size="x-small"></lightning-icon>
+                        <span>Settings</span>
+                    </button>
+                </nav>
+
+                <div class="sidebar-card glass-card">
+                    <p class="sidebar-label">Runtime Fabric</p>
+                    <div class="runtime-row">
+                        <span>Apex Jobs</span>
+                        <span class="mini-status ok"></span>
+                    </div>
+                    <div class="runtime-row">
+                        <span>Platform Events</span>
+                        <span class="mini-status ok"></span>
+                    </div>
+                    <div class="runtime-row">
+                        <span>Zentom AI</span>
+                        <span class="mini-status ok"></span>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="shell-content">
+                <div class="content-toolbar glass-card">
+                    <div>
+                        <p class="eyebrow">{pageEyebrow}</p>
+                        <h2>{pageTitle}</h2>
+                    </div>
+                    <div class="toolbar-summary">
+                        <span>{toolbarSummary}</span>
+                    </div>
+                </div>
+
+                <section class="content-surface">
+                    <template if:true={isHome}>
+                        <c-zentom-mission-control></c-zentom-mission-control>
+                    </template>
+                    <template if:true={isIncidents}>
+                        <c-zentom-approval-queue></c-zentom-approval-queue>
+                    </template>
+                    <template if:true={isImpact}>
+                        <c-zentom-analytics-charts></c-zentom-analytics-charts>
+                    </template>
+                    <template if:true={isCopilot}>
+                        <c-zentom-analytics-charts></c-zentom-analytics-charts>
+                    </template>
+                    <template if:false={isHome}>
+                        <template if:false={isIncidents}>
+                            <template if:false={isImpact}>
+                                <template if:false={isCopilot}>
+                                    <div class="glass-card" style="padding:40px; text-align:center; margin-top:20px;">
+                                        <h3>Integration in Progress</h3>
+                                        <p style="color:#9090a0;">This module is being connected to live org data by Zentom AI.</p>
+                                    </div>
+                                </template>
+                            </template>
+                        </template>
+                    </template>
+                </section>
+            </main>
+        </div>
+    </section>
+</template>

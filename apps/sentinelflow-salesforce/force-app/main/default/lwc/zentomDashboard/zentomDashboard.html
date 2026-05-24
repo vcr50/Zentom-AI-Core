@@ -1,0 +1,197 @@
+<template>
+    <section class="dashboard">
+        <header class="header">
+            <div>
+                <h1>SentinelFlow Command Center</h1>
+                <p>Powered by Zentom AI</p>
+            </div>
+            <lightning-button-group>
+                <lightning-button label="Today" data-range="TODAY" onclick={handleRangeChange}></lightning-button>
+                <lightning-button label="Last 7 Days" data-range="LAST_7_DAYS" onclick={handleRangeChange}></lightning-button>
+                <lightning-button label="All" data-range="ALL" onclick={handleRangeChange}></lightning-button>
+            </lightning-button-group>
+        </header>
+
+        <template if:true={data}>
+            <article class={orgHealthClass}>
+                <div>
+                    <span class="health-eyebrow">Zentom Org Health Score</span>
+                    <div class="health-score">
+                        <strong>{data.summary.orgHealthScore}</strong>
+                        <span>/ 100</span>
+                    </div>
+                    <p>{data.summary.orgHealthReason}</p>
+                </div>
+                <div class="health-status">{data.summary.orgHealthStatus}</div>
+            </article>
+
+            <div class="cards">
+                <article class="metric">
+                    <span>Total Incidents</span>
+                    <strong>{data.summary.totalIncidents}</strong>
+                </article>
+                <article class="metric critical">
+                    <span>Critical</span>
+                    <strong>{data.summary.criticalIncidents}</strong>
+                </article>
+                <article class="metric warning">
+                    <span>Pending Approval</span>
+                    <strong>{data.summary.pendingApprovals}</strong>
+                </article>
+                <article class="metric success">
+                    <span>Executed Actions</span>
+                    <strong>{data.summary.executedActions}</strong>
+                </article>
+                <article class="metric danger">
+                    <span>Rejected Recommendations</span>
+                    <strong>{data.summary.rejectedRecommendations}</strong>
+                </article>
+                <article class="metric">
+                    <span>Recent Replay Events</span>
+                    <strong>{data.summary.recentReplayEvents}</strong>
+                </article>
+                <article class="metric success">
+                    <span>Recent Cases Created</span>
+                    <strong>{data.summary.recentCasesCreated}</strong>
+                </article>
+                <article class="metric runbook">
+                    <span>Top Runbook</span>
+                    <strong>{topRunbook}</strong>
+                </article>
+            </div>
+
+            <section class="table-section">
+                <h2>Recent Incidents</h2>
+                <template if:true={hasRecentIncidents}>
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Incident</th>
+                                    <th>Type</th>
+                                    <th>Risk</th>
+                                    <th>Policy</th>
+                                    <th>Status</th>
+                                    <th>Approval</th>
+                                    <th>Execution</th>
+                                    <th>Created</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={recentIncidents} for:item="incident">
+                                    <tr key={incident.id}>
+                                        <td>
+                                            <button class="link" data-id={incident.id} onclick={openIncident}>
+                                                {incident.name}
+                                            </button>
+                                        </td>
+                                        <td>{incident.incidentType}</td>
+                                        <td><span class={incident.riskClass}>{incident.riskLabel}</span></td>
+                                        <td>{incident.policyDecision}</td>
+                                        <td><span class={incident.statusClass}>{incident.status}</span></td>
+                                        <td>{incident.approvalStatus}</td>
+                                        <td>{incident.executionStatus}</td>
+                                        <td>{incident.createdLabel}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </template>
+                <template if:false={hasRecentIncidents}>
+                    <p class="empty">No incidents in this range.</p>
+                </template>
+            </section>
+
+            <div class="split">
+                <section class="table-section">
+                    <h2>Pending Approvals</h2>
+                    <template if:true={hasPendingApprovals}>
+                        <template for:each={pendingApprovals} for:item="incident">
+                            <div class="compact-row" key={incident.id}>
+                                <button class="link" data-id={incident.id} onclick={openIncident}>{incident.name}</button>
+                                <span>{incident.incidentType}</span>
+                                <span class={incident.riskClass}>{incident.riskLabel}</span>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={hasPendingApprovals}>
+                        <p class="empty">No pending approvals in this range.</p>
+                    </template>
+                </section>
+
+                <section class="table-section">
+                    <h2>Recent Executions</h2>
+                    <template if:true={hasRecentExecutions}>
+                        <template for:each={recentExecutions} for:item="incident">
+                            <div class="compact-row execution-row" key={incident.id}>
+                                <button class="link" data-id={incident.id} onclick={openIncident}>{incident.name}</button>
+                                <span>{incident.executionAction}</span>
+                                <span>
+                                    <template if:true={incident.createdCaseId}>
+                                        <button class="link" data-id={incident.createdCaseId} onclick={openCase}>
+                                            {incident.caseLabel}
+                                        </button>
+                                    </template>
+                                    <template if:false={incident.createdCaseId}>
+                                        {incident.caseLabel}
+                                    </template>
+                                </span>
+                                <span class={incident.executionClass}>{incident.executionStatus}</span>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={hasRecentExecutions}>
+                        <p class="empty">No executed actions in this range.</p>
+                    </template>
+                </section>
+            </div>
+
+            <div class="split">
+                <section class="table-section">
+                    <h2>Recent Replay Events</h2>
+                    <template if:true={hasRecentReplayEvents}>
+                        <template for:each={recentReplayEvents} for:item="event">
+                            <div class="compact-row replay-row" key={event.id}>
+                                <button class="link" data-id={event.incidentId} onclick={openIncident}>{event.incidentName}</button>
+                                <span>{event.eventType}</span>
+                                <span class={event.decisionClass}>{event.decision}</span>
+                                <span>{event.createdLabel}</span>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={hasRecentReplayEvents}>
+                        <p class="empty">No replay events in this range.</p>
+                    </template>
+                </section>
+
+                <section class="table-section">
+                    <h2>Recent Cases Created</h2>
+                    <template if:true={hasRecentCasesCreated}>
+                        <template for:each={recentCasesCreated} for:item="incident">
+                            <div class="compact-row case-row" key={incident.id}>
+                                <button class="link" data-id={incident.id} onclick={openIncident}>{incident.name}</button>
+                                <button class="link" data-id={incident.createdCaseId} onclick={openCase}>
+                                    {incident.caseLabel}
+                                </button>
+                                <span>{incident.executionAction}</span>
+                                <span>{incident.executedLabel}</span>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={hasRecentCasesCreated}>
+                        <p class="empty">No cases created in this range.</p>
+                    </template>
+                </section>
+            </div>
+        </template>
+
+        <template if:true={errorMessage}>
+            <div class="error">{errorMessage}</div>
+        </template>
+
+        <template if:true={showLoading}>
+            <lightning-spinner alternative-text="Loading dashboard" size="medium"></lightning-spinner>
+        </template>
+    </section>
+</template>

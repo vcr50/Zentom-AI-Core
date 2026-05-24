@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <!-- Apex Classes -->
+    <types>
+        <members>ZentomIncidentClient</members>
+        <members>ZentomIncidentClientTest</members>
+        <members>ZentomApprovalController</members>
+        <members>ZentomApprovalControllerTest</members>
+        <members>ZentomExecutionController</members>
+        <members>ZentomExecutionControllerTest</members>
+        <members>ZentomRunbookService</members>
+        <members>ZentomReplayController</members>
+        <members>ZentomReplayControllerTest</members>
+        <members>ZentomDashboardController</members>
+        <members>ZentomDashboardControllerTest</members>
+        <name>ApexClass</name>
+    </types>
+
+    <!-- LWC Components -->
+    <types>
+        <members>zentomApprovalPanel</members>
+        <members>zentomReplayTimeline</members>
+        <members>zentomDashboard</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
+    <!-- Custom Objects -->
+    <types>
+        <members>Sentinel_Incident__c</members>
+        <members>Sentinel_Audit_Log__c</members>
+        <members>Zentom_Policy_Decision__c</members>
+        <members>Zentom_Setting__mdt</members>
+        <members>Zentom_Runbook__mdt</members>
+        <name>CustomObject</name>
+    </types>
+
+    <!-- Custom Metadata Records -->
+    <types>
+        <members>Zentom_Setting.Default</members>
+        <members>Zentom_Runbook.FLOW_FAILURE_BASIC_RECOVERY</members>
+        <name>CustomMetadata</name>
+    </types>
+
+    <!-- Tabs -->
+    <types>
+        <members>Sentinel_Incident__c</members>
+        <members>Sentinel_Audit_Log__c</members>
+        <members>Zentom_Policy_Decision__c</members>
+        <members>SentinelFlow_Home</members>
+        <name>CustomTab</name>
+    </types>
+
+    <!-- Lightning App -->
+    <types>
+        <members>SentinelFlow</members>
+        <name>CustomApplication</name>
+    </types>
+
+    <!-- Lightning Pages -->
+    <types>
+        <members>SentinelFlow_Home</members>
+        <members>Sentinel_Incident_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+
+    <!-- Layouts -->
+    <types>
+        <members>Sentinel_Incident__c-Sentinel Incident Layout</members>
+        <members>Sentinel_Audit_Log__c-Sentinel Audit Log Layout</members>
+        <members>Zentom_Policy_Decision__c-Zentom Policy Decision Layout</members>
+        <name>Layout</name>
+    </types>
+
+    <!-- Permission Set -->
+    <types>
+        <members>Zentom_Milestone3_Admin</members>
+        <name>PermissionSet</name>
+    </types>
+
+    <!-- Remote Site Setting -->
+    <types>
+        <members>Zentom_API</members>
+        <name>RemoteSiteSetting</name>
+    </types>
+
+    <version>60.0</version>
+</Package>

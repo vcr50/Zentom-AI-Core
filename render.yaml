@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: zentom-api
+    runtime: docker
+    rootDir: services/zentom-api
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: AI_MODE
+        value: RULE
+      - key: AI_PROVIDER
+        value: LOCAL
+      - key: AI_API_KEY
+        sync: false
+      - key: AI_MODEL
+        value: zentom-rule-v1
+      - key: LOCAL_LLM_URL
+        value: ""
+      - key: LOCAL_LLM_MODEL
+        value: ""
+      - key: EMBEDDING_MODEL
+        value: all-minilm

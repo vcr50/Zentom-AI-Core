@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>FLOW_FAILURE_BASIC_RECOVERY</label>
+    <protected>false</protected>
+    <values>
+        <field>Runbook_Key__c</field>
+        <value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">FLOW_FAILURE_BASIC_RECOVERY</value>
+    </values>
+    <values>
+        <field>Incident_Type__c</field>
+        <value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">FLOW_FAILURE</value>
+    </values>
+    <values>
+        <field>Title__c</field>
+        <value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Flow Failure Basic Recovery</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Human-guided recovery checklist for failed Salesforce Flow interviews.</value>
+    </values>
+    <values>
+        <field>Default_Action__c</field>
+        <value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">CREATE_CASE</value>
+    </values>
+    <values>
+        <field>Requires_Approval__c</field>
+        <value xsi:type="xsd:boolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">true</value>
+    </values>
+    <values>
+        <field>Risk_Level__c</field>
+        <value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">HIGH</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">true</value>
+    </values>
+    <values>
+        <field>Step_1__c</field>
+        <value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Review the failed Flow interview.</value>
+    </values>
+    <values>
+        <field>Step_2__c</field>
+        <value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Check required fields such as Account Owner.</value>
+    </values>
+    <values>
+        <field>Step_3__c</field>
+        <value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Validate recent Flow changes.</value>
+    </values>
+    <values>
+        <field>Step_4__c</field>
+        <value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Confirm affected records and business impact.</value>
+    </values>
+    <values>
+        <field>Step_5__c</field>
+        <value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Create admin case for remediation.</value>
+    </values>
+</CustomMetadata>

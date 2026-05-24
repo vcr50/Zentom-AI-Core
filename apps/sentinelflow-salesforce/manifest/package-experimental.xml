@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>AgentforceActionRegistry</members>
+        <members>AgentforceActionRegistryTest</members>
+        <members>AutoHealOrchestratorTest</members>
+        <members>AutoHealQueueable</members>
+        <members>HealTelemetryService</members>
+        <members>LicenseCacheService</members>
+        <members>LicenseCacheServiceTest</members>
+        <members>LicenseController</members>
+        <members>LicenseControllerTest</members>
+        <members>LicenseService</members>
+        <members>LicenseServiceTest</members>
+        <members>LicenseValidator</members>
+        <members>LicenseValidatorTest</members>
+        <members>RetryLogService</members>
+        <members>SelfHealingEngine</members>
+        <members>SelfHealingEngineTest</members>
+        <members>SelfHealQueueable</members>
+        <members>ZentomAgentforceRouter</members>
+        <members>ZentomGetIncidentDetailsAction</members>
+        <members>ZentomGetIncidentsAction</members>
+        <members>ZentomHealIncidentAction</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>zentomCopilotMascot</members>
+        <members>zentomMissionControl</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <version>62.0</version>
+</Package>

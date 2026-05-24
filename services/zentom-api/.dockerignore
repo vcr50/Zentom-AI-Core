@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+*.db
+*.db-journal
+*.log
+.env
+venv/
+tmp/
+legacy-sentinelflow-node/

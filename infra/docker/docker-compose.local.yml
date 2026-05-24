@@ -1,0 +1,49 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: zentom-postgres-local
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: zentom_db
+      POSTGRES_USER: zentom
+      POSTGRES_PASSWORD: zentom_dev
+    ports:
+      - "5433:5432"
+    volumes:
+      - ../../.docker-data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zentom -d zentom_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  zentom-api:
+    build:
+      context: ../../services/zentom-api
+      dockerfile: Dockerfile
+    container_name: zentom-api-local
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      APP_ENV: development
+      DATABASE_URL: postgresql://zentom:zentom_dev@postgres:5432/zentom_db
+      AI_MODE: HYBRID
+      AI_PROVIDER: LOCAL
+      AI_API_KEY: ""
+      AI_MODEL: zentom-rule-v1
+      LOCAL_LLM_URL: http://host.docker.internal:11434
+      LOCAL_LLM_MODEL: phi3:mini
+      EMBEDDING_MODEL: all-minilm
+    ports:
+      - "8012:8000"
+
+  redis:
+    image: redis:7-alpine
+    container_name: zentom-redis-local
+    restart: unless-stopped
+    profiles:
+      - optional
+    ports:
+      - "6379:6379"

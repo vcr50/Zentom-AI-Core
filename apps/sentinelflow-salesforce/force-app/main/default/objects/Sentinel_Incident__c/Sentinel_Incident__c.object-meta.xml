@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>Sentinel_Incident_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>Sentinel_Incident_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <label>Sentinel Incident</label>
+    <nameField>
+        <displayFormat>SI-{000000}</displayFormat>
+        <label>Sentinel Incident Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Sentinel Incidents</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
