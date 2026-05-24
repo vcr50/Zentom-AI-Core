@@ -208,3 +208,25 @@ Planned 19 scope:
 - 19C: Install Guide.
 - 19D: Admin Setup Wizard.
 - 19E: Publisher Listing Copy.
+
+## Milestone 19: AgentExchange / AppExchange Readiness
+
+Status: Started
+
+Date: 2026-05-24
+
+Goal:
+
+```text
+Prepare SentinelFlow for marketplace and Salesforce security-review readiness.
+```
+
+19A security review preparation:
+
+- Status: Started.
+- Document created: `docs/security-review-preparation.md`.
+- Hosted beta mode documented as `AI_MODE=RULE`.
+- Public Ollama exposure explicitly prohibited.
+- Stable Salesforce objects, Apex classes, LWC components, permission sets, external callouts, stored data, and known beta limitations documented.
+- Remote Site Setting kept for beta.
+- Named Credential, External Credential, and Permission Set Mapping documented as the future marketplace/security-review path.
