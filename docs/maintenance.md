@@ -1755,3 +1755,17 @@ Milestone 33 - Slack Bot / Conversational Incident Assistant
 - Link button labels documented for Open Command Center, Review Incident, View Replay Timeline, Open Case, and View System Health.
 - Direct mutating labels such as Approve, Reject, Execute, Remediate, and Run Action are explicitly avoided.
 - Formatting rules, template validation checklist, and exit criteria documented.
+
+33D - Outbound Alert Integration Plan:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-outbound-alert-integration-plan.md`.
+- Purpose documented: define the first implementation path for SentinelFlow outbound Slack alerts.
+- Integration goal documented: send privacy-safe SentinelFlow incident alerts to approved Slack channels while keeping Salesforce as the system of record.
+- Recommended phase 1 architecture documented from SentinelFlow event to controlled alert service to Slack channel.
+- Alert triggers documented for CRITICAL incident, approval required, approved action executed, Case created, Org Health At Risk/Critical, and delivery failure.
+- Routing rules documented for `#sentinelflow-alerts`, `#sentinelflow-pilot`, and optional admin-only delivery failure channel.
+- Payload contract documented with allowed fields and excluded secret/sensitive fields.
+- Delivery method options documented for incoming webhook, Slack Web API `chat.postMessage`, and hosted API relay.
+- Error handling, logging/audit, configuration, security requirements, validation plan, rollback plan, and implementation readiness criteria documented.
+- Product rule reaffirmed: outbound alerts only; no Slack approval, no Slack execution, no autonomous remediation.
