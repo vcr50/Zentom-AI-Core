@@ -928,3 +928,62 @@ Customer-facing pilot outreach message:
 - Go/no-go decision and final recommendation sections documented.
 - Milestone 27 marked ready for customer execution and reporting.
 - Rollback note: documentation-only milestone; remove `docs/pilot-success-report.md` and this maintenance entry if the pilot success report template is replaced.
+
+## Milestone 28: AppExchange / AgentExchange Submission Finalization
+
+Status: Active
+
+Planned scope:
+
+- 28A: Final Submission Checklist.
+- 28B: Final Listing Assets.
+- 28C: Screenshots + Demo Script Finalization.
+- 28D: Security Review Evidence Cross-check.
+- 28E: Install/Test Org Final Validation.
+- 28F: Submission Readiness Wrap-up.
+
+Current active milestone:
+
+```text
+Milestone 28 - AppExchange / AgentExchange Submission Finalization
+```
+
+28A final submission checklist:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/appexchange-submission-checklist.md`.
+- Purpose documented: confirm SentinelFlow has required package, listing, demo, security, install validation, support, and rollback evidence before final marketplace submission.
+- Submission scope documented for AppExchange / AgentExchange readiness, Salesforce package security review readiness, final listing and demo assets, final install/test org validation, and controlled marketplace rollout after real customer pilot preparation.
+- Exclusions documented for hosted HYBRID Ollama, full autonomous remediation, Agentforce production integration, major AI architecture changes, large object model changes, and experimental/unstable metadata.
+- Final package checklist documented for stable manifest, Apex, LWC, objects, custom metadata, permission sets, app/tabs/layouts/list views, Remote Site fallback, Named Credential path, no hardcoded secrets, no local-only URLs, and no public Ollama exposure.
+- Install and test org checklist documented for clean org validation, permission sets, app/dashboard/approval/replay loading, API configuration, health checks, test incident, approval/rejection, Case creation, replay events, and Viewer read-only behavior.
+- Security review checklist documented with evidence pack, CRUD/FLS sharing review, Apex/LWC scan checklist, callout decision, privacy documentation, API authentication, error logging, permission boundaries, human approval, known gaps, and mitigations.
+- Listing asset checklist documented for product name, descriptions, features, business value, target users, setup summary, support path, privacy/security summary, limitations, screenshots, demo script, and customer-facing pilot message.
+- Screenshot and demo checklist documented for dashboard, incident detail, approval panel, recommendation/policy view, created Case, Replay Timeline, Org Health Score, setup view, standard `FLOW_FAILURE` scenario, and secret-safe demo data.
+- Support and operations checklist documented for SLA, troubleshooting, issue tracking, onboarding, metrics, feedback-to-roadmap, patch planning, pilot feedback, and pilot success report templates.
+- Hosted API checklist documented for base URL, health endpoints, PostgreSQL, required tables, pgvector, incident receive endpoint, authentication behavior, error logging, cold-start/uptime strategy, and production hosting limitations.
+- Customer pilot evidence checklist documented for pilot plan, outreach pack, customer-facing message, demo script, feedback template, success report, blocker mapping, and go/no-go decision.
+- Release, rollback, submission go/no-go, no-go criteria, and final sign-off sections documented.
+- Next phase documented: 28B Final Listing Assets.
+- Rollback note: documentation-only milestone; remove `docs/appexchange-submission-checklist.md` and this maintenance entry if the final submission checklist is replaced.
+
+28B final listing assets:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/final-listing-assets.md`.
+- Product name documented as `SentinelFlow by Tomcodex`, with alternate `SentinelFlow - Powered by Zentom AI`.
+- Recommended positioning documented: Salesforce-native incident intelligence and governed automation powered by Zentom AI.
+- Tagline, short description, marketplace-safe short description, and long description documented.
+- Key features documented for Salesforce incident intake, hosted Zentom API integration, risk scoring, policy governance, recommendation/runbook selection, human approval, safe Case creation, Replay Timeline, dashboard, Org Health Score, permission sets, error logging, and support documentation.
+- Target users documented for Salesforce admins, developers, support operations, RevOps, sales operations, enterprise platform teams, automation owners, and governance/audit stakeholders.
+- Category and keywords documented with guidance to avoid unsupported autonomous remediation, Agentforce production integration, or hosted HYBRID Ollama claims.
+- Screenshot list documented for dashboard, Sentinel Incident detail, approval panel, risk/policy/recommendation, created Case, Replay Timeline, Dashboard + Org Health Score, and optional setup/support views.
+- Demo video plan documented with 3-5 minute flow from incident problem through dashboard, `FLOW_FAILURE`, risk/policy/recommendation/runbook, approval, Case creation, Replay Timeline, and Org Health Score.
+- Logo / brand asset checklist documented for primary logo, square icon, transparent/light/dark assets, high-resolution marketplace image, colors, naming, Zentom AI positioning, and trademark hygiene.
+- Support contact placeholder documented with reminder to replace before submission.
+- Privacy/security links and listing security/privacy summaries documented.
+- Listing review checklist documented for final copy, assets, support, privacy/security, limitations, unsupported claims, and submission owner approval.
+- Next phase documented: 28C Screenshots + Demo Script Finalization.
+- Rollback note: documentation-only milestone; remove `docs/final-listing-assets.md` and this maintenance entry if the final listing assets plan is replaced.
