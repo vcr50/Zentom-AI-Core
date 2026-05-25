@@ -1212,7 +1212,7 @@ Milestone 29 wrap-up:
 
 ## Milestone 30: Beta Customer Pilot Execution
 
-Status: Active
+Status: Complete
 
 Planned scope:
 
@@ -1354,3 +1354,58 @@ Fix only P0/P1/P2 issues.
 - Locked beta rule reaffirmed: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
 - Next phase documented: 30G Pilot success report.
 - Rollback note: documentation-only milestone; remove `docs/beta-pilot-go-no-go-decision.md` and this maintenance entry if the go/no-go template is replaced.
+
+30G pilot success report:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/beta-pilot-success-report.md`.
+- Pilot summary documented for customer, org, dates, package/version, hosted API, pilot owner, report owner, report date, and locked beta rule.
+- Pilot org/user section documented for Salesforce org, org type, org id, customer admin, business user/operator, validation owner, support owner, package install, permission sets, hosted API, hosted DB, and callout mode.
+- Scenarios completed section documented for pilot org selection, demo schedule, package validation, hosted API/DB, `FLOW_FAILURE`, risk/policy, AI recommendation/runbook, approval, rejection, Case creation, Replay Timeline, dashboard/Org Health Score, error logging, feedback capture, and go/no-go decision.
+- What worked section documented for setup, API/DB, incident creation, risk/policy, recommendation/runbook, approval/rejection, Case creation, replay/audit, dashboard, error logging, onboarding, and observed customer value.
+- Issues found section documented with issue tracker and categories across install, permissions, API/callout/auth, DB, incident creation, risk/policy/recommendation, approval/rejection, Case creation, replay/audit, dashboard, error logging, security/privacy, and documentation/onboarding.
+- Customer feedback summary documented for value score, most useful capability, least clear capability, recommendation trust, approval trust, security/privacy comfort, onboarding friction, support expectations, willingness to continue, notes, and deferred feature requests.
+- P0/P1/P2 issues section documented for active beta fix candidates, required fixes, target milestone, owner, validation evidence, and no-new-feature rule.
+- Go/no-go decision documented with final result options: `GO - Ready for controlled rollout`, `CONDITIONAL GO - Fix listed items first`, and `NO-GO - Pilot blockers found`.
+- Patch items section documented for v1.0.1 handoff, patch scope, and excluded major/new feature work.
+- Final beta result section documented with GO / CONDITIONAL GO / NO-GO, readiness areas, and Milestone 30 complete marker.
+- Next milestone documented: Milestone 31 v1.0.1 Patch / Pilot Feedback Fixes.
+- Locked beta rule reaffirmed: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
+- Milestone 30 marked complete.
+- Rollback note: documentation-only milestone; remove `docs/beta-pilot-success-report.md` and this maintenance entry if the success report template is replaced.
+
+Milestone 30 wrap-up:
+
+- Status: Complete.
+- Completed scope: 30A select pilot customer/org, 30B schedule pilot demo, 30C install/validate package, 30D run pilot scenarios, 30E capture feedback, 30F go/no-go decision, and 30G pilot success report.
+- Milestone 30 result: beta customer pilot execution documentation is complete and ready for real pilot evidence population.
+- Product rule: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
+- Next milestone: Milestone 31 v1.0.1 Patch / Pilot Feedback Fixes.
+
+## Milestone 31: v1.0.1 Patch / Pilot Feedback Fixes
+
+Status: Planned
+
+Planned scope:
+
+- Review beta pilot success report.
+- Triage P0/P1/P2 pilot issues.
+- Fix only approved P0/P1/P2 issues.
+- Validate fixes against pilot evidence.
+- Prepare v1.0.1 patch notes and release readiness.
+
+Current next milestone:
+
+```text
+Milestone 31 - v1.0.1 Patch / Pilot Feedback Fixes
+```
+
+Beta rule:
+
+```text
+No new features now.
+Run pilot.
+Collect feedback.
+Fix only P0/P1/P2 issues.
+```
