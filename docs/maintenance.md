@@ -1858,3 +1858,15 @@ Milestone 34 - Slack Pilot Setup and Manual Validation
 - Link format rules documented to prohibit session ids, bearer tokens, API keys, webhook URLs, public sensitive links, and direct mutating action links.
 - Authorized user, unauthorized user, message data leakage, permission set, link click behavior, screenshot rules, pass/fail result, issues/gaps, severity rules, and exit criteria documented.
 - Product rule reaffirmed: Slack messages guide users back to Salesforce and must not bypass Salesforce permissions.
+
+34E - Pilot Feedback and Issue Triage:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-pilot-feedback-issue-triage.md`.
+- Purpose documented: capture Slack pilot feedback and triage issues before deciding whether SentinelFlow should move from manual validation to implementation.
+- Pilot context documented for manual Slack validation, outbound alert templates only, no production Slack integration code, no Slack-side approval/execution, no autonomous remediation, and Salesforce as system of record.
+- Feedback sources documented for pilot participants, Salesforce admins, approvers, security/privacy reviewer, support/operator users, and product owner / CTO review.
+- Feedback questions documented for usefulness, brevity, control-tower language, risk/policy/action clarity, Salesforce link clarity, alert noise, missing alerts, sensitive data, unsafe implication, and channel routing.
+- Severity rules documented for P0/P1/P2/P3/P4 issues.
+- Issue tracker, triage decision rules, fix/follow-up plan, go/no-go input, recommended outcome, and exit criteria documented.
+- Product rule reaffirmed: P0/P1 issues block implementation unless explicitly mitigated, and any approval/execution bypass concern requires no-go until resolved.
