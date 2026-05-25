@@ -1447,3 +1447,22 @@ Fix only P0/P1/P2 issues.
 - Patch readiness criteria documented for fixed/validated P0, fixed or mitigated P1, fixed/mitigated/deferred P2, no new features, no out-of-scope architecture changes, validation evidence, security/privacy signoff, rollback plan, release notes input, and 31C readiness.
 - Next phase documented: 31C Patch Scope Freeze.
 - Rollback note: documentation-only milestone; remove `docs/p0-p1-p2-fix-plan.md` and this maintenance entry if the fix plan template is replaced.
+
+31C patch scope freeze:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/patch-scope-freeze.md`.
+- Purpose documented: freeze v1.0.1 patch scope before implementation so only approved P0/P1/P2 pilot feedback fixes enter the patch.
+- Patch rule documented: no new features; only pilot feedback fixes P0/P1/P2.
+- Freeze decision section documented for freeze date, freeze owner, patch owner, technical owner, validation owner, release owner, freeze status, and decision statement.
+- Approved scope documented from 31A triage, 31B fix plan, beta pilot success report, go/no-go decision, and validated pilot evidence.
+- Approved fix categories documented for P0 blockers, P1 workflow defects, P2 material pilot issues, security/privacy corrections, hosted API, callout/authentication, package/install, approval/execution, Case creation, replay/audit, dashboard, error logging, and documentation fixes tied to pilot evidence.
+- Frozen out-of-scope items documented for new features, P3/P4 improvements, major AI architecture changes, Hosted HYBRID Ollama, Agentforce production integration, full autonomous remediation, large object model changes, marketplace expansion, broad UI redesign, non-pilot roadmap ideas, unrelated performance optimization, and unnecessary refactors.
+- Entry criteria documented for completed 31A/31B, approved candidates, owner/evidence/validation requirements, P3/P4 separation, security/privacy reviewer path, and rollback approach.
+- Change control documented for adding only confirmed P0/P1/P2 items after freeze, evidence requirements, patch/validation owner approval, security/privacy reopen path, and deferred feature requests.
+- Implementation guardrails documented for small fixes, no unrelated refactors, no object model expansion unless required, preserving callout behavior unless required, no AI architecture changes, no Agentforce production integration, no autonomous remediation, and validation evidence capture.
+- Validation gate documented for package tests, hosted API, hosted DB, affected pilot scenario, error logging, Replay Timeline/audit, dashboard/Org Health Score, and documentation/onboarding validation.
+- Exit criteria documented for finalized approved/out-of-scope lists, accepted change control, accepted guardrails, accepted validation gate, confirmed rollback expectations, and readiness for 31D.
+- Next phase documented: 31D Patch Implementation.
+- Rollback note: documentation-only milestone; remove `docs/patch-scope-freeze.md` and this maintenance entry if the scope freeze template is replaced.
