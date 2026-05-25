@@ -1708,3 +1708,26 @@ Milestone 32 CTO refinement:
 - Control tower live deploy succeeded.
 - Control tower live deploy id: `0AfdL00000b0i33SAA`.
 - Existing Apex/controller behavior and `getDashboardData` response shape remain unchanged.
+
+## Milestone 33: Slack Bot / Conversational Incident Assistant
+
+Milestone 33 - Slack Bot / Conversational Incident Assistant
+
+- Status: Started.
+- Start date: 2026-05-25.
+- Prior milestone: Milestone 32 Dashboard UI/UX Redesign.
+- Direction: extend SentinelFlow visibility into Slack while preserving Salesforce as the system of record.
+- Product rule: no autonomous remediation, no Slack-side execution, no bypass of Salesforce human approval.
+
+33A - Slack Assistant Scope and Safety Plan:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-bot-conversational-incident-assistant-plan.md`.
+- Purpose documented: define a Slack-based conversational incident assistant that extends SentinelFlow visibility into the team workspace while preserving Salesforce approval, execution, replay, and audit controls.
+- Goal documented: allow teams to receive incident context, ask basic incident questions, and navigate back to Salesforce for governed review and approval.
+- Initial use cases documented for CRITICAL incident alerts, approval-required alerts, Case-created alerts, incident summaries, Org Health status, pending approvals, and Salesforce links.
+- Out-of-scope actions documented for autonomous remediation, direct Slack execution, direct Slack approval/rejection, sensitive payload sharing, broad mutating agent actions, Agentforce production integration, hosted HYBRID Ollama, and major AI architecture changes.
+- Safety rules documented: Salesforce remains system of record, human approval remains in Salesforce, execution remains governed by SentinelFlow logic, Slack receives minimum necessary data, and secrets/payloads are not exposed.
+- Architecture options documented for hosted API Slack endpoint, Salesforce outbound alert only, and hybrid phased path.
+- Recommended starting path documented: outbound Slack alerts first.
+- Data sharing rules, candidate commands, security requirements, validation requirements, milestone breakdown, and exit criteria documented.
