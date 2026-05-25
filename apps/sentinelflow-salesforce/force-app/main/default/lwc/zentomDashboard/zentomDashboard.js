@@ -26,6 +26,41 @@ export default class ZentomDashboard extends NavigationMixin(LightningElement) {
         return this.data?.summary?.topRunbook || 'None';
     }
 
+    get activeRangeLabel() {
+        if (this.dateRange === 'TODAY') {
+            return 'Today';
+        }
+        if (this.dateRange === 'ALL') {
+            return 'All time';
+        }
+        return 'Last 7 days';
+    }
+
+    get failedExecutionLabel() {
+        const failedRows = (this.data?.recentIncidents || []).filter((row) => row.executionStatus === 'Failed');
+        return String(failedRows.length);
+    }
+
+    get systemHealthLabel() {
+        if (this.errorMessage) {
+            return 'Attention';
+        }
+        if (this.data?.summary?.criticalIncidents > 0 || this.data?.summary?.pendingApprovals > 0) {
+            return 'Watch';
+        }
+        return 'Operational';
+    }
+
+    get systemHealthClass() {
+        if (this.errorMessage) {
+            return 'badge critical-badge';
+        }
+        if (this.data?.summary?.criticalIncidents > 0 || this.data?.summary?.pendingApprovals > 0) {
+            return 'badge warning-badge';
+        }
+        return 'badge success-badge';
+    }
+
     get orgHealthClass() {
         const status = this.data?.summary?.orgHealthStatus;
         if (status === 'Healthy') {

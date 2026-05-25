@@ -1590,3 +1590,26 @@ Dashboard redesign must preserve existing data behavior.
 - Marketplace screenshot checklist documented for Org Health hero, KPI cards, `FLOW_FAILURE`, incidents, created Case, Replay Timeline, system health, privacy-safe content, no unfinished placeholders, and fast reviewer comprehension.
 - Next phase documented: 32B Dashboard visual design specification.
 - Rollback note: documentation-only milestone; remove `docs/dashboard-uiux-redesign-plan.md` and this maintenance entry if the redesign plan is replaced.
+
+32B SLDS dashboard layout implementation:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Files updated: `apps/sentinelflow-salesforce/force-app/main/default/lwc/zentomDashboard/zentomDashboard.html`, `apps/sentinelflow-salesforce/force-app/main/default/lwc/zentomDashboard/zentomDashboard.css`, and `apps/sentinelflow-salesforce/force-app/main/default/lwc/zentomDashboard/zentomDashboard.js`.
+- Goal completed: improved dashboard layout and visual hierarchy without changing Apex controller behavior.
+- Preserved controller: `ZentomDashboardController`.
+- Preserved data behavior: existing `getDashboardData` wire, response shape, arrays, navigation behavior, and dashboard functionality were kept intact.
+- Org Health hero card implemented with score, health status, reason, and summary chips.
+- KPI summary cards implemented for total incidents, critical incidents, pending approvals, executed actions, rejected recommendations, replay events, cases created, and top runbook.
+- Pending approval queue implemented above lower-priority operational sections.
+- Recent incidents table preserved and visually reframed as incident operations.
+- Executed actions / created cases sections implemented as governed action and Case outcome panels.
+- Replay mini timeline implemented using existing recent replay event data.
+- Error/system health section implemented using existing summary and incident data without adding controller calls.
+- Full manifest validation evidence: `sf project deploy validate --manifest manifest/package-sentinelflow-beta.xml --test-level RunSpecifiedTests --tests ZentomDashboardControllerTest --target-org astrosoft` failed due unrelated Apex class coverage in the manifest.
+- Dashboard test evidence: `ZentomDashboardControllerTest` passed 6/6 during full manifest validation.
+- Dashboard-specific validation evidence: narrow dashboard LWC validation succeeded with `ZentomDashboardControllerTest` passing 6/6.
+- Dashboard-specific validation deploy id: `0AfdL00000b0iQMSAY`.
+- Rule confirmed: UI polish is allowed; do not break existing Apex/controller logic; preserve existing data behavior.
+- Next phase documented: 32C Dashboard QA + Screenshot Readiness.
+- Rollback note: revert the three `zentomDashboard` LWC files if layout behavior needs to return to the previous dashboard presentation.
