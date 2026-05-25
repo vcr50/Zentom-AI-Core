@@ -1547,7 +1547,7 @@ Milestone 31 wrap-up:
 
 ## Milestone 32: Dashboard UI/UX Redesign
 
-Status: Planned
+Status: Active
 
 Planned scope:
 
@@ -1561,3 +1561,32 @@ Current next milestone:
 ```text
 Milestone 32 - Dashboard UI/UX Redesign
 ```
+
+Milestone 32 rule:
+
+```text
+Now UI polish is allowed.
+Do not break existing Apex/controller logic.
+Dashboard redesign must preserve existing data behavior.
+```
+
+32A dashboard UX redesign plan:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/dashboard-uiux-redesign-plan.md`.
+- Purpose documented: plan a polished, marketplace-ready SentinelFlow dashboard redesign while preserving existing Apex/controller logic and existing data behavior.
+- Current dashboard status documented for functional dashboard surfaces, needed visual hierarchy, marketplace screenshot readiness, and stable data behavior constraints.
+- Redesign goal documented for Salesforce admins, operations owners, marketplace reviewers, org health visibility, pending approval clarity, incident/action/replay/system health scanability, and screenshot readiness.
+- Dashboard layout documented with Org Health hero, KPI cards, pending approval queue, recent incidents table, executed actions/created Cases, Replay Timeline, and error logs/system health.
+- Org Health hero section documented for score, health label, active incident count, pending approval count, last refresh, primary risk driver, restrained status color, and privacy-safe screenshots.
+- KPI card section documented for open incidents, pending approvals, actions executed, Cases created, replay events, API/error status, consistent sizing, icons, status indicators, and overflow protection.
+- Pending approval queue documented for incident, severity/risk, policy decision, runbook, age, owner, action, and preservation of approval/rejection behavior.
+- Recent incidents table documented for incident name/number, type, status, risk, policy, created date, last update, related Case, table density, states, privacy-safe data, and preserved sorting/filtering behavior unless separately scoped.
+- Executed actions / created Cases section documented for approved action outcomes, created Cases, source incident, timestamp, result, owner/queue, approval-gated messaging, and marketplace visibility.
+- Replay Timeline section documented for incident created, risk/policy, AI recommendation, approval/rejection, execution, Case creation, error event, chronological compact rows, and existing replay/audit data preservation.
+- Error logs / system health section documented for API status, health timestamp, recent error logs, callout/authentication status, failed execution count, support link placeholder, sanitized messages, and severity labels.
+- Responsive design checklist documented for desktop, tablet, table behavior, KPI dimensions, tappable actions, text overflow, states, and screenshot viewport testing.
+- Marketplace screenshot checklist documented for Org Health hero, KPI cards, `FLOW_FAILURE`, incidents, created Case, Replay Timeline, system health, privacy-safe content, no unfinished placeholders, and fast reviewer comprehension.
+- Next phase documented: 32B Dashboard visual design specification.
+- Rollback note: documentation-only milestone; remove `docs/dashboard-uiux-redesign-plan.md` and this maintenance entry if the redesign plan is replaced.
