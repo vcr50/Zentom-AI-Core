@@ -763,3 +763,17 @@ Milestone 26 - Post-v1 Stabilization and Customer Rollout
 - Weekly review dashboard, success signals, risk signals, and future automation plan documented.
 - Next phase documented: 26E Feedback-to-Roadmap Process.
 - Rollback note: documentation-only milestone; remove `docs/usage-monitoring-adoption-metrics.md` and this maintenance entry if the metrics plan is replaced.
+
+26E feedback-to-roadmap process:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/feedback-to-roadmap-process.md`.
+- Goal documented: convert customer feedback, support signals, onboarding observations, production issues, usage metrics, and product ideas into clear decisions for immediate fixes, next patch, workaround, accepted risk, future roadmap, duplicate, or not planned.
+- Feedback sources documented: beta feedback form, support tickets, customer onboarding notes, production issue tracking, SentinelFlow Replay Timeline findings, Salesforce error logs, usage/adoption metrics, and direct customer calls.
+- Feedback classifications documented: bug, usability issue, documentation gap, feature request, security concern, performance issue, integration request, and AI recommendation quality issue.
+- Priority levels documented from P0 through P4, including production safety blockers, core workflow/trust issues, onboarding/adoption improvements, future enhancements, and backlog ideas.
+- Roadmap decision rules documented for must-fix, next-patch, and future-roadmap items, including advanced AI/HYBRID hosted model, Agentforce integration, setup wizard implementation, and Named Credential default switch.
+- Review cadence, customer communication rules, backlog management, release planning, and success metrics documented.
+- Next phase documented: 26F v1.0.1 Patch Planning.
+- Rollback note: documentation-only milestone; remove `docs/feedback-to-roadmap-process.md` and this maintenance entry if the roadmap process is replaced.
