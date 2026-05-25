@@ -1335,3 +1335,22 @@ Fix only P0/P1/P2 issues.
 - Locked beta rule reaffirmed: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
 - Next phase documented: 30F Go/No-Go decision.
 - Rollback note: documentation-only milestone; remove `docs/beta-pilot-feedback-capture.md` and this maintenance entry if the feedback capture template is replaced.
+
+30F go/no-go decision:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/beta-pilot-go-no-go-decision.md`.
+- Purpose documented: make a clear beta pilot decision based on install validation, scenario execution, customer feedback, value signals, and open P0/P1/P2 risk.
+- Decision summary documented with go, conditional go, no-go, decision date, decision owner, customer pilot owner, internal approver, and decision statement.
+- Pilot scope reviewed section documented for 30A through 30E and evidence reviewed from org selection through open issue list.
+- Required evidence section documented for pilot org, package install, hosted API/DB, callout mode, `FLOW_FAILURE`, risk/policy/runbook/status, approval, rejection, Case creation, Replay Timeline, dashboard, error logging, and feedback capture.
+- P0/P1/P2 issue review documented with decision rules: open P0 is no-go, open P1 is no-go unless explicitly mitigated and accepted, open P2 is conditional go only with mitigation, and P3/P4 remain backlog only.
+- Customer value review documented for 30E value score, triage value, human approval trust, AI recommendation, runbook, Case creation, Replay Timeline, Org Health Score, and customer continuation.
+- Security/privacy review documented for hosted API, shared secret auth, customer data handling, logs/audit, AI output, documentation/evidence, and blocker rules.
+- Go, conditional go, and no-go criteria documented with required status, mitigations, customer acceptance, blockers, and fix milestone expectations.
+- Decision record documented for final decision, rationale, accepted limitations, required fixes, deferred backlog, customer confirmation, and internal approval.
+- Next actions documented for go, conditional go, and no-go outcomes.
+- Locked beta rule reaffirmed: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
+- Next phase documented: 30G Pilot success report.
+- Rollback note: documentation-only milestone; remove `docs/beta-pilot-go-no-go-decision.md` and this maintenance entry if the go/no-go template is replaced.
