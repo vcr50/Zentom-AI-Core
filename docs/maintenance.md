@@ -1125,3 +1125,22 @@ Milestone 29 - Submission Execution
 - Upload readiness criteria documented.
 - Next phase documented: 29C Security Review Submission Execution.
 - Rollback note: documentation-only milestone; remove `docs/package-version-upload-preparation.md` and this maintenance entry if the package upload preparation plan is replaced.
+
+29C security review submission execution:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/security-review-submission-execution.md`.
+- Purpose documented: submit the SentinelFlow security review package with complete evidence, accurate scope, known gaps disclosed, and a clear post-submission tracking and remediation workflow.
+- Submission scope documented for Salesforce package, hosted Zentom API integration, incident intake, risk/policy/recommendation/runbook write-back, human approval/rejection, approved Case creation, Replay Timeline, dashboard, Org Health Score, error logging, Remote Site default, validated Named Credential path, and shared-secret API authentication.
+- Out-of-scope items documented: full autonomous remediation, hosted HYBRID Ollama, Agentforce production integration, major AI architecture changes, large object model changes, and customer-specific integrations.
+- Security review package contents documented with package validation, fresh org validation, production validation, security review evidence pack, CRUD/FLS + sharing review, Apex/LWC security checklist, privacy/retention, callout documentation, Named Credential validation, shared-secret auth, error logging, known gaps, install guide, and troubleshooting guide.
+- Evidence documents submitted section documented with primary and supporting evidence references.
+- Code / metadata evidence documented for stable Apex, tests, LWC, objects, policy/audit/error objects, custom metadata, permission sets, app/tabs/layouts/list views, Remote Site fallback, Named Credential metadata, validation evidence, and excluded metadata.
+- External callout evidence documented for hosted API `https://zentom-api.onrender.com`, default `REMOTE_SITE`, Named Credential path validated but not default, Remote Site, Named Credential migration/implementation, hosted health, callout failure logging, and no local/public Ollama endpoint.
+- Data privacy evidence documented for Salesforce-to-Zentom data, Salesforce storage, hosted PostgreSQL storage, replay/audit evidence, error logging, retention/deletion/export/access controls, and customer data-entry cautions.
+- AI governance evidence documented for governed recommendation workflow, human approval, policy decisions, safe Case creation, Replay Timeline, and excluded autonomous/HYBRID Ollama/Agentforce scope.
+- Known gaps disclosed section documented for explicit CRUD/FLS enforcement posture, hosted HYBRID Ollama exclusion, Agentforce production integration exclusion, full autonomous remediation exclusion, Render cold-start behavior, and final asset secret-safe review.
+- Submission steps, post-submission tracking, and response/remediation workflow documented.
+- Next phase documented: 29D Listing Submission Execution.
+- Rollback note: documentation-only milestone; remove `docs/security-review-submission-execution.md` and this maintenance entry if the security review submission execution plan is replaced.
