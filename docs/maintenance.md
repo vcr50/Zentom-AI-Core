@@ -1881,3 +1881,24 @@ Milestone 34 - Slack Pilot Setup and Manual Validation
 - Required pass conditions documented for workspace/app/channel approval, minimum scopes, credential storage, readable templates, Salesforce link behavior, permission enforcement, no secrets, no raw payloads, no mutating Slack paths, and no open P0/P1 blockers.
 - Blockers, accepted risks, implementation scope if GO, deferred scope, rollback requirement, decision options, required follow-up, milestone exit criteria, and next milestone recommendations documented.
 - Recommended next milestone if GO: Milestone 35 - Slack Outbound Alert Implementation.
+
+## Milestone 35: Slack Outbound Alert Implementation
+
+Milestone 35 - Slack Outbound Alert Implementation
+
+- Status: Started.
+- Start date: 2026-05-26.
+- Prior milestone: Milestone 34 Slack Pilot Setup and Manual Validation.
+- Direction: implement outbound Slack alerts while preserving Salesforce as the system of record.
+- Product rule: outbound Slack alerts only; no Slack-side approval, execution, remediation, or autonomous action.
+
+35A - Slack Outbound Alert Implementation Plan:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-outbound-alert-implementation-plan.md`.
+- Purpose documented: open Milestone 35 and define the implementation path for SentinelFlow outbound Slack alerts.
+- Implementation goal documented: implement outbound Slack alerts without changing Salesforce approval, execution, replay, or dashboard behavior.
+- Initial scope documented for CRITICAL incident, approval required, approved action executed, Case created, Org Health watch, and delivery failure alerts.
+- Out-of-scope items documented for slash commands, read-only command API, interactive Slack buttons, Slack approval/rejection, Slack execution, Slack remediation, Agentforce production integration, and major AI architecture changes.
+- Recommended technical path documented for Salesforce SentinelFlow event to Apex formatter/service to Slack webhook or hosted relay to approved Slack channel.
+- Candidate Salesforce components, configuration strategy, message formatting strategy, delivery strategy, trigger/invocation strategy, error handling, test requirements, validation requirements, rollback plan, milestone breakdown, and exit criteria documented.
