@@ -9,6 +9,7 @@
         <members>ZentomReplayController</members>
         <members>ZentomDashboardController</members>
         <members>ZentomRunbookService</members>
+        <members>SentinelFlowSlackAlertService</members>
         <name>ApexClass</name>
     </types>
 
@@ -19,6 +20,7 @@
         <members>ZentomExecutionControllerTest</members>
         <members>ZentomReplayControllerTest</members>
         <members>ZentomDashboardControllerTest</members>
+        <members>SentinelFlowSlackAlertServiceTest</members>
         <name>ApexClass</name>
     </types>
 

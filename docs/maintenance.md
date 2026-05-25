@@ -1902,3 +1902,20 @@ Milestone 35 - Slack Outbound Alert Implementation
 - Out-of-scope items documented for slash commands, read-only command API, interactive Slack buttons, Slack approval/rejection, Slack execution, Slack remediation, Agentforce production integration, and major AI architecture changes.
 - Recommended technical path documented for Salesforce SentinelFlow event to Apex formatter/service to Slack webhook or hosted relay to approved Slack channel.
 - Candidate Salesforce components, configuration strategy, message formatting strategy, delivery strategy, trigger/invocation strategy, error handling, test requirements, validation requirements, rollback plan, milestone breakdown, and exit criteria documented.
+
+35B - Alert Formatter / Service Skeleton:
+
+- Status: Implemented, validated, and deployed.
+- Files created: `SentinelFlowSlackAlertService.cls`, `SentinelFlowSlackAlertServiceTest.cls`, and metadata files.
+- Package manifest updated to include `SentinelFlowSlackAlertService` and `SentinelFlowSlackAlertServiceTest`.
+- Scope implemented: formatter/service skeleton for outbound Slack alert messages using current `Sentinel_Incident__c` data.
+- Alert types scaffolded: CRITICAL incident, approval required, action executed, Case created, Org Health watch, and delivery issue.
+- Service builds privacy-safe text and payload maps with Salesforce record links.
+- No live Slack callout is wired.
+- No trigger, approval, execution, replay, dashboard, or hosted API behavior is changed.
+- Tests cover critical incident, approval required, executed action, Case created, null-input handling, and basic secret/unsafe action wording checks.
+- Validation succeeded with `SentinelFlowSlackAlertServiceTest` passing 4/4.
+- Validation deploy id: `0AfdL00000b1nEHSAY`.
+- Live deploy succeeded with `SentinelFlowSlackAlertServiceTest` passing 4/4.
+- Live deploy id: `0AfdL00000b1nHVSAY`.
+- Product rule reaffirmed: outbound formatting only; no Slack-side approval, execution, remediation, or autonomous action.
