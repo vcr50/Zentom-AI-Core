@@ -1466,3 +1466,21 @@ Fix only P0/P1/P2 issues.
 - Exit criteria documented for finalized approved/out-of-scope lists, accepted change control, accepted guardrails, accepted validation gate, confirmed rollback expectations, and readiness for 31D.
 - Next phase documented: 31D Patch Implementation.
 - Rollback note: documentation-only milestone; remove `docs/patch-scope-freeze.md` and this maintenance entry if the scope freeze template is replaced.
+
+31D patch implementation:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/patch-implementation.md`.
+- Purpose documented: track implementation of frozen, approved P0/P1/P2 pilot feedback fixes for v1.0.1 without adding new features or unrelated refactors.
+- Patch rule documented: no new features; only pilot feedback fixes P0/P1/P2.
+- Implementation preconditions documented for completed 31A/31B/31C, frozen approved fix list, severity, owner, evidence, validation requirement, and rollback expectation.
+- Approved fix implementation tracker documented with fix id, severity, summary, owner, files changed, commit, status, and validation status.
+- P0, P1, and P2 implementation sections documented with implementation notes, commits, validation evidence, result, and severity-specific readiness rules.
+- Implementation guardrails documented for approved fixes only, small reviewable changes, no unrelated refactors, no broad UI redesign, no object model changes unless required, no AI architecture changes, no Hosted HYBRID Ollama, no Agentforce production integration, no autonomous remediation, and no P3/P4 backlog items.
+- Validation tracking documented for package deploy/install, Apex tests, hosted API, hosted DB, callout/authentication, `FLOW_FAILURE`, risk/policy/runbook, approval/rejection, Case creation, Replay Timeline/audit, dashboard/Org Health Score, error logging, and documentation/onboarding.
+- Regression check documented for package tests, hosted API, default callout mode, approval/execution, Case creation, replay/audit, dashboard, and no committed secrets/sensitive data.
+- Rollback tracking documented with trigger, method, rollback commit/reference, result, rollback rules, and re-validation requirement.
+- Exit criteria documented for implemented/validated/mitigated/deferred P0/P1/P2 fixes, no new features, no out-of-scope architecture changes, validation evidence, regression check, rollback tracking, and readiness for 31E.
+- Next phase documented: 31E Patch Validation.
+- Rollback note: documentation-only milestone; remove `docs/patch-implementation.md` and this maintenance entry if the implementation tracker is replaced.
