@@ -1385,7 +1385,7 @@ Milestone 30 wrap-up:
 
 ## Milestone 31: v1.0.1 Patch / Pilot Feedback Fixes
 
-Status: Planned
+Status: Active
 
 Planned scope:
 
@@ -1409,3 +1409,22 @@ Run pilot.
 Collect feedback.
 Fix only P0/P1/P2 issues.
 ```
+
+31A pilot feedback triage:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/pilot-feedback-triage.md`.
+- Purpose documented: review beta pilot feedback, identify only P0/P1/P2 issues eligible for v1.0.1 patch work, and defer all feature requests or low-priority improvements.
+- Patch rule documented: no new features; only pilot feedback fixes P0/P1/P2.
+- Triage inputs documented from beta pilot success report, feedback capture, go/no-go decision, scenario run, install validation, customer notes, logs, and screenshots.
+- Triage scope documented for pilot blockers, hosted API failures, install/package blockers, callout/authentication failures, approval/execution defects, Case creation defects, replay/audit defects, dashboard/Org Health Score defects, error logging defects, security/privacy issues, and onboarding/documentation corrections.
+- Exclusions documented for new features, major AI architecture changes, Hosted HYBRID Ollama, Agentforce production integration, full autonomous remediation, large object model changes, and P3/P4 enhancements.
+- Severity rules documented for P0/P1/P2/P3/P4 and patch eligibility limited to P0/P1/P2.
+- Triage workflow documented from feedback collection through duplicate removal, severity assignment, evidence confirmation, ownership, validation definition, backlog deferral, and 31B handoff.
+- Triage table documented with source, summary, area, severity, patch eligibility, owner, evidence, and decision.
+- Evidence requirements documented for customer/org context, scenario, expected result, actual result, severity rationale, sanitized proof, and validation step.
+- Decision outcomes documented: accept for v1.0.1 patch, needs more evidence, duplicate, defer to backlog, or reject as out of scope.
+- Approved patch candidate list and deferred backlog list documented.
+- Next phase documented: 31B P0/P1/P2 Fix Plan.
+- Rollback note: documentation-only milestone; remove `docs/pilot-feedback-triage.md` and this maintenance entry if the triage template is replaced.
