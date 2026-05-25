@@ -1212,7 +1212,7 @@ Milestone 29 wrap-up:
 
 ## Milestone 30: Beta Customer Pilot Execution
 
-Status: Planned
+Status: Active
 
 Planned scope:
 
@@ -1229,3 +1229,27 @@ Current next milestone:
 ```text
 Milestone 30 - Beta Customer Pilot Execution
 ```
+
+Beta rule:
+
+```text
+No new features now.
+Run pilot.
+Collect feedback.
+Fix only P0/P1/P2 issues.
+```
+
+30A select pilot customer/org:
+
+- Date: 2026-05-25.
+- Status: Started.
+- Document created: `docs/beta-customer-pilot-selection.md`.
+- Purpose documented: select a real beta customer and Salesforce org for a controlled SentinelFlow pilot before any new feature expansion.
+- Pilot objective documented for real Salesforce validation, install/configuration, hosted API/DB, `FLOW_FAILURE`, human approval, Case creation, Replay Timeline, dashboard value, feedback capture, and P0/P1/P2 issue identification.
+- Ideal pilot customer documented with Salesforce admin availability, sandbox/developer org, Case validation, operational workflow fit, guided demo/setup participation, feedback availability, and controlled beta expectations.
+- Org selection criteria documented for sandbox/developer preference, Case access, outbound callouts, permission assignment, hosted API, default `REMOTE_SITE`, Named Credential path validated but not default, contacts, support escalation, beta limitations, and no sensitive data in test incident text.
+- Candidate evaluation tracker and scoring documented.
+- Pilot scope confirmation documented with included validation activities and excluded new feature/AI/Agentforce scope.
+- Pilot readiness decision options and no-go criteria documented.
+- Next phase documented: 30B Schedule pilot demo.
+- Rollback note: documentation-only milestone; remove `docs/beta-customer-pilot-selection.md` and this maintenance entry if the pilot selection process is replaced.
