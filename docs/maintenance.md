@@ -1769,3 +1769,16 @@ Milestone 33 - Slack Bot / Conversational Incident Assistant
 - Delivery method options documented for incoming webhook, Slack Web API `chat.postMessage`, and hosted API relay.
 - Error handling, logging/audit, configuration, security requirements, validation plan, rollback plan, and implementation readiness criteria documented.
 - Product rule reaffirmed: outbound alerts only; no Slack approval, no Slack execution, no autonomous remediation.
+
+33E - Read-only Command Design:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-read-only-command-design.md`.
+- Purpose documented: define safe read-only Slack command design for a later phase after outbound alerts are validated.
+- Command goal documented: allow approved Slack users to ask for basic SentinelFlow status and incident summaries without changing Salesforce data.
+- Candidate commands documented for `/sentinelflow health`, `/sentinelflow critical`, `/sentinelflow approvals`, `/sentinelflow incident <incident-name>`, and `/sentinelflow help`.
+- Deferred commands documented for cases, replay, errors, and digest.
+- Mutating commands explicitly excluded for approve, reject, execute, and remediate.
+- Response fields documented for health, critical incidents, pending approvals, incident summary, and help.
+- Authorization model, data access model, safe error responses, audit/logging expectations, validation requirements, and exit criteria documented.
+- Product rule reaffirmed: Slack access does not grant Salesforce access; linked Salesforce records must still enforce Salesforce permissions.
