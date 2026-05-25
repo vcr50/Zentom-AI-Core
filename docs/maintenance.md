@@ -1504,3 +1504,22 @@ Fix only P0/P1/P2 issues.
 - Exit criteria documented for validated P0, validated or mitigated P1, validated/mitigated/deferred P2, regression pass, security/privacy pass, rollback status, and release notes readiness.
 - Next phase documented: 31F v1.0.1 Release Notes.
 - Rollback note: documentation-only milestone; remove `docs/patch-validation.md` and this maintenance entry if the validation template is replaced.
+
+31F v1.0.1 release notes:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/v1.0.1-release-notes.md`.
+- Release name documented as `SentinelFlow v1.0.1 Patch Release`.
+- Release version documented as `v1.0.1`, with patch release type and target tag `v1.0.1`.
+- Patch rule documented: no new features; only pilot feedback fixes P0/P1/P2.
+- Release summary documented as a controlled patch release focused only on approved P0/P1/P2 pilot feedback fixes, validation corrections, onboarding/documentation corrections, and low-risk stability improvements required before continued controlled rollout.
+- Fixes included section documented with fix id, severity, area, summary, validation evidence, allowed areas, and explicitly excluded new features/P3/P4/major AI/Hosted HYBRID Ollama/Agentforce/autonomous remediation/large object changes.
+- Validation summary documented for package deploy/install, Apex tests, hosted API, hosted DB, callout/authentication, `FLOW_FAILURE`, approval/rejection, Case creation, Replay Timeline/audit, dashboard/Org Health Score, error logging, security/privacy, and regression.
+- Known limitations documented for no new features, deferred P3/P4 feedback, Agentforce production integration out of scope, Hosted HYBRID Ollama out of scope, autonomous remediation out of scope, large object model changes out of scope, and Named Credential path caveat.
+- Upgrade/deployment notes documented for target org, package/version, approved fix list, patch deployment, permission sets, hosted API configuration, callout mode, validation checks, and deployment evidence.
+- Rollback notes documented for individual fix rollback, hosted API rollback, Salesforce metadata rollback, post-rollback validation, customer notification, and rollback triggers.
+- Support notes documented for P0/P1 immediate triage, P2 patch feedback routing, P3/P4 backlog capture, known limitation communication, sanitized logs/evidence, and support contacts.
+- Next patch candidate items section documented with candidate rules for P0/P1/P2, P3/P4 re-triage, and separate milestone requirement for new features.
+- Next phase documented: 31G v1.0.1 Tag.
+- Rollback note: documentation-only milestone; remove `docs/v1.0.1-release-notes.md` and this maintenance entry if the release notes template is replaced.
