@@ -1003,3 +1003,23 @@ Milestone 28 - AppExchange / AgentExchange Submission Finalization
 - Final asset checklist documented for required screenshot filenames, demo video, review, captions/transcript, listing consistency, privacy/security review, and submission owner approval.
 - Next phase documented: 28D Security Review Evidence Cross-check.
 - Rollback note: documentation-only milestone; remove `docs/screenshots-demo-script-finalization.md` and this maintenance entry if the screenshot/demo finalization plan is replaced.
+
+28D security review evidence cross-check:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/security-review-evidence-cross-check.md`.
+- Purpose documented: confirm SentinelFlow security, privacy, package validation, hosted API, callout, authentication, error logging, and known-gap evidence is complete and internally consistent before final submission.
+- Evidence documents reviewed section documented with primary and supporting security, privacy, callout, install, support, submission, and demo/listing evidence references.
+- Package validation evidence documented for `v1.0.0-rc.1`, production validation commit `92e344c`, package tests 17 passing / 0 failing, validation org `astrosoft`, deploy validation ID `0AfdL00000az6W5SAI`, and hardened package deploy ID `0AfdL00000azAXBSA2`.
+- Fresh org validation evidence documented as passed with scratch org `sentinelflow-beta-18f`, deploy ID `0AfBi000007rTsgKAE`, 14 tests passing / 0 failing, hosted callout success, incident creation, approval, Case creation, and Replay Timeline evidence.
+- Production validation evidence documented for hosted API live, hosted DB + pgvector verified, Salesforce incident write-back, risk/policy/runbook output, approval/execution, Case creation, replay events, and error logging evidence.
+- Security controls evidence documented for human approval, Viewer read-only access, permission separation, `with sharing`, CRUD/FLS review, Apex/LWC security scan checklist, excluded autonomous/Agentforce/HYBRID Ollama scope, replay evidence, safe error logging, and secret-safe demo assets.
+- Privacy and retention evidence documented for Salesforce-to-Zentom data, Salesforce storage, hosted PostgreSQL storage, no public Ollama exposure, human approval, customer data-entry cautions, retention/deletion/export/access controls, and final asset privacy rules.
+- Callout / Named Credential evidence documented for Remote Site fallback, Named Credential path validation, External Credential / Permission Set Mapping future path, hosted API URL, and final callout mode validation requirement.
+- API authentication evidence documented for shared secret auth, correct key acceptance, missing/wrong key HTTP 401 rejection, safe API key handling, hosted API error logging, `/api/health/errors`, and Salesforce `Sentinel_Error_Log__c`.
+- Known gaps and mitigations documented for explicit CRUD/FLS enforcement posture, hosted RULE mode, excluded Agentforce production integration, excluded full autonomous remediation, Render cold starts, final screenshots/demo capture, and final install/test org validation.
+- Missing evidence checklist documented for 28E validation, screenshots, demo video, support placeholders, security/privacy links, package evidence, callout mode, CRUD/FLS posture, unsupported claims, secret/customer data exclusion, and final sign-off.
+- Final cross-check result documented as substantially complete for submission finalization planning, with required final actions before submission.
+- Next phase documented: 28E Install/Test Org Final Validation.
+- Rollback note: documentation-only milestone; remove `docs/security-review-evidence-cross-check.md` and this maintenance entry if the security evidence cross-check is replaced.
