@@ -1314,3 +1314,24 @@ Fix only P0/P1/P2 issues.
 - Locked beta rule reaffirmed: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
 - Next phase documented: 30E Capture feedback.
 - Rollback note: documentation-only milestone; remove `docs/beta-pilot-scenario-run.md` and this maintenance entry if the scenario run template is replaced.
+
+30E capture feedback:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/beta-pilot-feedback-capture.md`.
+- Purpose documented: capture pilot feedback structurally, separate active P0/P1/P2 fixes from future backlog ideas, and prepare inputs for go/no-go.
+- Pilot customer/org placeholders documented for customer, org, pilot date, feedback date, participants, and feedback owner.
+- Feedback sources documented for live demo discussion, scenario notes, admin feedback, operations/support feedback, security/privacy feedback, customer-approved media, logs, evidence, and follow-up notes.
+- Feedback categories documented across onboarding, install, permissions, hosted API/callout reliability, `FLOW_FAILURE`, risk/policy, AI recommendation, runbook, approval/rejection, Case creation, Replay Timeline, dashboard, error logging, security/privacy, documentation gaps, and deferred features.
+- Severity levels documented from P0 through P4 with active beta fix rule limiting immediate fixes to P0/P1/P2.
+- Customer value signals and value score documented for triage value, approval trust, AI recommendation usefulness, runbook fit, Case creation fit, Replay Timeline auditability, Org Health Score value, pilot continuation, and expansion readiness.
+- Feedback log documented with source, category, feedback, severity, owner, status, and target fix milestone.
+- Security/privacy feedback section documented with hosted API, shared secret auth, customer data, logs/audit, AI content, documentation evidence, and escalation rule.
+- Onboarding friction section documented for install, permission set, Remote Site/callout setup, API health check, test incident setup, user navigation, and documentation gaps.
+- Action item tracker documented with severity, owner, due date, evidence, status, P0/P1/P2 ownership requirements, and P3/P4 backlog separation.
+- Go/no-go inputs documented for completed scenarios, open P0/P1/P2 items, value signal, security/privacy blockers, customer continuation, and readiness for another beta org.
+- Follow-up plan documented for customer recap, issue severity confirmation, owner/target fix milestone, backlog separation, fix validation session, and 30F inputs.
+- Locked beta rule reaffirmed: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
+- Next phase documented: 30F Go/No-Go decision.
+- Rollback note: documentation-only milestone; remove `docs/beta-pilot-feedback-capture.md` and this maintenance entry if the feedback capture template is replaced.
