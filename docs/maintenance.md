@@ -1144,3 +1144,23 @@ Milestone 29 - Submission Execution
 - Submission steps, post-submission tracking, and response/remediation workflow documented.
 - Next phase documented: 29D Listing Submission Execution.
 - Rollback note: documentation-only milestone; remove `docs/security-review-submission-execution.md` and this maintenance entry if the security review submission execution plan is replaced.
+
+29D listing submission execution:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/listing-submission-execution.md`.
+- Purpose documented: submit the SentinelFlow marketplace listing with approved product positioning, listing copy, screenshots, demo assets, support contact, privacy/security links, beta/production notes, and post-submission tracking.
+- Listing target documented for AppExchange / AgentExchange listing for `SentinelFlow by Tomcodex`.
+- Product positioning documented: Salesforce-native incident intelligence and governed automation powered by Zentom AI.
+- Product name section documented with primary product name, alternate name, publisher, and name review checklist.
+- Short and long descriptions documented with marketplace-safe wording and unsupported-claim checks.
+- Category / keywords documented for Salesforce incident management, automation governance, AI incident intelligence, approval workflow, Case creation, replay timeline, audit trail, Org Health Score, Zentom AI, operations, runbook automation, policy governance, and AppExchange / AgentExchange readiness.
+- Screenshots submitted section documented with required screenshot list, recommended filenames, visual/privacy review, and upload checklist.
+- Demo video / demo script section documented with final demo flow and review checklist.
+- Support contact section documented with placeholders for support email, support URL, documentation URL, and support references.
+- Privacy / security links section documented with security/privacy references, listing security summary, and review checklist.
+- Beta / production notes documented for hosted API, default `REMOTE_SITE`, Named Credential validated but not default, current limitations, hosting posture, and data-entry cautions.
+- Submission steps, post-submission tracking, and listing approval criteria documented.
+- Next phase documented: 29E Review Feedback Tracking.
+- Rollback note: documentation-only milestone; remove `docs/listing-submission-execution.md` and this maintenance entry if the listing submission execution plan is replaced.
