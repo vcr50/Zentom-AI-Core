@@ -1743,3 +1743,15 @@ Milestone 33 - Slack Bot / Conversational Incident Assistant
 - Recommended pilot channels documented as `#sentinelflow-alerts` and `#sentinelflow-pilot`.
 - Credential rules documented: do not commit Slack tokens, webhook URLs, signing secrets, or app secrets.
 - Product rule reaffirmed: no Slack-side approval, no Slack-side execution, and no autonomous remediation in this phase.
+
+33C - Slack Alert Message Templates:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-alert-message-templates.md`.
+- Purpose documented: define privacy-safe Slack alert templates for the first outbound-alert-only SentinelFlow Slack assistant phase.
+- Message principles documented for short, scannable, Salesforce-linked, privacy-safe alerts that use SentinelFlow control-tower language.
+- Shared allowed fields and never-include fields documented.
+- Templates documented for CRITICAL incident, approval required, approved action executed, Case created, Org Health watch, Replay/audit ready, and alert delivery issue.
+- Link button labels documented for Open Command Center, Review Incident, View Replay Timeline, Open Case, and View System Health.
+- Direct mutating labels such as Approve, Reject, Execute, Remediate, and Run Action are explicitly avoided.
+- Formatting rules, template validation checklist, and exit criteria documented.
