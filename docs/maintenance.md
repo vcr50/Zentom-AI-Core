@@ -1847,3 +1847,14 @@ Milestone 34 - Slack Pilot Setup and Manual Validation
 - Manual rendering sections documented for CRITICAL incident, approval required, approved action executed, Case created, Org Health watch, Replay/audit ready, and alert delivery issue templates.
 - Checklist documented for readability, Salesforce links, no secrets, no raw payloads, no Slack-side approval/execution controls, mobile readability, and overall pass/fail result.
 - Product rule reaffirmed: manual rendering uses demo/sample data only and does not introduce automated Slack delivery.
+
+34D - Salesforce Link / Security Validation:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-salesforce-link-security-validation.md`.
+- Purpose documented: define validation checklist for Salesforce links and security behavior used in the SentinelFlow Slack pilot.
+- Validation rule documented: Slack links open Salesforce, Salesforce permissions decide access, and Slack does not grant access, approval, execution, or remediation.
+- Link inventory documented for Command Center, Sentinel Incident record, Created Case record, Replay Timeline/incident detail, and System Health/dashboard view.
+- Link format rules documented to prohibit session ids, bearer tokens, API keys, webhook URLs, public sensitive links, and direct mutating action links.
+- Authorized user, unauthorized user, message data leakage, permission set, link click behavior, screenshot rules, pass/fail result, issues/gaps, severity rules, and exit criteria documented.
+- Product rule reaffirmed: Slack messages guide users back to Salesforce and must not bypass Salesforce permissions.
