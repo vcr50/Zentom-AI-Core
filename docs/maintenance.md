@@ -1731,3 +1731,15 @@ Milestone 33 - Slack Bot / Conversational Incident Assistant
 - Architecture options documented for hosted API Slack endpoint, Salesforce outbound alert only, and hybrid phased path.
 - Recommended starting path documented: outbound Slack alerts first.
 - Data sharing rules, candidate commands, security requirements, validation requirements, milestone breakdown, and exit criteria documented.
+
+33B - Slack App / Workspace Setup Checklist:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-app-workspace-setup-checklist.md`.
+- Purpose documented: define Slack app and workspace setup before integration code is built.
+- Setup owner, target workspace, Slack app name, app description, app permissions/scopes, allowed channels, credential handling, message posting model, Salesforce link requirements, privacy/security checklist, validation checklist, and setup exit criteria documented.
+- Recommended Slack app name documented as `SentinelFlow`.
+- Initial app scope documented as outbound-alert-only with minimum Slack permissions.
+- Recommended pilot channels documented as `#sentinelflow-alerts` and `#sentinelflow-pilot`.
+- Credential rules documented: do not commit Slack tokens, webhook URLs, signing secrets, or app secrets.
+- Product rule reaffirmed: no Slack-side approval, no Slack-side execution, and no autonomous remediation in this phase.
