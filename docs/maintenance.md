@@ -1613,3 +1613,22 @@ Dashboard redesign must preserve existing data behavior.
 - Rule confirmed: UI polish is allowed; do not break existing Apex/controller logic; preserve existing data behavior.
 - Next phase documented: 32C Dashboard QA + Screenshot Readiness.
 - Rollback note: revert the three `zentomDashboard` LWC files if layout behavior needs to return to the previous dashboard presentation.
+
+32C dashboard QA + screenshot readiness:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/dashboard-qa-screenshot-readiness.md`.
+- Purpose documented: confirm the redesigned SentinelFlow dashboard is ready for QA review and marketplace screenshots without changing data/controller behavior.
+- Rule documented: no data/controller changes; only dashboard QA and screenshot readiness.
+- Validation evidence documented: full manifest validation failed due unrelated Apex class coverage, `ZentomDashboardControllerTest` passed 6/6, narrow dashboard LWC validation succeeded, deploy id `0AfdL00000b0iQMSAY`.
+- UI sections verified checklist documented for Org Health hero, KPI cards, pending approvals, recent incidents, executed actions, created Cases, replay timeline, system health/errors, loading, empty, and error states.
+- Desktop QA checklist documented for header/range controls, Org Health hero, KPI cards, pending approval queue, recent incidents table, executed actions/cases, replay timeline, system health, clickable controls, and privacy-safe data.
+- Responsive QA checklist documented for tablet layout, one-column narrow layout, KPI sizing, table scrolling, row wrapping, timeline overflow, date controls, and text overlap.
+- Data behavior check documented for existing `getDashboardData` wire, unchanged response shape, existing arrays, no Apex/controller changes, no new endpoint, states, and date range behavior.
+- Navigation behavior check documented for incident links, Case links, date range refresh, approval links, executed action links, created Case links, and replay timeline links.
+- Screenshot list documented for dashboard hero + KPI cards, pending approvals queue, recent incidents table, executed actions / created cases, replay timeline section, and system health / error log panel.
+- Known issues documented for full manifest validation coverage issue as non-dashboard and separate milestone scope.
+- Readiness result section documented for desktop QA, responsive QA, data behavior, navigation behavior, screenshot readiness, and final result.
+- Next phase documented: 32D Dashboard screenshot capture.
+- Rollback note: documentation-only milestone; remove `docs/dashboard-qa-screenshot-readiness.md` and this maintenance entry if the QA/screenshot readiness template is replaced.
