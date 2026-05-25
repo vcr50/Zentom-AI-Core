@@ -811,6 +811,7 @@ Status: Active
 Planned scope:
 
 - 27A: Pilot Customer Selection Criteria.
+- 27B: Pilot Outreach Pack.
 
 Current active milestone:
 
@@ -834,5 +835,22 @@ Milestone 27 - Real Customer Pilot
 - Support process documented with support owner, escalation contacts, SLA handling, issue tracking, feedback-to-roadmap routing, v1.0.1 patch routing, and required support evidence.
 - Feedback process documented with sources, categories, review rules, and feedback record template.
 - Pilot exit criteria documented with close, no-go, patch-candidate, roadmap, and rollout decision requirements.
-- Next phase documented: 27B Pilot Onboarding Runbook.
+- Next phase documented: 27B Pilot Outreach Pack.
 - Rollback note: documentation-only milestone; remove `docs/real-customer-pilot-plan.md` and this maintenance entry if the pilot selection process is replaced.
+
+27B pilot outreach pack:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/pilot-outreach-pack.md`.
+- Short product intro documented for SentinelFlow as a Salesforce incident intelligence and approval workflow pilot with hosted Zentom API, risk scoring, policy decisions, runbook recommendations, human approval, safe Salesforce actions, and Replay Timeline auditability.
+- Target pilot audience documented for Salesforce admins, operations leads, support/service leaders, automation owners, governance stakeholders, and technical evaluators.
+- Customer test scope documented for package validation, permission assignment, hosted API configuration, hosted health checks, `FLOW_FAILURE` test incident, write-back, risk/policy/recommendation/runbook output, approval/rejection, Case creation, Replay Timeline, dashboard, support escalation, and feedback.
+- Time required documented for intro/demo, pre-onboarding, guided setup, workflow testing, observation, and pilot review.
+- Pilot customer benefits documented, including early access, guided setup, real-org validation, human-approved workflow, replay evidence, v1.0.1 influence, clear support path, and low-risk validation.
+- Pilot limitations documented, including controlled scope, human approval requirement, no full autonomous remediation, no Agentforce production integration, no hosted HYBRID Ollama, no major AI architecture changes, no large object model changes, and no unapproved custom integrations.
+- Support process documented with support owner, customer contacts, org evidence, SLA handling, production issue tracking, feedback-to-roadmap routing, and v1.0.1 patch routing.
+- Call/demo agenda documented from introductions through demo flow, pilot fit, roles/access, timeline, support, feedback, and next steps.
+- Follow-up questions documented for pilot fit, pilot readiness, and post-validation feedback.
+- Next phase documented: customer-facing pilot outreach message.
+- Rollback note: documentation-only milestone; remove `docs/pilot-outreach-pack.md` and this maintenance entry if the outreach pack is replaced.

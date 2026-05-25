@@ -286,5 +286,5 @@ Milestone 27A result:
 
 ```text
 27A - Pilot Customer Selection Criteria: Complete
-Next - 27B Pilot Onboarding Runbook
+Next - 27B Pilot Outreach Pack
 ```
