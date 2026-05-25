@@ -1385,7 +1385,7 @@ Milestone 30 wrap-up:
 
 ## Milestone 31: v1.0.1 Patch / Pilot Feedback Fixes
 
-Status: Active
+Status: Complete
 
 Planned scope:
 
@@ -1523,3 +1523,41 @@ Fix only P0/P1/P2 issues.
 - Next patch candidate items section documented with candidate rules for P0/P1/P2, P3/P4 re-triage, and separate milestone requirement for new features.
 - Next phase documented: 31G v1.0.1 Tag.
 - Rollback note: documentation-only milestone; remove `docs/v1.0.1-release-notes.md` and this maintenance entry if the release notes template is replaced.
+
+31G v1.0.1 tag:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Tag created: `v1.0.1`.
+- Tag type: annotated Git tag.
+- Tag message: `SentinelFlow v1.0.1 patch release`.
+- Tagged commit: `4a9c1b3 Add v1.0.1 release notes`.
+- Remote push completed: `git push origin v1.0.1`.
+- Patch rule confirmed: no new features; only pilot feedback fixes P0/P1/P2.
+- Milestone 31 marked complete.
+- Next milestone documented: Milestone 32 Dashboard UI/UX Redesign.
+
+Milestone 31 wrap-up:
+
+- Status: Complete.
+- Completed scope: 31A pilot feedback triage, 31B P0/P1/P2 fix plan, 31C patch scope freeze, 31D patch implementation tracker, 31E patch validation, 31F v1.0.1 release notes, and 31G v1.0.1 tag.
+- Milestone 31 result: v1.0.1 patch planning, validation documentation, release notes, and release tag are complete.
+- Product rule: no new features; only pilot feedback fixes P0/P1/P2.
+- Next milestone: Milestone 32 Dashboard UI/UX Redesign.
+
+## Milestone 32: Dashboard UI/UX Redesign
+
+Status: Planned
+
+Planned scope:
+
+- Review existing dashboard surfaces.
+- Improve dashboard structure, hierarchy, and usability.
+- Preserve existing product behavior unless explicitly scoped.
+- Keep redesign work separate from v1.0.1 patch scope.
+
+Current next milestone:
+
+```text
+Milestone 32 - Dashboard UI/UX Redesign
+```
