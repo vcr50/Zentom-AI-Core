@@ -1069,3 +1069,40 @@ Milestone 28 wrap-up:
 - Milestone 28 result: AppExchange / AgentExchange submission finalization planning is complete.
 - Final readiness posture: go for Submission Execution, conditional on final execution evidence.
 - Next milestone: Milestone 29 Submission Execution.
+
+## Milestone 29: Submission Execution
+
+Status: Active
+
+Planned scope:
+
+- 29A: Submission Account / Partner Setup Verification.
+- 29B: Package Version / Upload Preparation.
+- 29C: Security Review Submission Execution.
+- 29D: Listing Submission Execution.
+- 29E: Review Feedback Tracking.
+- 29F: Submission Wrap-up.
+
+Current active milestone:
+
+```text
+Milestone 29 - Submission Execution
+```
+
+29A submission account / partner setup verification:
+
+- Date: 2026-05-25.
+- Status: Started.
+- Document created: `docs/submission-execution-plan.md`.
+- Purpose documented: move from submission planning to actual AppExchange / AgentExchange submission execution by verifying publisher account readiness, package/version readiness, evidence readiness, listing/demo assets, blockers, and submission status tracking.
+- Submission target documented for AppExchange / AgentExchange marketplace submission for `SentinelFlow by Tomcodex`.
+- Partner / publisher account readiness documented for Salesforce Partner Community access, publisher account, publisher profile, submission owner, security review submitter, listing editor, technical contact, support contact, agreements, submission workspace, package upload access, listing asset upload access, and security review submission access.
+- Package version readiness documented for final manifest, package version/upload candidate, `v1.0.0-rc.1`, target reference, validation evidence, 17 passing / 0 failing tests, fresh org validation, and exclusion of experimental metadata, temporary files, hardcoded secrets, local-only URLs, and public Ollama exposure.
+- Security review evidence readiness documented for evidence pack, final checklist, security prep, CRUD/FLS review, Apex/LWC scan checklist, privacy/retention, callout security, Named Credential evidence, shared secret auth, error logging, hosted API/DB evidence, known gaps, and cross-check.
+- Listing asset readiness documented for product name, tagline, descriptions, features, users, categories/keywords, screenshots, logo/brand assets, support contact, documentation URL, privacy/security links, review checklist, and unsupported claim removal.
+- Demo asset readiness documented for screenshot capture, naming, visual QA, secret/customer-data exclusion, demo video, demo script, transcript/captions, validated claims, and governance explanation.
+- Submission steps documented from account access through package/evidence/listing/demo uploads, review, security submission, listing submission, status recording, feedback tracking, remediation routing, and maintenance update.
+- Submission blockers documented for account access, package upload, validation, tests, hosted API/DB, screenshots/demo, support placeholders, security evidence gaps, unsupported claims, and secret/customer-data exposure.
+- Submission status tracker documented for 29A through 29F.
+- Next phase documented: 29B Package Version / Upload Preparation.
+- Rollback note: documentation-only milestone; remove `docs/submission-execution-plan.md` and this maintenance entry if the submission execution plan is replaced.
