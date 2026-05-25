@@ -1805,3 +1805,23 @@ Milestone 33 - Slack Bot / Conversational Incident Assistant
 - Severity rules documented for P0/P1/P2/P3/P4 pilot findings.
 - Recommended next milestone documented as Milestone 34 - Slack Pilot Setup and Manual Validation.
 - Milestone 33 planning package is complete at documentation level.
+
+## Milestone 34: Slack Pilot Setup and Manual Validation
+
+Milestone 34 - Slack Pilot Setup and Manual Validation
+
+- Status: Started.
+- Start date: 2026-05-26.
+- Prior milestone: Milestone 33 Slack Bot / Conversational Incident Assistant.
+- Direction: manually validate Slack workspace/app/channel setup, message templates, Salesforce links, privacy, and pilot usefulness before implementation code.
+- Product rule: manual validation first; no production Slack integration code yet; no Slack-side approval, execution, or autonomous remediation.
+
+34A - Slack Pilot Setup / Manual Validation Plan:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-pilot-setup-manual-validation.md`.
+- Purpose documented: open Milestone 34 and define the manual Slack pilot setup path before integration code is built.
+- Milestone goal documented: prove SentinelFlow Slack alerts are safe and useful as a notification layer before automated delivery.
+- Pilot setup scope documented for Slack workspace, app, channel, participants, manual template rendering, Salesforce links, security/privacy checks, screenshots, and findings.
+- Out-of-scope items documented for automated Slack delivery, slash commands, Slack approval/rejection, Slack execution, Slack remediation, Agentforce production integration, and major AI architecture changes.
+- Workspace, channel, Slack app setup, manual message validation, Salesforce link validation, security/privacy validation, screenshot evidence, user feedback, issue tracking, go/no-go decision, milestone breakdown, exit criteria, and next milestone options documented.
