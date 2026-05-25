@@ -1825,3 +1825,14 @@ Milestone 34 - Slack Pilot Setup and Manual Validation
 - Pilot setup scope documented for Slack workspace, app, channel, participants, manual template rendering, Salesforce links, security/privacy checks, screenshots, and findings.
 - Out-of-scope items documented for automated Slack delivery, slash commands, Slack approval/rejection, Slack execution, Slack remediation, Agentforce production integration, and major AI architecture changes.
 - Workspace, channel, Slack app setup, manual message validation, Salesforce link validation, security/privacy validation, screenshot evidence, user feedback, issue tracking, go/no-go decision, milestone breakdown, exit criteria, and next milestone options documented.
+
+34B - Slack Workspace / App / Channel Setup Evidence:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-workspace-app-channel-setup-evidence.md`.
+- Purpose documented: capture evidence that the Slack workspace, SentinelFlow Slack app, and pilot channel are ready for manual validation.
+- Validation date, owner, target workspace, Slack app evidence, permission/scope evidence, pilot channel evidence, credential handling evidence, secret search evidence, manual test message evidence, Salesforce link readiness, screenshot evidence checklist, pass/fail result, issues/gaps, and exit criteria documented.
+- Slack app name documented as `SentinelFlow`.
+- Approved pilot channels documented as `#sentinelflow-alerts` and `#sentinelflow-pilot`.
+- Secret search patterns documented for Slack token, webhook, and signing secret indicators.
+- Product rule reaffirmed: evidence must not include tokens, webhook URLs, signing secrets, app secrets, or sensitive customer data.
