@@ -1253,3 +1253,23 @@ Fix only P0/P1/P2 issues.
 - Pilot readiness decision options and no-go criteria documented.
 - Next phase documented: 30B Schedule pilot demo.
 - Rollback note: documentation-only milestone; remove `docs/beta-customer-pilot-selection.md` and this maintenance entry if the pilot selection process is replaced.
+
+30B schedule pilot demo:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/beta-pilot-demo-schedule.md`.
+- Pilot customer/org placeholders documented for customer name, Salesforce org, org type, org id, customer contacts, internal owner, and selected 30A source.
+- Demo date/time placeholders documented for date, time, time zone, duration, meeting link, recording approval, scheduling requirements, and readiness timing.
+- Participants documented for customer admin, operations/support owner, security/privacy stakeholder, sponsor, demo lead, pilot owner, support owner, and feedback owner.
+- Demo objective documented for real customer environment validation, governed automation explanation, customer feedback capture, and P0/P1/P2 issue identification.
+- Demo agenda documented from introductions through dashboard, `FLOW_FAILURE`, Sentinel Incident, risk/policy/recommendation, approval/rejection, Case creation, Replay Timeline, security/privacy explanation, and questions.
+- Required preparation documented for customer admin access, Case object access, permission assignment, outbound callouts, no sensitive production data, package/version target, hosted API/DB, scenario readiness, support owner, and feedback notes.
+- Salesforce org access documented for admin access, SentinelFlow app/records, Case object, setup items, sandbox/developer preference, production-data caution, and minimal org detail capture.
+- Package/API readiness check documented for `v1.0.0-rc.1`, package manifest, 17 passing / 0 failing tests, hosted API, hosted DB, `REMOTE_SITE`, Named Credential path validated but not default, shared secret auth, and error logging.
+- Test scenario list documented for app/dashboard, Org Health Score, `FLOW_FAILURE`, incident, AI recommendation, policy decision, approval, execution, Case creation, Replay Timeline, audit logs, and controlled error logging.
+- Feedback capture plan documented for onboarding, trust, approval clarity, Case value, replay/audit confidence, dashboard value, security/privacy concerns, P0/P1/P2 issues, deferred feature requests, and severity triage.
+- Follow-up actions documented for recap, owners, P0/P1/P2 logging, deferred feature request separation, and readiness for install/validation.
+- Locked beta rule reaffirmed: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
+- Next phase documented: 30C Install/validate package.
+- Rollback note: documentation-only milestone; remove `docs/beta-pilot-demo-schedule.md` and this maintenance entry if the demo scheduling process is replaced.
