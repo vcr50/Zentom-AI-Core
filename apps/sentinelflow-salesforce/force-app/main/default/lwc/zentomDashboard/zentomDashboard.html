@@ -2,9 +2,9 @@
     <section class="dashboard">
         <header class="dashboard-header">
             <div>
-                <p class="eyebrow">SentinelFlow</p>
-                <h1>Command Center</h1>
-                <p class="header-subtitle">by Tomcodex · Powered by Zentom AI</p>
+                <p class="eyebrow">Salesforce Operations Control Tower</p>
+                <h1>SentinelFlow Command Center</h1>
+                <p class="header-subtitle">Live incident radar, approval clearance, action tracking, and replay evidence powered by the Zentom AI OS.</p>
             </div>
             <div class="header-actions">
                 <div class="refresh-meta">
@@ -29,10 +29,33 @@
         </header>
 
         <template if:true={data}>
+            <section class="tower-strip" aria-label="Control tower focus areas">
+                <div>
+                    <span>Org posture</span>
+                    <strong>{data.summary.orgHealthStatus}</strong>
+                </div>
+                <div>
+                    <span>Awaiting clearance</span>
+                    <strong>{data.summary.pendingApprovals}</strong>
+                </div>
+                <div>
+                    <span>Critical traffic</span>
+                    <strong>{data.summary.criticalIncidents}</strong>
+                </div>
+                <div>
+                    <span>Cleared actions</span>
+                    <strong>{data.summary.executedActions}</strong>
+                </div>
+                <div>
+                    <span>Flight recorder</span>
+                    <strong>{data.summary.recentReplayEvents}</strong>
+                </div>
+            </section>
+
             <article class={orgHealthClass}>
                 <div class="health-main">
                     <div>
-                        <span class="section-label">Org Health</span>
+                        <span class="section-label">Org Health Radar</span>
                         <div class="health-score">
                             <strong>{data.summary.orgHealthScore}</strong>
                             <span>/ 100</span>
@@ -52,25 +75,25 @@
             <section class="kpi-grid" aria-label="Dashboard summary metrics">
                 <article class="metric">
                     <lightning-icon icon-name="utility:record" size="x-small"></lightning-icon>
-                    <span>Open Incidents</span>
+                    <span>Live Incidents</span>
                     <strong>{data.summary.totalIncidents}</strong>
-                    <p>{activeRangeLabel}</p>
+                    <p>Traffic in view</p>
                 </article>
                 <article class="metric critical">
                     <lightning-icon icon-name="utility:warning" size="x-small"></lightning-icon>
-                    <span>Critical</span>
+                    <span>Critical Traffic</span>
                     <strong>{data.summary.criticalIncidents}</strong>
                     <p>High urgency</p>
                 </article>
                 <article class="metric warning">
                     <lightning-icon icon-name="utility:approval" size="x-small"></lightning-icon>
-                    <span>Pending Approval</span>
+                    <span>Awaiting Clearance</span>
                     <strong>{data.summary.pendingApprovals}</strong>
-                    <p>Needs review</p>
+                    <p>Needs human review</p>
                 </article>
                 <article class="metric success">
                     <lightning-icon icon-name="utility:success" size="x-small"></lightning-icon>
-                    <span>Executed Actions</span>
+                    <span>Cleared Actions</span>
                     <strong>{data.summary.executedActions}</strong>
                     <p>Governed action</p>
                 </article>
@@ -88,7 +111,7 @@
                 </article>
                 <article class="metric">
                     <lightning-icon icon-name="utility:preview" size="x-small"></lightning-icon>
-                    <span>Replay Events</span>
+                    <span>Flight Recorder</span>
                     <strong>{data.summary.recentReplayEvents}</strong>
                     <p>Audit trail</p>
                 </article>
@@ -104,7 +127,7 @@
                 <article class="panel panel-priority">
                     <header class="panel-header">
                         <div>
-                            <span class="section-label">Approval Queue</span>
+                            <span class="section-label">Clearance Queue</span>
                             <h2>Pending approvals</h2>
                         </div>
                         <span class="panel-count">{data.summary.pendingApprovals}</span>
@@ -137,14 +160,14 @@
                         </div>
                     </template>
                     <template if:false={hasPendingApprovals}>
-                        <p class="empty">No pending approvals in this range.</p>
+                        <p class="empty">No incidents are waiting for clearance.</p>
                     </template>
                 </article>
 
                 <article class="panel system-panel">
                     <header class="panel-header">
                         <div>
-                            <span class="section-label">System Health</span>
+                            <span class="section-label">Tower Systems</span>
                             <h2>API and execution posture</h2>
                         </div>
                         <span class={systemHealthClass}>{systemHealthLabel}</span>
@@ -172,9 +195,9 @@
 
             <section class="panel">
                 <header class="panel-header">
-                    <div>
-                        <span class="section-label">Incident Operations</span>
-                        <h2>Recent incidents</h2>
+                        <div>
+                            <span class="section-label">Live Traffic Board</span>
+                            <h2>Recent incidents</h2>
                     </div>
                     <span class="panel-subtitle">{activeRangeLabel}</span>
                 </header>
@@ -217,7 +240,7 @@
                     </div>
                 </template>
                 <template if:false={hasRecentIncidents}>
-                    <p class="empty">No incidents in this range.</p>
+                    <p class="empty">No incident traffic in this range.</p>
                 </template>
             </section>
 
@@ -225,7 +248,7 @@
                 <article class="panel">
                     <header class="panel-header">
                         <div>
-                            <span class="section-label">Governed Actions</span>
+                            <span class="section-label">Cleared Actions</span>
                             <h2>Executed actions</h2>
                         </div>
                     </header>
@@ -249,7 +272,7 @@
                         </template>
                     </template>
                     <template if:false={hasRecentExecutions}>
-                        <p class="empty">No executed actions in this range.</p>
+                        <p class="empty">No cleared actions in this range.</p>
                     </template>
                 </article>
 
@@ -281,8 +304,8 @@
             <section class="panel">
                 <header class="panel-header">
                     <div>
-                        <span class="section-label">Replay Timeline</span>
-                        <h2>Recent replay events</h2>
+                        <span class="section-label">Flight Recorder</span>
+                        <h2>Replay timeline</h2>
                     </div>
                     <span class="panel-subtitle">{data.summary.recentReplayEvents} audit events</span>
                 </header>

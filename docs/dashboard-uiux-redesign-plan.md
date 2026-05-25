@@ -59,6 +59,15 @@ Success criteria:
 - Responsive layout works for desktop and tablet review.
 - Marketplace screenshots look complete, trustworthy, and privacy-safe.
 
+Control tower model:
+
+- Treat SentinelFlow as the Salesforce operations control tower.
+- Treat Org Health as radar for the Salesforce org.
+- Treat pending approvals as clearance decisions waiting for a human operator.
+- Treat executed actions and created Cases as cleared actions.
+- Treat Replay Timeline as the flight recorder for every decision.
+- Treat Zentom as the AI OS layer that powers radar, decision intelligence, and replay context.
+
 ## 4. Dashboard Layout
 
 Recommended layout:
@@ -98,8 +107,9 @@ Purpose:
 
 Recommended contents:
 
-- `SentinelFlow`.
-- `by Tomcodex · Powered by Zentom AI`.
+- `SentinelFlow` as the visible product name.
+- Supporting copy: `Salesforce-native incident intelligence powered by the Zentom AI OS.`
+- Zentom appears as the underlying AI OS layer, not as the dashboard or product header.
 - Last refreshed value.
 - Refresh button.
 - Date range controls.

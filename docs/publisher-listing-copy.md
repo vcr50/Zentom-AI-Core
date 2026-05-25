@@ -5,24 +5,24 @@
 Recommended listing name:
 
 ```text
-SentinelFlow by Tomcodex
+SentinelFlow
 ```
 
-Alternative listing name:
+Publisher:
 
 ```text
-SentinelFlow - Powered by Zentom AI
+Tomcodex
 ```
 
 ## 2. Short Description
 
-SentinelFlow is a Salesforce-native incident intelligence and governed automation app powered by Zentom AI. It detects operational issues, calculates risk, recommends safe runbooks, requires human approval for high-risk actions, executes approved Case creation, and records every decision in a replayable audit timeline.
+SentinelFlow is a Salesforce-native incident intelligence and governed automation app powered by the Zentom AI OS. It detects operational issues, calculates risk, recommends safe runbooks, requires human approval for high-risk actions, executes approved Case creation, and records every decision in a replayable audit timeline.
 
 ## 3. Long Description
 
 SentinelFlow helps Salesforce teams detect, understand, and respond to operational incidents with governed AI assistance.
 
-Powered by Zentom AI, SentinelFlow receives incident signals from Salesforce, analyzes risk and business impact, applies policy controls, recommends safe recovery runbooks, and writes the result back into Salesforce. Admins can approve or reject recommendations, execute safe actions such as Case creation, and review a full Replay Timeline showing what happened, why it happened, who approved it, and what action was taken.
+Powered by the Zentom AI OS, SentinelFlow receives incident signals from Salesforce, analyzes risk and business impact, applies policy controls, recommends safe recovery runbooks, and writes the result back into Salesforce. Admins can approve or reject recommendations, execute safe actions such as Case creation, and review a full Replay Timeline showing what happened, why it happened, who approved it, and what action was taken.
 
 The hosted beta runs in RULE mode for stability. Advanced local demos support Zentom Brain Engine with Ollama, pgvector memory, and RAG-based recommendations.
 

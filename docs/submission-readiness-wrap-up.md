@@ -118,13 +118,13 @@ Listing assets completed:
 - Product name:
 
 ```text
-SentinelFlow by Tomcodex
+SentinelFlow
 ```
 
 - Positioning:
 
 ```text
-Salesforce-native incident intelligence and governed automation powered by Zentom AI.
+Salesforce-native incident intelligence and governed automation powered by the Zentom AI OS.
 ```
 
 Completed listing sections:

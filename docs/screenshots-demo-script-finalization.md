@@ -120,7 +120,7 @@ Demo setup checklist:
 Opening:
 
 ```text
-SentinelFlow by Tomcodex is Salesforce-native incident intelligence and governed automation powered by Zentom AI. In this demo, we will show how a Salesforce operational incident moves from signal to risk scoring, policy decision, recommendation, human approval, safe Case creation, and replayable audit evidence.
+SentinelFlow is Salesforce-native incident intelligence and governed automation powered by the Zentom AI OS. In this demo, we will show how a Salesforce operational incident moves from signal to risk scoring, policy decision, recommendation, human approval, safe Case creation, and replayable audit evidence.
 ```
 
 Step 1: Open SentinelFlow app.

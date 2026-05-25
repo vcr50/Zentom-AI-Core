@@ -148,13 +148,13 @@ Listing readiness:
 - Product name documented:
 
 ```text
-SentinelFlow by Tomcodex
+SentinelFlow
 ```
 
 - Positioning documented:
 
 ```text
-Salesforce-native incident intelligence and governed automation powered by Zentom AI.
+Salesforce-native incident intelligence and governed automation powered by the Zentom AI OS.
 ```
 
 - Listing submission execution plan complete.

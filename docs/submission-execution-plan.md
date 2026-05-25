@@ -17,14 +17,14 @@ Milestone 29 should focus on executing the marketplace submission workflow, uplo
 Primary target:
 
 ```text
-AppExchange / AgentExchange marketplace submission for SentinelFlow by Tomcodex.
+AppExchange / AgentExchange marketplace submission for SentinelFlow.
 ```
 
 Product positioning:
 
 ```text
-SentinelFlow by Tomcodex
-Salesforce-native incident intelligence and governed automation powered by Zentom AI.
+SentinelFlow
+Salesforce-native incident intelligence and governed automation powered by the Zentom AI OS.
 ```
 
 Submission type:

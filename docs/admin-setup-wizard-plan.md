@@ -46,7 +46,7 @@ Welcome to SentinelFlow Setup
 Subtitle:
 
 ```text
-Powered by Zentom AI
+Powered by the Zentom AI OS
 ```
 
 Show:

@@ -17,13 +17,13 @@ This is an execution document. It should be used when entering or uploading actu
 Listing target:
 
 ```text
-AppExchange / AgentExchange listing for SentinelFlow by Tomcodex.
+AppExchange / AgentExchange listing for SentinelFlow.
 ```
 
 Product positioning:
 
 ```text
-Salesforce-native incident intelligence and governed automation powered by Zentom AI.
+Salesforce-native incident intelligence and governed automation powered by the Zentom AI OS.
 ```
 
 Submission scope:
@@ -51,13 +51,7 @@ Out-of-scope listing claims:
 Product name:
 
 ```text
-SentinelFlow by Tomcodex
-```
-
-Alternate name, if required by listing constraints:
-
-```text
-SentinelFlow - Powered by Zentom AI
+SentinelFlow
 ```
 
 Publisher:
@@ -78,7 +72,7 @@ Name review checklist:
 Recommended short description:
 
 ```text
-SentinelFlow by Tomcodex is a Salesforce-native incident intelligence and governed automation app powered by Zentom AI. It helps teams review operational incidents, score risk, apply policy decisions, approve safe actions, create follow-up Cases, and audit the workflow through Replay Timeline.
+SentinelFlow is a Salesforce-native incident intelligence and governed automation app powered by the Zentom AI OS. It helps teams review operational incidents, score risk, apply policy decisions, approve safe actions, create follow-up Cases, and audit the workflow through Replay Timeline.
 ```
 
 Marketplace-safe alternate:
@@ -100,9 +94,9 @@ Short description checklist:
 Recommended long description:
 
 ```text
-SentinelFlow by Tomcodex helps Salesforce teams detect, understand, and respond to operational incidents with governed intelligence and human-approved automation.
+SentinelFlow helps Salesforce teams detect, understand, and respond to operational incidents with governed intelligence and human-approved automation.
 
-Powered by Zentom AI, SentinelFlow connects Salesforce to the hosted Zentom API, receives incident signals, calculates risk, applies policy controls, recommends a recovery runbook, and writes the result back into Salesforce. Admins and approvers can review the recommendation, approve or reject the action, execute safe Case creation after approval, and inspect a Replay Timeline that records the key events from intake through execution.
+Powered by the Zentom AI OS, SentinelFlow connects Salesforce to the hosted Zentom API, receives incident signals, calculates risk, applies policy controls, recommends a recovery runbook, and writes the result back into Salesforce. Admins and approvers can review the recommendation, approve or reject the action, execute safe Case creation after approval, and inspect a Replay Timeline that records the key events from intake through execution.
 
 SentinelFlow is designed for controlled operational workflows where trust, traceability, and governance matter. It provides Salesforce-native records, role-aware permission sets, approval boundaries, dashboard visibility, Org Health Score, and support evidence for issue review.
 

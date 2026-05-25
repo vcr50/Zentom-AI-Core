@@ -270,7 +270,7 @@ Prepare SentinelFlow for marketplace and Salesforce security-review readiness.
 
 - Status: Complete.
 - Document created: `docs/publisher-listing-copy.md`.
-- Recommended product names documented: `SentinelFlow by Tomcodex` and `SentinelFlow - Powered by Zentom AI`.
+- Recommended product name documented: `SentinelFlow`; Tomcodex is the publisher and Zentom is the AI OS layer.
 - Marketplace short description and long description drafted.
 - Key features, business value, target users, use cases, setup summary, support placeholder, and beta limitations documented.
 - Security and governance summary documented with hosted beta `AI_MODE=RULE`, no public Ollama exposure, no direct hosted LLM execution, policy-gated actions, human approval, and replay timeline auditability.
@@ -973,15 +973,15 @@ Milestone 28 - AppExchange / AgentExchange Submission Finalization
 - Date: 2026-05-25.
 - Status: Complete.
 - Document created: `docs/final-listing-assets.md`.
-- Product name documented as `SentinelFlow by Tomcodex`, with alternate `SentinelFlow - Powered by Zentom AI`.
-- Recommended positioning documented: Salesforce-native incident intelligence and governed automation powered by Zentom AI.
+- Product name documented as `SentinelFlow`; Tomcodex is the publisher and Zentom is the AI OS layer.
+- Recommended positioning documented: Salesforce-native incident intelligence and governed automation powered by the Zentom AI OS.
 - Tagline, short description, marketplace-safe short description, and long description documented.
 - Key features documented for Salesforce incident intake, hosted Zentom API integration, risk scoring, policy governance, recommendation/runbook selection, human approval, safe Case creation, Replay Timeline, dashboard, Org Health Score, permission sets, error logging, and support documentation.
 - Target users documented for Salesforce admins, developers, support operations, RevOps, sales operations, enterprise platform teams, automation owners, and governance/audit stakeholders.
 - Category and keywords documented with guidance to avoid unsupported autonomous remediation, Agentforce production integration, or hosted HYBRID Ollama claims.
 - Screenshot list documented for dashboard, Sentinel Incident detail, approval panel, risk/policy/recommendation, created Case, Replay Timeline, Dashboard + Org Health Score, and optional setup/support views.
 - Demo video plan documented with 3-5 minute flow from incident problem through dashboard, `FLOW_FAILURE`, risk/policy/recommendation/runbook, approval, Case creation, Replay Timeline, and Org Health Score.
-- Logo / brand asset checklist documented for primary logo, square icon, transparent/light/dark assets, high-resolution marketplace image, colors, naming, Zentom AI positioning, and trademark hygiene.
+- Logo / brand asset checklist documented for primary logo, square icon, transparent/light/dark assets, high-resolution marketplace image, colors, naming, Zentom AI OS positioning, and trademark hygiene.
 - Support contact placeholder documented with reminder to replace before submission.
 - Privacy/security links and listing security/privacy summaries documented.
 - Listing review checklist documented for final copy, assets, support, privacy/security, limitations, unsupported claims, and submission owner approval.
@@ -1054,7 +1054,7 @@ Milestone 28 - AppExchange / AgentExchange Submission Finalization
 - Milestone 28 summary documented with 28A through 28F completed.
 - Submission assets completed section documented for final checklist, listing assets, screenshots/demo finalization, security evidence cross-check, install/test validation, and wrap-up.
 - Security evidence completed section documented for security review evidence pack, final checklist, security prep, CRUD/FLS review, Apex/LWC scan checklist, privacy/retention, callout security, Named Credential evidence, shared-secret auth, error logging, and evidence cross-check.
-- Listing assets completed section documented for `SentinelFlow by Tomcodex`, positioning, tagline, descriptions, features, target users, categories/keywords, screenshots, demo video plan, brand checklist, support placeholder, privacy/security links, and listing review checklist.
+- Listing assets completed section documented for `SentinelFlow`, positioning, tagline, descriptions, features, target users, categories/keywords, screenshots, demo video plan, brand checklist, support placeholder, privacy/security links, and listing review checklist.
 - Install/test validation completed section documented for target org fields, manifest, deployment commands, 17 passing / 0 failing expectation, permissions, hosted API/DB, `FLOW_FAILURE`, approval/execution, Replay Timeline, dashboard, error logging, pass/fail summary, and readiness result.
 - Known submission gaps documented for actual screenshot capture, demo video recording/approval, support/contact placeholder replacement, final validation evidence execution/attachment, explicit CRUD/FLS enforcement posture, and final marketplace form submission.
 - Final go/no-go status documented as go for Submission Execution, with conditional go pending final execution evidence.
@@ -1095,7 +1095,7 @@ Milestone 29 - Submission Execution
 - Status: Started.
 - Document created: `docs/submission-execution-plan.md`.
 - Purpose documented: move from submission planning to actual AppExchange / AgentExchange submission execution by verifying publisher account readiness, package/version readiness, evidence readiness, listing/demo assets, blockers, and submission status tracking.
-- Submission target documented for AppExchange / AgentExchange marketplace submission for `SentinelFlow by Tomcodex`.
+- Submission target documented for AppExchange / AgentExchange marketplace submission for `SentinelFlow`.
 - Partner / publisher account readiness documented for Salesforce Partner Community access, publisher account, publisher profile, submission owner, security review submitter, listing editor, technical contact, support contact, agreements, submission workspace, package upload access, listing asset upload access, and security review submission access.
 - Package version readiness documented for final manifest, package version/upload candidate, `v1.0.0-rc.1`, target reference, validation evidence, 17 passing / 0 failing tests, fresh org validation, and exclusion of experimental metadata, temporary files, hardcoded secrets, local-only URLs, and public Ollama exposure.
 - Security review evidence readiness documented for evidence pack, final checklist, security prep, CRUD/FLS review, Apex/LWC scan checklist, privacy/retention, callout security, Named Credential evidence, shared secret auth, error logging, hosted API/DB evidence, known gaps, and cross-check.
@@ -1151,11 +1151,11 @@ Milestone 29 - Submission Execution
 - Status: Complete.
 - Document created: `docs/listing-submission-execution.md`.
 - Purpose documented: submit the SentinelFlow marketplace listing with approved product positioning, listing copy, screenshots, demo assets, support contact, privacy/security links, beta/production notes, and post-submission tracking.
-- Listing target documented for AppExchange / AgentExchange listing for `SentinelFlow by Tomcodex`.
-- Product positioning documented: Salesforce-native incident intelligence and governed automation powered by Zentom AI.
-- Product name section documented with primary product name, alternate name, publisher, and name review checklist.
+- Listing target documented for AppExchange / AgentExchange listing for `SentinelFlow`.
+- Product positioning documented: Salesforce-native incident intelligence and governed automation powered by the Zentom AI OS.
+- Product name section documented with product name, publisher, and name review checklist.
 - Short and long descriptions documented with marketplace-safe wording and unsupported-claim checks.
-- Category / keywords documented for Salesforce incident management, automation governance, AI incident intelligence, approval workflow, Case creation, replay timeline, audit trail, Org Health Score, Zentom AI, operations, runbook automation, policy governance, and AppExchange / AgentExchange readiness.
+- Category / keywords documented for Salesforce incident management, automation governance, AI incident intelligence, approval workflow, Case creation, replay timeline, audit trail, Org Health Score, Zentom AI OS, operations, runbook automation, policy governance, and AppExchange / AgentExchange readiness.
 - Screenshots submitted section documented with required screenshot list, recommended filenames, visual/privacy review, and upload checklist.
 - Demo video / demo script section documented with final demo flow and review checklist.
 - Support contact section documented with placeholders for support email, support URL, documentation URL, and support references.
@@ -1193,7 +1193,7 @@ Milestone 29 - Submission Execution
 - Submission execution assets completed section documented for `docs/submission-execution-plan.md`, `docs/package-version-upload-preparation.md`, `docs/security-review-submission-execution.md`, `docs/listing-submission-execution.md`, `docs/review-feedback-tracking.md`, and `docs/submission-execution-wrap-up.md`.
 - Package upload readiness documented for `v1.0.0-rc.1`, package manifest `apps/sentinelflow-salesforce/manifest/package-sentinelflow-beta.xml`, 17 passing / 0 failing tests, hosted API, default `REMOTE_SITE`, and Named Credential path validated but not default.
 - Security review submission readiness documented for evidence pack, CRUD/FLS + sharing review, Apex/LWC checklist, privacy/retention, Named Credential evidence, shared-secret auth, production validation, submission execution plan, and feedback tracking.
-- Listing submission readiness documented for `SentinelFlow by Tomcodex`, positioning, listing execution plan, final listing assets, screenshot/demo plan, support/privacy/security links, and unsupported claim guardrails.
+- Listing submission readiness documented for `SentinelFlow`, positioning, listing execution plan, final listing assets, screenshot/demo plan, support/privacy/security links, and unsupported claim guardrails.
 - Feedback tracking readiness documented for statuses, severity/priority model, review ownership, timelines, evidence requirements, remediation workflow, re-submission checklist, and final approval tracking.
 - Known remaining gaps documented for actual partner/publisher account verification, package upload/version evidence, security review submission id, listing submission id, screenshot/demo upload, support/contact placeholder replacement, and explicit CRUD/FLS enforcement posture.
 - Product rule documented: no new features now; release beta, run pilot, collect feedback, fix only P0/P1/P2 issues.
@@ -1654,10 +1654,57 @@ Milestone 32 CTO refinement:
 - Preserve confirmed: `ZentomDashboardController`, `getDashboardData` response shape, existing Apex tests, existing navigation behavior, and existing package manifest.
 - Updated dashboard plan to include top app header, Org Health hero, KPI cards, pending approval queue, recent incidents table, executed actions / created cases, replay timeline, and system health / error logs.
 - Updated QA readiness plan to include top app header, refresh behavior, no-Tailwind rule, system health data-contract guardrail, and live-org screenshot readiness.
-- LWC refinement implemented: app header with Tomcodex/Zentom branding, last refreshed value, refresh button, icon KPI cards, failed-actions KPI, approval Review actions, environment display, replay timeline emphasis, and conservative system health labels using existing controller data only.
+- LWC refinement implemented: SentinelFlow product header with Zentom AI OS supporting copy, last refreshed value, refresh button, icon KPI cards, failed-actions KPI, approval Review actions, environment display, replay timeline emphasis, and conservative system health labels using existing controller data only.
 - Narrow dashboard validation succeeded with `ZentomDashboardControllerTest` passing 6/6.
 - Refined dashboard validation deploy id: `0AfdL00000b0lb7SAA`.
 - Refined dashboard live deploy succeeded.
 - Refined dashboard live deploy id: `0AfdL00000b0lpdSAA`.
 - Org open command completed for `astrosoft`.
 - Remaining gate: capture/check dashboard screenshots for beta/demo readiness before Milestone 33.
+
+32D dashboard screenshot capture:
+
+- Date: 2026-05-25.
+- Status: Complete for core beta/demo dashboard sections; conditional for latest CTO refinement visual confirmation.
+- Document created: `docs/dashboard-screenshot-capture.md`.
+- Purpose documented: capture and check privacy-safe dashboard screenshots for beta/demo and marketplace readiness before opening Milestone 33.
+- Prerequisites documented for completed 32A/32B/32C, validation success, live deploy success, and Salesforce org open.
+- Existing evidence documented: validation deploy id `0AfdL00000b0lb7SAA`, live deploy id `0AfdL00000b0lpdSAA`, and `ZentomDashboardControllerTest` 6/6 passed.
+- Open path documented: App Launcher -> SentinelFlow -> SentinelFlow Home.
+- Required screenshot list documented for full dashboard overview, Org Health Score + KPI cards, pending approvals queue, recent incidents table, executed actions / created cases, replay timeline, and system health / error log panel.
+- Privacy rules documented for demo/sample data only and no customer names, org ids, secrets, API keys, tokens, session URLs, login links, personal user information, or sensitive payloads.
+- Visual QA checklist documented for dashboard sections, Review buttons, table readability, replay trust story, system health language, text overlap, responsive behavior, and Salesforce-native presentation.
+- Responsive screenshot check documented for desktop, small laptop, and tablet/sidebar-like widths.
+- Screenshot evidence received in conversation for full dashboard overview, Org Health + KPI cards, pending approvals, recent incidents, executed actions / created cases, Replay Timeline, and partial System Health.
+- Visual QA result documented: core Milestone 32 dashboard sections are visible and acceptable for beta/demo readiness.
+- Conditional observation documented: screenshots do not visibly show the latest CTO refinement details such as SentinelFlow product header with Zentom AI OS supporting copy, refresh button, Failed Actions KPI, Environment/Runbook incident columns, or Review buttons.
+- Possible cause documented: browser cache, Lightning cache, or screenshots captured before latest refinement was loaded.
+- Milestone 33 remains gated until the refined dashboard version is visually confirmed or explicitly accepted for follow-up.
+
+32E dashboard branding correction:
+
+- Date: 2026-05-25.
+- Status: Deployed.
+- Branding decision documented: `SentinelFlow` is the product name and dashboard header; `Zentom` is the supporting AI OS layer.
+- LWC header updated to show `SentinelFlow` as the primary heading.
+- LWC supporting copy updated to `Salesforce-native incident intelligence powered by the Zentom AI OS.`
+- LWC metadata label updated from `Zentom Dashboard` to `SentinelFlow Command Center`.
+- Narrow dashboard validation succeeded with `ZentomDashboardControllerTest` passing 6/6.
+- Branding correction validation deploy id: `0AfdL00000b0g8QSAQ`.
+- Branding correction live deploy succeeded.
+- Branding correction live deploy id: `0AfdL00000b0mgsSAA`.
+- Existing Apex/controller behavior remains unchanged.
+
+32F dashboard control tower UX pass:
+
+- Date: 2026-05-25.
+- Status: Deployed.
+- UX direction documented: SentinelFlow should feel like an airport control tower for Salesforce operations.
+- Dashboard header updated to `SentinelFlow Command Center` with Salesforce operations control tower positioning.
+- Control tower strip added for org posture, awaiting clearance, critical traffic, cleared actions, and flight recorder counts.
+- Section language updated for Org Health Radar, Live Traffic Board, Clearance Queue, Cleared Actions, Tower Systems, and Flight Recorder.
+- Narrow dashboard validation succeeded with `ZentomDashboardControllerTest` passing 6/6.
+- Control tower validation deploy id: `0AfdL00000b0umUSAQ`.
+- Control tower live deploy succeeded.
+- Control tower live deploy id: `0AfdL00000b0i33SAA`.
+- Existing Apex/controller behavior and `getDashboardData` response shape remain unchanged.
