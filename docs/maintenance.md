@@ -812,6 +812,9 @@ Planned scope:
 
 - 27A: Pilot Customer Selection Criteria.
 - 27B: Pilot Outreach Pack.
+- 27C: Pilot Demo Script.
+- 27D: Pilot Feedback Review Template.
+- 27E: Pilot Success Report.
 
 Current active milestone:
 
@@ -868,3 +871,23 @@ Customer-facing pilot outreach message:
 - Qualification questions documented for Salesforce admin availability, target org, Salesforce Cases, safe Case creation, hosted API callouts, and stakeholder participation.
 - Sender notes documented to keep the message practical, controlled, human-approved, audit-focused, and clear about pilot limitations.
 - Rollback note: documentation-only draft; remove `docs/customer-facing-pilot-outreach-message.md` and this maintenance entry if the outreach message is replaced.
+
+27C pilot demo script:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/pilot-demo-script.md`.
+- Demo goal documented: show a real pilot customer how SentinelFlow turns a Salesforce operational incident into an explainable, approval-gated, auditable workflow.
+- Demo audience documented for Salesforce admins, operations leads, support/service leaders, automation owners, technical evaluators, security stakeholders, governance/audit stakeholders, customer success/support managers, and executive sponsors.
+- 30-minute demo agenda documented from opening story through architecture overview, flow failure incident, approval/rejection, Case creation, Replay Timeline, Dashboard + Org Health Score, security/privacy, and closing questions.
+- Opening story documented around a Salesforce automation failure requiring risk, recommendation, approval, safe action, and audit trail.
+- Product architecture explanation documented for Salesforce package, hosted Zentom API, hosted database, risk scoring, policy decision, recommendation/runbook selection, approval panel, Case creation, Replay Timeline, dashboard, and Org Health Score.
+- Live flow failure incident demo documented with expected `FLOW_FAILURE` scenario, risk score `95`, risk level `CRITICAL`, policy `HUMAN_APPROVAL_REQUIRED`, runbook `FLOW_FAILURE_BASIC_RECOVERY`, and safe action `CREATE_CASE`.
+- Approval/rejection demo documented with approval panel, recommendation, runbook, approval status, execution readiness, rejection path, and Viewer read-only expectations.
+- Case creation demo documented with approved execution, `CREATE_CASE`, Case origin, priority, subject, incident reference, and duplicate execution safety.
+- Replay Timeline demo documented with expected audit events from `INCIDENT_RECEIVED` through `CASE_CREATED`.
+- Dashboard + Org Health Score demo documented for recent incidents, risk distribution, approval queue/status, execution visibility, and customer review questions.
+- Security/privacy explanation documented with human approval, no full autonomous remediation, no secrets in incident text/logs/replay, permission set separation, safe error logging, and pilot limitations.
+- Closing questions and follow-up checklist documented for pilot fit, setup ownership, callout approval, Case creation, security/privacy requirements, support issues, v1.0.1 patch routing, and roadmap routing.
+- Next phase documented: 27D Pilot Feedback Review Template, followed by 27E Pilot Success Report.
+- Rollback note: documentation-only milestone; remove `docs/pilot-demo-script.md` and this maintenance entry if the pilot demo script is replaced.
