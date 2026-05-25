@@ -2,13 +2,19 @@
 
 ## 1. Purpose
 
-This document defines 32A Dashboard UX Redesign Plan for Milestone 32 Dashboard UI/UX Redesign.
+This document defines 32A Dashboard UX Wireframe for Milestone 32 SentinelFlow Dashboard App UI/UX Redesign.
 
 Goal:
 
 ```text
 Plan a polished, marketplace-ready SentinelFlow dashboard redesign while preserving existing Apex/controller logic and existing data behavior.
 ```
+
+Design planning mode:
+
+- Use Figma for design thinking and wireframe review.
+- Use SLDS + custom scoped LWC CSS for Salesforce implementation.
+- Do not add Tailwind or external CSS dependencies to the Salesforce package.
 
 Milestone 32 rule:
 
@@ -57,13 +63,14 @@ Success criteria:
 
 Recommended layout:
 
-1. Org Health hero section.
-2. KPI card section.
-3. Pending approval queue.
-4. Recent incidents table.
-5. Executed actions / created Cases.
-6. Replay timeline section.
-7. Error logs / system health section.
+1. Top app header.
+2. Org Health hero section.
+3. KPI card section.
+4. Pending approval queue.
+5. Recent incidents table.
+6. Executed actions / created Cases.
+7. Replay timeline section.
+8. Error logs / system health section.
 
 Layout guidance:
 
@@ -72,6 +79,36 @@ Layout guidance:
 - Use cards only for individual repeated items, KPI blocks, and compact dashboard modules.
 - Avoid nested cards.
 - Prioritize scan speed, status clarity, and confidence.
+
+The dashboard should answer:
+
+- Is my org healthy?
+- What needs approval now?
+- What is critical?
+- What actions were executed?
+- Can I audit/replay the decision?
+
+## 4.1 Top App Header
+
+Purpose:
+
+- Establish the dashboard as SentinelFlow Command Center.
+- Keep the product/brand signal visible for demos and marketplace screenshots.
+- Provide a clear last-refreshed timestamp and refresh affordance.
+
+Recommended contents:
+
+- `SentinelFlow`.
+- `by Tomcodex · Powered by Zentom AI`.
+- Last refreshed value.
+- Refresh button.
+- Date range controls.
+
+Optional later:
+
+- Search.
+- Filters.
+- Environment selector.
 
 ## 5. Org Health Hero Section
 
@@ -101,15 +138,16 @@ Design notes:
 Recommended KPI cards:
 
 - Open incidents.
+- Critical incidents.
 - Pending approvals.
-- Actions executed.
+- Executed actions.
 - Cases created.
-- Replay events recorded.
-- API/error status.
+- Failed actions.
 
 Design notes:
 
 - Use consistent card sizing.
+- Include a small icon on each KPI card.
 - Include concise labels and values.
 - Use iconography where helpful.
 - Use status indicators for warning/critical values.
@@ -124,11 +162,11 @@ Purpose:
 Recommended columns:
 
 - Incident.
+- Type.
 - Severity / risk.
 - Policy decision.
 - Recommended runbook.
 - Age.
-- Owner.
 - Action.
 
 Design notes:
@@ -137,6 +175,7 @@ Design notes:
 - Risk and policy should be visually clear.
 - Preserve existing approval/rejection behavior.
 - Do not change controller logic or action semantics during redesign.
+- Action should navigate to the existing incident review surface.
 
 ## 8. Recent Incidents Table
 
@@ -148,12 +187,12 @@ Recommended columns:
 
 - Incident name or number.
 - Type.
+- Environment.
 - Status.
 - Risk.
 - Policy.
+- Runbook.
 - Created date.
-- Last update.
-- Related Case.
 
 Design notes:
 
@@ -191,13 +230,13 @@ Purpose:
 
 Recommended contents:
 
-- Incident created.
-- Risk/policy evaluated.
-- AI recommendation generated.
-- Human approval or rejection.
-- Approved action executed.
-- Case created.
-- Error event, if applicable.
+- `INCIDENT_RECEIVED`.
+- `RISK_CALCULATED`.
+- `ZENTOM_POLICY_EVALUATED`.
+- `AI_RECOMMENDATION_GENERATED`.
+- `HUMAN_APPROVED`.
+- `RUNBOOK_ACTION_EXECUTED`.
+- `CASE_CREATED`.
 
 Design notes:
 
@@ -215,18 +254,36 @@ Purpose:
 Recommended contents:
 
 - API status.
-- Last API response or health check timestamp where available.
-- Recent error logs.
-- Callout/authentication status.
-- Failed execution count.
-- Documentation/support link placeholder.
+- Hosted DB status.
+- Latest `Sentinel_Error_Log__c` record where already returned by the controller.
+- Error count.
 
 Design notes:
 
+- For now, only show data already returned by `ZentomDashboardController`.
+- Do not add new Apex for this section in Milestone 32.
 - Keep error messages sanitized.
 - Avoid exposing secrets, tokens, payloads, or sensitive customer data.
 - Use clear severity labels.
 - Preserve existing error logging behavior.
+
+## 11.1 Implementation Phases
+
+Milestone 32 implementation phases:
+
+- 32A: Dashboard UX Wireframe.
+- 32B: Build App-like Dashboard Layout.
+- 32C: Modern SLDS + Custom CSS.
+- 32D: Data Display Helpers.
+- 32E: Empty State UX.
+- 32F: Responsive Testing.
+- 32G: Salesforce Validation.
+- 32H: Marketplace Screenshot QA.
+
+Implementation constraint:
+
+- Improve only `zentomDashboard.html`, `zentomDashboard.css`, and `zentomDashboard.js`.
+- Preserve `ZentomDashboardController`, `getDashboardData` response shape, existing Apex tests, navigation behavior, and package manifest.
 
 ## 12. Responsive Design Checklist
 

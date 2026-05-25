@@ -1632,3 +1632,32 @@ Dashboard redesign must preserve existing data behavior.
 - Readiness result section documented for desktop QA, responsive QA, data behavior, navigation behavior, screenshot readiness, and final result.
 - Next phase documented: 32D Dashboard screenshot capture.
 - Rollback note: documentation-only milestone; remove `docs/dashboard-qa-screenshot-readiness.md` and this maintenance entry if the QA/screenshot readiness template is replaced.
+
+Milestone 32 wrap-up:
+
+- Status: Reopened for final dashboard screenshot readiness pass.
+- Completed scope: 32A dashboard UX redesign plan, 32B SLDS dashboard layout implementation, and 32C dashboard QA + screenshot readiness.
+- Milestone 32 result: dashboard layout polish is implemented, dashboard-specific validation passed, and screenshot readiness checklist is documented.
+- Validation evidence: narrow dashboard LWC validation succeeded with `ZentomDashboardControllerTest` passing 6/6 and deploy id `0AfdL00000b0iQMSAY`.
+- Known limitation: full manifest validation still fails due unrelated Apex class coverage in the manifest.
+- Rule confirmed: no data/controller changes; existing Apex/controller logic and dashboard data behavior are preserved.
+- Next milestone recommendation: Milestone 33 Slack Bot / Conversational Incident Assistant.
+- Start gate for Milestone 33: capture and check dashboard screenshots for the beta/demo before opening Milestone 33.
+
+Milestone 32 CTO refinement:
+
+- Date: 2026-05-25.
+- Status: Complete at implementation/CLI validation level; screenshot capture still gated before Milestone 33.
+- Decision documented: use Figma for design thinking and SLDS + custom scoped LWC CSS for implementation.
+- Dependency decision documented: do not add Tailwind dependency inside the Salesforce package.
+- Scope confirmed: improve only `zentomDashboard.html`, `zentomDashboard.css`, and `zentomDashboard.js`.
+- Preserve confirmed: `ZentomDashboardController`, `getDashboardData` response shape, existing Apex tests, existing navigation behavior, and existing package manifest.
+- Updated dashboard plan to include top app header, Org Health hero, KPI cards, pending approval queue, recent incidents table, executed actions / created cases, replay timeline, and system health / error logs.
+- Updated QA readiness plan to include top app header, refresh behavior, no-Tailwind rule, system health data-contract guardrail, and live-org screenshot readiness.
+- LWC refinement implemented: app header with Tomcodex/Zentom branding, last refreshed value, refresh button, icon KPI cards, failed-actions KPI, approval Review actions, environment display, replay timeline emphasis, and conservative system health labels using existing controller data only.
+- Narrow dashboard validation succeeded with `ZentomDashboardControllerTest` passing 6/6.
+- Refined dashboard validation deploy id: `0AfdL00000b0lb7SAA`.
+- Refined dashboard live deploy succeeded.
+- Refined dashboard live deploy id: `0AfdL00000b0lpdSAA`.
+- Org open command completed for `astrosoft`.
+- Remaining gate: capture/check dashboard screenshots for beta/demo readiness before Milestone 33.

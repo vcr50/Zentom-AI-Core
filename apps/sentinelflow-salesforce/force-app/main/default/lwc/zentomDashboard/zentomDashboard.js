@@ -8,6 +8,7 @@ export default class ZentomDashboard extends NavigationMixin(LightningElement) {
     dateRange = 'LAST_7_DAYS';
     data;
     errorMessage;
+    lastRefreshed;
     wiredDashboard;
 
     @wire(getDashboardData, { dateRange: '$dateRange' })
@@ -16,6 +17,7 @@ export default class ZentomDashboard extends NavigationMixin(LightningElement) {
         if (result.data) {
             this.data = result.data;
             this.errorMessage = undefined;
+            this.lastRefreshed = new Date();
         } else if (result.error) {
             this.data = undefined;
             this.errorMessage = this.reduceError(result.error);
@@ -24,6 +26,10 @@ export default class ZentomDashboard extends NavigationMixin(LightningElement) {
 
     get topRunbook() {
         return this.data?.summary?.topRunbook || 'None';
+    }
+
+    get lastRefreshedLabel() {
+        return this.lastRefreshed ? this.lastRefreshed.toLocaleString() : 'Not loaded';
     }
 
     get activeRangeLabel() {
@@ -49,6 +55,14 @@ export default class ZentomDashboard extends NavigationMixin(LightningElement) {
             return 'Watch';
         }
         return 'Operational';
+    }
+
+    get hostedDbStatusLabel() {
+        return this.data ? 'Not reported' : 'Unavailable';
+    }
+
+    get latestErrorLogLabel() {
+        return this.failedExecutionLabel === '0' ? 'None surfaced' : `${this.failedExecutionLabel} action issue(s)`;
     }
 
     get systemHealthClass() {
@@ -131,6 +145,10 @@ export default class ZentomDashboard extends NavigationMixin(LightningElement) {
         refreshApex(this.wiredDashboard);
     }
 
+    handleRefresh() {
+        refreshApex(this.wiredDashboard);
+    }
+
     openIncident(event) {
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
@@ -162,7 +180,9 @@ export default class ZentomDashboard extends NavigationMixin(LightningElement) {
             executionClass: `badge ${this.statusClass(row.status, row.executionStatus)}`,
             createdLabel: this.formatDate(row.createdDate),
             executedLabel: this.formatDateTime(row.executedAt),
-            caseLabel: row.createdCaseNumber ? `Case ${row.createdCaseNumber}` : 'No case'
+            caseLabel: row.createdCaseNumber ? `Case ${row.createdCaseNumber}` : 'No case',
+            environmentLabel: 'Salesforce',
+            recommendedActionLabel: row.executionAction || row.runbookKey || 'Review recommendation'
         }));
     }
 

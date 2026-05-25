@@ -4,15 +4,27 @@
             <div>
                 <p class="eyebrow">SentinelFlow</p>
                 <h1>Command Center</h1>
-                <p class="header-subtitle">Incident intelligence, approval governance, and replay visibility.</p>
+                <p class="header-subtitle">by Tomcodex · Powered by Zentom AI</p>
             </div>
-            <div class="range-controls" aria-label="Dashboard date range">
-                <lightning-button-group>
-                    <lightning-button label="Today" data-range="TODAY" onclick={handleRangeChange}></lightning-button>
-                    <lightning-button label="Last 7 Days" data-range="LAST_7_DAYS" onclick={handleRangeChange}></lightning-button>
-                    <lightning-button label="All" data-range="ALL" onclick={handleRangeChange}></lightning-button>
-                </lightning-button-group>
-                <span class="range-label">{activeRangeLabel}</span>
+            <div class="header-actions">
+                <div class="refresh-meta">
+                    <span class="range-label">Last refreshed</span>
+                    <strong>{lastRefreshedLabel}</strong>
+                </div>
+                <lightning-button-icon
+                    icon-name="utility:refresh"
+                    alternative-text="Refresh dashboard"
+                    title="Refresh dashboard"
+                    onclick={handleRefresh}
+                ></lightning-button-icon>
+                <div class="range-controls" aria-label="Dashboard date range">
+                    <lightning-button-group>
+                        <lightning-button label="Today" data-range="TODAY" onclick={handleRangeChange}></lightning-button>
+                        <lightning-button label="Last 7 Days" data-range="LAST_7_DAYS" onclick={handleRangeChange}></lightning-button>
+                        <lightning-button label="All" data-range="ALL" onclick={handleRangeChange}></lightning-button>
+                    </lightning-button-group>
+                    <span class="range-label">{activeRangeLabel}</span>
+                </div>
             </div>
         </header>
 
@@ -33,41 +45,58 @@
                     <span>{data.summary.totalIncidents} incidents</span>
                     <span>{data.summary.pendingApprovals} pending approvals</span>
                     <span>{data.summary.criticalIncidents} critical</span>
+                    <span>{lastRefreshedLabel}</span>
                 </div>
             </article>
 
             <section class="kpi-grid" aria-label="Dashboard summary metrics">
                 <article class="metric">
-                    <span>Total Incidents</span>
+                    <lightning-icon icon-name="utility:record" size="x-small"></lightning-icon>
+                    <span>Open Incidents</span>
                     <strong>{data.summary.totalIncidents}</strong>
+                    <p>{activeRangeLabel}</p>
                 </article>
                 <article class="metric critical">
+                    <lightning-icon icon-name="utility:warning" size="x-small"></lightning-icon>
                     <span>Critical</span>
                     <strong>{data.summary.criticalIncidents}</strong>
+                    <p>High urgency</p>
                 </article>
                 <article class="metric warning">
+                    <lightning-icon icon-name="utility:approval" size="x-small"></lightning-icon>
                     <span>Pending Approval</span>
                     <strong>{data.summary.pendingApprovals}</strong>
+                    <p>Needs review</p>
                 </article>
                 <article class="metric success">
+                    <lightning-icon icon-name="utility:success" size="x-small"></lightning-icon>
                     <span>Executed Actions</span>
                     <strong>{data.summary.executedActions}</strong>
-                </article>
-                <article class="metric danger">
-                    <span>Rejected</span>
-                    <strong>{data.summary.rejectedRecommendations}</strong>
-                </article>
-                <article class="metric">
-                    <span>Replay Events</span>
-                    <strong>{data.summary.recentReplayEvents}</strong>
+                    <p>Governed action</p>
                 </article>
                 <article class="metric success">
+                    <lightning-icon icon-name="standard:case" size="x-small"></lightning-icon>
                     <span>Cases Created</span>
                     <strong>{data.summary.recentCasesCreated}</strong>
+                    <p>Salesforce Cases</p>
+                </article>
+                <article class="metric danger">
+                    <lightning-icon icon-name="utility:error" size="x-small"></lightning-icon>
+                    <span>Failed Actions</span>
+                    <strong>{failedExecutionLabel}</strong>
+                    <p>Derived from incidents</p>
+                </article>
+                <article class="metric">
+                    <lightning-icon icon-name="utility:preview" size="x-small"></lightning-icon>
+                    <span>Replay Events</span>
+                    <strong>{data.summary.recentReplayEvents}</strong>
+                    <p>Audit trail</p>
                 </article>
                 <article class="metric runbook">
+                    <lightning-icon icon-name="utility:flow" size="x-small"></lightning-icon>
                     <span>Top Runbook</span>
                     <strong>{topRunbook}</strong>
+                    <p>Most observed</p>
                 </article>
             </section>
 
@@ -93,7 +122,15 @@
                                     <span class={incident.riskClass}>{incident.riskLabel}</span>
                                     <div class="approval-detail">
                                         <span>{incident.policyDecision}</span>
-                                        <span>{incident.runbookKey}</span>
+                                        <span>{incident.recommendedActionLabel}</span>
+                                    </div>
+                                    <div class="approval-action">
+                                        <lightning-button
+                                            label="Review"
+                                            variant="brand"
+                                            data-id={incident.id}
+                                            onclick={openIncident}
+                                        ></lightning-button>
                                     </div>
                                 </div>
                             </template>
@@ -114,16 +151,20 @@
                     </header>
                     <div class="system-list">
                         <div>
-                            <span>Dashboard data</span>
+                            <span>Zentom API status</span>
                             <strong>Loaded</strong>
                         </div>
                         <div>
-                            <span>Failed executions</span>
-                            <strong>{failedExecutionLabel}</strong>
+                            <span>Hosted DB status</span>
+                            <strong>{hostedDbStatusLabel}</strong>
                         </div>
                         <div>
-                            <span>Approval required</span>
-                            <strong>{data.summary.approvalRequired}</strong>
+                            <span>Latest error log</span>
+                            <strong>{latestErrorLogLabel}</strong>
+                        </div>
+                        <div>
+                            <span>Error count</span>
+                            <strong>{failedExecutionLabel}</strong>
                         </div>
                     </div>
                 </article>
@@ -144,11 +185,12 @@
                                 <tr>
                                     <th>Incident</th>
                                     <th>Type</th>
+                                    <th>Environment</th>
                                     <th>Risk</th>
                                     <th>Policy</th>
                                     <th>Status</th>
+                                    <th>Runbook</th>
                                     <th>Approval</th>
-                                    <th>Execution</th>
                                     <th>Created</th>
                                 </tr>
                             </thead>
@@ -161,11 +203,12 @@
                                             </button>
                                         </td>
                                         <td>{incident.incidentType}</td>
+                                        <td>{incident.environmentLabel}</td>
                                         <td><span class={incident.riskClass}>{incident.riskLabel}</span></td>
                                         <td>{incident.policyDecision}</td>
                                         <td><span class={incident.statusClass}>{incident.status}</span></td>
+                                        <td>{incident.runbookKey}</td>
                                         <td>{incident.approvalStatus}</td>
-                                        <td>{incident.executionStatus}</td>
                                         <td>{incident.createdLabel}</td>
                                     </tr>
                                 </template>
@@ -241,7 +284,7 @@
                         <span class="section-label">Replay Timeline</span>
                         <h2>Recent replay events</h2>
                     </div>
-                    <span class="panel-subtitle">{data.summary.recentReplayEvents} events</span>
+                    <span class="panel-subtitle">{data.summary.recentReplayEvents} audit events</span>
                 </header>
                 <template if:true={hasRecentReplayEvents}>
                     <div class="timeline">

@@ -17,6 +17,12 @@ No data/controller changes.
 Only dashboard QA and screenshot readiness.
 ```
 
+Implementation rule:
+
+- No Tailwind dependency.
+- Use SLDS and custom scoped LWC CSS only.
+- Preserve `ZentomDashboardController`, `getDashboardData` response shape, existing Apex tests, navigation behavior, and package manifest.
+
 ## 2. Validation Evidence
 
 Validation evidence:
@@ -25,6 +31,10 @@ Validation evidence:
 - Dashboard controller test result: `ZentomDashboardControllerTest` passed 6/6.
 - Narrow dashboard LWC validation: succeeded.
 - Dashboard-specific deploy id: `0AfdL00000b0iQMSAY`.
+- Refined dashboard validation: succeeded with `ZentomDashboardControllerTest` passing 6/6.
+- Refined dashboard validation deploy id: `0AfdL00000b0lb7SAA`.
+- Refined dashboard live deploy: succeeded.
+- Refined dashboard live deploy id: `0AfdL00000b0lpdSAA`.
 - Dashboard bundle validated: `zentomDashboard`.
 - Files validated: `zentomDashboard.html`, `zentomDashboard.css`, `zentomDashboard.js`, and bundle metadata.
 
@@ -33,11 +43,13 @@ Validation interpretation:
 - 32B is acceptable because dashboard-specific validation passed.
 - Existing controller behavior was preserved.
 - Full manifest coverage issues should remain separate from dashboard UI/UX QA.
+- Final screenshot capture still requires visual review in Salesforce: App Launcher -> SentinelFlow -> SentinelFlow Home.
 
 ## 3. UI Sections Verified
 
 Sections to verify:
 
+- Top app header.
 - Org Health hero card.
 - KPI summary cards.
 - Pending approval queue.
@@ -54,6 +66,7 @@ Verification result:
 
 | Section | Desktop | Responsive | Screenshot Ready | Notes |
 | --- | --- | --- | --- | --- |
+| Top app header | TBD | TBD | TBD | TBD |
 | Org Health hero | TBD | TBD | TBD | TBD |
 | KPI cards | TBD | TBD | TBD | TBD |
 | Pending approvals | TBD | TBD | TBD | TBD |
@@ -66,10 +79,11 @@ Verification result:
 
 Desktop QA checklist:
 
-- Header and date range controls are aligned.
+- Header, last refreshed text, refresh button, and date range controls are aligned.
 - Org Health hero is first and visually dominant.
-- KPI cards scan left to right without text overflow.
+- KPI cards include icons, numbers, labels, and small status text without overflow.
 - Pending approval queue is visible above lower-priority sections.
+- Review buttons remain visible.
 - Recent incidents table is readable and horizontally scrolls only when needed.
 - Executed actions and created Cases are visually paired.
 - Replay timeline reads chronologically and does not overlap.
@@ -94,6 +108,7 @@ Responsive QA checklist:
 - Compact rows wrap without overlap.
 - Timeline rows do not overflow.
 - Date range controls remain usable.
+- Refresh button remains visible.
 - Text remains legible and does not overlap adjacent UI.
 
 Responsive result:
@@ -113,6 +128,7 @@ Data behavior checks:
 - No new data endpoint was introduced.
 - Empty and error states continue to render.
 - Existing date range behavior is preserved.
+- System health labels use only data already returned by the controller.
 
 Result:
 
@@ -153,6 +169,7 @@ Screenshot rules:
 - Ensure no loading spinners or unfinished placeholders are visible.
 - Prefer a viewport that shows the Org Health hero and KPI cards together.
 - Capture at least one screenshot that shows approval-gated workflow value.
+- Capture screenshots after live-org deploy check.
 
 ## 9. Known Issues
 
@@ -161,6 +178,7 @@ Known issues:
 | Issue | Severity | Impact | Owner | Target |
 | --- | --- | --- | --- | --- |
 | Full manifest validation coverage issue | Non-dashboard | Full manifest validation blocked by unrelated Apex coverage | TBD | Separate milestone |
+| Screenshot capture not yet attached | Screenshot readiness | CLI deploy confirms live LWC, but final marketplace screenshots still need visual capture/check | TBD | Before Milestone 33 |
 
 Known issue rules:
 
