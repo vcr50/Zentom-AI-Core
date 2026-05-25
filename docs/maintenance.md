@@ -854,3 +854,17 @@ Milestone 27 - Real Customer Pilot
 - Follow-up questions documented for pilot fit, pilot readiness, and post-validation feedback.
 - Next phase documented: customer-facing pilot outreach message.
 - Rollback note: documentation-only milestone; remove `docs/pilot-outreach-pack.md` and this maintenance entry if the outreach pack is replaced.
+
+Customer-facing pilot outreach message:
+
+- Date: 2026-05-25.
+- Status: Drafted.
+- Document created: `docs/customer-facing-pilot-outreach-message.md`.
+- Primary outreach email drafted for inviting a qualified Salesforce customer into the controlled SentinelFlow real-customer pilot.
+- Subject options documented.
+- Short follow-up message documented.
+- LinkedIn / short DM version documented.
+- Call booking note documented.
+- Qualification questions documented for Salesforce admin availability, target org, Salesforce Cases, safe Case creation, hosted API callouts, and stakeholder participation.
+- Sender notes documented to keep the message practical, controlled, human-approved, audit-focused, and clear about pilot limitations.
+- Rollback note: documentation-only draft; remove `docs/customer-facing-pilot-outreach-message.md` and this maintenance entry if the outreach message is replaced.
