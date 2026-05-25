@@ -1484,3 +1484,23 @@ Fix only P0/P1/P2 issues.
 - Exit criteria documented for implemented/validated/mitigated/deferred P0/P1/P2 fixes, no new features, no out-of-scope architecture changes, validation evidence, regression check, rollback tracking, and readiness for 31E.
 - Next phase documented: 31E Patch Validation.
 - Rollback note: documentation-only milestone; remove `docs/patch-implementation.md` and this maintenance entry if the implementation tracker is replaced.
+
+31E patch validation:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/patch-validation.md`.
+- Purpose documented: validate approved P0/P1/P2 pilot feedback fixes before v1.0.1 release notes and tagging.
+- Patch rule documented: no new features; only pilot feedback fixes P0/P1/P2.
+- Validation scope documented for approved P0/P1/P2 fixes, 31D implemented fixes, affected pilot scenarios, v1.0 regression checks, security/privacy checks, and documentation/onboarding corrections.
+- Validation exclusions documented for P3/P4 backlog items, new feature testing, major AI architecture changes, Agentforce production integration, Hosted HYBRID Ollama, full autonomous remediation, and large object model expansion.
+- Validation inputs documented from 31A triage, 31B fix plan, 31C scope freeze, 31D implementation tracker, fix commits, pilot evidence, and validation org details.
+- Fix validation matrix documented with fix id, severity, expected result, validation step, evidence, and result.
+- Package/Salesforce validation documented for deploy/install, Apex tests, permission sets, required metadata, default callout mode, object model guardrail, org, command/run id, test result, evidence, and result.
+- Hosted API/DB validation documented for hosted API reachability, authentication behavior, endpoint workflow support, safe error handling, DB persistence/retrieval, sensitive-data avoidance, vector/search health where affected, hosted API URL, and evidence.
+- Pilot scenario revalidation documented for `FLOW_FAILURE`, risk/policy, AI recommendation/runbook, approval, rejection, Case creation, Replay Timeline/audit, dashboard/Org Health Score, and error logging.
+- Regression checklist documented for no new features, no P3/P4 items, no unrelated refactors, package tests, hosted API, default callout behavior, approval/execution, Case creation, replay/audit, dashboard, sanitized error logging, and documentation accuracy.
+- Security/privacy validation documented for no committed secrets, no credentials/tokens in docs, sanitized logs, no sensitive sample payloads, authentication validation, and reviewer signoff.
+- Exit criteria documented for validated P0, validated or mitigated P1, validated/mitigated/deferred P2, regression pass, security/privacy pass, rollback status, and release notes readiness.
+- Next phase documented: 31F v1.0.1 Release Notes.
+- Rollback note: documentation-only milestone; remove `docs/patch-validation.md` and this maintenance entry if the validation template is replaced.
