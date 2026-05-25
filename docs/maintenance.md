@@ -803,3 +803,36 @@ Milestone 26 wrap-up:
 - Completed scope: 26A production issue tracking, 26B customer onboarding checklist, 26C support SLA / response policy, 26D usage monitoring + adoption metrics, 26E feedback-to-roadmap process, and 26F v1.0.1 patch planning.
 - Milestone 26 result: post-v1 stabilization and customer rollout planning is complete.
 - Next milestone: Milestone 27 Real Customer Pilot.
+
+## Milestone 27: Real Customer Pilot
+
+Status: Active
+
+Planned scope:
+
+- 27A: Pilot Customer Selection Criteria.
+
+Current active milestone:
+
+```text
+Milestone 27 - Real Customer Pilot
+```
+
+27A pilot customer selection criteria:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/real-customer-pilot-plan.md`.
+- Core goal documented: validate SentinelFlow in a real Salesforce customer environment with a controlled, low-risk pilot before wider marketplace rollout.
+- Pilot goal documented for end-to-end Salesforce-to-Zentom validation, customer admin onboarding, approver trust, hosted API/database stability, blocker discovery, and feedback capture for v1.0.1 and future roadmap decisions.
+- Ideal pilot customer profile documented, including Salesforce admin access, sandbox/developer org preference, Case validation readiness, operational incident workflow fit, guided onboarding participation, and evidence-sharing expectations.
+- Customer selection criteria documented with required, preferred, and exclusion criteria.
+- Pilot scope documented for package installation, permissions, hosted API configuration, callout validation, standard test incident, write-back, risk/policy/recommendation/runbook validation, approval/rejection, Case creation, replay timeline, dashboard, support escalation, and feedback capture.
+- Excluded pilot scope documented for major AI architecture changes, hosted HYBRID Ollama, Agentforce production integration, full autonomous remediation, large object model changes, broad marketplace rollout, custom integrations, and production rollout without explicit customer approval.
+- Pilot timeline documented from customer selection through pre-onboarding, guided onboarding, workflow validation, observation, and pilot review.
+- Success criteria documented for onboarding, package validation, permissions, hosted API/DB health, test incident, write-back, approval, execution, replay, dashboard, secret-safe evidence, feedback triage, and P0/P1 closure.
+- Support process documented with support owner, escalation contacts, SLA handling, issue tracking, feedback-to-roadmap routing, v1.0.1 patch routing, and required support evidence.
+- Feedback process documented with sources, categories, review rules, and feedback record template.
+- Pilot exit criteria documented with close, no-go, patch-candidate, roadmap, and rollout decision requirements.
+- Next phase documented: 27B Pilot Onboarding Runbook.
+- Rollback note: documentation-only milestone; remove `docs/real-customer-pilot-plan.md` and this maintenance entry if the pilot selection process is replaced.
