@@ -931,7 +931,7 @@ Customer-facing pilot outreach message:
 
 ## Milestone 28: AppExchange / AgentExchange Submission Finalization
 
-Status: Active
+Status: Complete
 
 Planned scope:
 
@@ -1044,3 +1044,28 @@ Milestone 28 - AppExchange / AgentExchange Submission Finalization
 - Pass/fail summary and final submission readiness result sections documented with required proof points and blocker tracking.
 - Next phase documented: 28F Submission Readiness Wrap-up.
 - Rollback note: documentation-only milestone; remove `docs/install-test-org-final-validation.md` and this maintenance entry if the final validation plan is replaced.
+
+28F submission readiness wrap-up:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/submission-readiness-wrap-up.md`.
+- Purpose documented: summarize final submission readiness assets, evidence, validation plans, known gaps, and go/no-go posture before moving into actual marketplace submission execution.
+- Milestone 28 summary documented with 28A through 28F completed.
+- Submission assets completed section documented for final checklist, listing assets, screenshots/demo finalization, security evidence cross-check, install/test validation, and wrap-up.
+- Security evidence completed section documented for security review evidence pack, final checklist, security prep, CRUD/FLS review, Apex/LWC scan checklist, privacy/retention, callout security, Named Credential evidence, shared-secret auth, error logging, and evidence cross-check.
+- Listing assets completed section documented for `SentinelFlow by Tomcodex`, positioning, tagline, descriptions, features, target users, categories/keywords, screenshots, demo video plan, brand checklist, support placeholder, privacy/security links, and listing review checklist.
+- Install/test validation completed section documented for target org fields, manifest, deployment commands, 17 passing / 0 failing expectation, permissions, hosted API/DB, `FLOW_FAILURE`, approval/execution, Replay Timeline, dashboard, error logging, pass/fail summary, and readiness result.
+- Known submission gaps documented for actual screenshot capture, demo video recording/approval, support/contact placeholder replacement, final validation evidence execution/attachment, explicit CRUD/FLS enforcement posture, and final marketplace form submission.
+- Final go/no-go status documented as go for Submission Execution, with conditional go pending final execution evidence.
+- Next phase documented as Milestone 29 Submission Execution.
+- Milestone 28 marked complete.
+- Rollback note: documentation-only milestone; remove `docs/submission-readiness-wrap-up.md` and this maintenance entry if the submission wrap-up is replaced.
+
+Milestone 28 wrap-up:
+
+- Status: Complete.
+- Completed scope: 28A final submission checklist, 28B final listing assets, 28C screenshots + demo script finalization, 28D security review evidence cross-check, 28E install/test org final validation, and 28F submission readiness wrap-up.
+- Milestone 28 result: AppExchange / AgentExchange submission finalization planning is complete.
+- Final readiness posture: go for Submission Execution, conditional on final execution evidence.
+- Next milestone: Milestone 29 Submission Execution.
