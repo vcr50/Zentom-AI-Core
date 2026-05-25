@@ -1164,3 +1164,21 @@ Milestone 29 - Submission Execution
 - Submission steps, post-submission tracking, and listing approval criteria documented.
 - Next phase documented: 29E Review Feedback Tracking.
 - Rollback note: documentation-only milestone; remove `docs/listing-submission-execution.md` and this maintenance entry if the listing submission execution plan is replaced.
+
+29E review feedback tracking:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/review-feedback-tracking.md`.
+- Purpose documented: track every marketplace, listing, package, and security review response from receipt through triage, remediation, validation, re-submission, and closure.
+- Feedback sources documented for Salesforce security review, AppExchange/AgentExchange listing review, package upload/version feedback, partner/publisher account feedback, demo/screenshot review, privacy/security documentation review, support/contact review, customer pilot evidence feedback, and internal submission owner notes.
+- Feedback statuses documented: Received, Under Review, Accepted, Rejected, Fix In Progress, Fix Validated, Re-submitted, and Closed.
+- Severity / priority levels documented from P0 through P4 with response expectations for submission blockers, reviewer-required changes, trust/supportability issues, clarifications, and backlog ideas.
+- Review owner section documented for security review, package/version, listing copy/assets, privacy/legal, support/contact, and maintenance log ownership.
+- Response timeline documented by severity with triage and response/fix targets.
+- Evidence required section documented by feedback type, including package/test, security, CRUD/FLS/sharing, callout/auth, privacy, error logging, listing copy, screenshot/demo, and support/contact issues.
+- Remediation workflow documented from feedback receipt through status tracking, ownership, severity, fix/response, validation, re-submission, closure, and maintenance update.
+- Re-submission checklist documented for P0/P1 resolution, validation evidence, tests, install/test validation, security evidence, listing copy, assets, support/privacy links, limitation accuracy, unsupported claim checks, submission owner approval, and maintenance update.
+- Final approval tracking documented for security review, package/version, listing, screenshots/demo, support/privacy links, final approval evidence, and readiness for 29F.
+- Next phase documented: 29F Submission Wrap-up.
+- Rollback note: documentation-only milestone; remove `docs/review-feedback-tracking.md` and this maintenance entry if the feedback tracking process is replaced.
