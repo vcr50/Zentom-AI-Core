@@ -1836,3 +1836,14 @@ Milestone 34 - Slack Pilot Setup and Manual Validation
 - Approved pilot channels documented as `#sentinelflow-alerts` and `#sentinelflow-pilot`.
 - Secret search patterns documented for Slack token, webhook, and signing secret indicators.
 - Product rule reaffirmed: evidence must not include tokens, webhook URLs, signing secrets, app secrets, or sensitive customer data.
+
+34C - Manual Alert Template Rendering:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-manual-alert-template-rendering.md`.
+- Purpose documented: define the manual rendering checklist for SentinelFlow Slack alert templates before automated Slack delivery is implemented.
+- Demo data set documented for `SI-000013`, `FLOW_FAILURE`, `95 / CRITICAL`, `HUMAN_APPROVAL_REQUIRED`, `FLOW_FAILURE_BASIC_RECOVERY`, Pending Approval, Not Started, Case `00001051`, and Critical Org Health.
+- Rendering workspace/channel, renderer, and validation date placeholders documented.
+- Manual rendering sections documented for CRITICAL incident, approval required, approved action executed, Case created, Org Health watch, Replay/audit ready, and alert delivery issue templates.
+- Checklist documented for readability, Salesforce links, no secrets, no raw payloads, no Slack-side approval/execution controls, mobile readability, and overall pass/fail result.
+- Product rule reaffirmed: manual rendering uses demo/sample data only and does not introduce automated Slack delivery.
