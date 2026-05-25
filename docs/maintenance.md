@@ -1428,3 +1428,22 @@ Fix only P0/P1/P2 issues.
 - Approved patch candidate list and deferred backlog list documented.
 - Next phase documented: 31B P0/P1/P2 Fix Plan.
 - Rollback note: documentation-only milestone; remove `docs/pilot-feedback-triage.md` and this maintenance entry if the triage template is replaced.
+
+31B P0/P1/P2 fix plan:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/p0-p1-p2-fix-plan.md`.
+- Purpose documented: convert approved pilot feedback triage items into a controlled v1.0.1 fix plan with owners, validation evidence, rollback paths, and patch readiness criteria.
+- Patch rule documented: no new features; only pilot feedback fixes P0/P1/P2.
+- Fix scope documented for accepted P0/P1/P2 pilot feedback, pilot blockers, hosted API failures, package install blockers, callout/authentication failures, approval/execution defects, Case creation defects, replay/audit defects, dashboard/Org Health Score defects, error logging defects, security/privacy issues, and onboarding/documentation corrections.
+- P0 issues section documented with definition, fix table, source evidence, owner, required fix, validation, status, and no-readiness rule while P0 remains open.
+- P1 issues section documented with definition, fix table, source evidence, owner, required fix, validation, status, and no-readiness rule while unmitigated P1 remains open.
+- P2 issues section documented with definition, fix table, source evidence, owner, required fix, validation, status, and mitigation/acceptance rule.
+- Out-of-scope items documented for new features, P3/P4 improvements, major AI architecture changes, Hosted HYBRID Ollama, Agentforce production integration, full autonomous remediation, large object model changes, marketplace expansion, broad UI redesign, and non-pilot roadmap ideas.
+- Fix owner section documented for patch owner, technical owner, QA/validation owner, customer follow-up owner, security/privacy reviewer, release notes owner, and ownership rules.
+- Validation requirements documented by issue type, including package/install, hosted API, hosted DB, callout/authentication, incident creation, risk/policy, approval/execution, replay/audit, dashboard, error logging, and documentation/onboarding.
+- Rollback plan documented for scoped file changes, clean commits, individual fix rollback, hosted API artifact/commit reference, Salesforce metadata/package state, rollback triggers, and validation after rollback.
+- Patch readiness criteria documented for fixed/validated P0, fixed or mitigated P1, fixed/mitigated/deferred P2, no new features, no out-of-scope architecture changes, validation evidence, security/privacy signoff, rollback plan, release notes input, and 31C readiness.
+- Next phase documented: 31C Patch Scope Freeze.
+- Rollback note: documentation-only milestone; remove `docs/p0-p1-p2-fix-plan.md` and this maintenance entry if the fix plan template is replaced.
