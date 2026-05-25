@@ -1072,7 +1072,7 @@ Milestone 28 wrap-up:
 
 ## Milestone 29: Submission Execution
 
-Status: Active
+Status: Complete
 
 Planned scope:
 
@@ -1182,3 +1182,50 @@ Milestone 29 - Submission Execution
 - Final approval tracking documented for security review, package/version, listing, screenshots/demo, support/privacy links, final approval evidence, and readiness for 29F.
 - Next phase documented: 29F Submission Wrap-up.
 - Rollback note: documentation-only milestone; remove `docs/review-feedback-tracking.md` and this maintenance entry if the feedback tracking process is replaced.
+
+29F submission wrap-up:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/submission-execution-wrap-up.md`.
+- Purpose documented: summarize submission execution assets, package/security/listing readiness, review tracking process, remaining execution gaps, and next customer-first beta pilot phase.
+- Milestone 29 summary documented with 29A through 29F completed.
+- Submission execution assets completed section documented for `docs/submission-execution-plan.md`, `docs/package-version-upload-preparation.md`, `docs/security-review-submission-execution.md`, `docs/listing-submission-execution.md`, `docs/review-feedback-tracking.md`, and `docs/submission-execution-wrap-up.md`.
+- Package upload readiness documented for `v1.0.0-rc.1`, package manifest `apps/sentinelflow-salesforce/manifest/package-sentinelflow-beta.xml`, 17 passing / 0 failing tests, hosted API, default `REMOTE_SITE`, and Named Credential path validated but not default.
+- Security review submission readiness documented for evidence pack, CRUD/FLS + sharing review, Apex/LWC checklist, privacy/retention, Named Credential evidence, shared-secret auth, production validation, submission execution plan, and feedback tracking.
+- Listing submission readiness documented for `SentinelFlow by Tomcodex`, positioning, listing execution plan, final listing assets, screenshot/demo plan, support/privacy/security links, and unsupported claim guardrails.
+- Feedback tracking readiness documented for statuses, severity/priority model, review ownership, timelines, evidence requirements, remediation workflow, re-submission checklist, and final approval tracking.
+- Known remaining gaps documented for actual partner/publisher account verification, package upload/version evidence, security review submission id, listing submission id, screenshot/demo upload, support/contact placeholder replacement, and explicit CRUD/FLS enforcement posture.
+- Product rule documented: no new features now; release beta, run pilot, collect feedback, fix only P0/P1/P2 issues.
+- Final submission status documented as prepared for execution, with external marketplace evidence dependent on actual account/package/listing/security review actions.
+- Next phase documented as Milestone 30 Beta Customer Pilot Execution.
+- Milestone 29 marked complete.
+- Rollback note: documentation-only milestone; remove `docs/submission-execution-wrap-up.md` and this maintenance entry if the submission execution wrap-up is replaced.
+
+Milestone 29 wrap-up:
+
+- Status: Complete.
+- Completed scope: 29A submission account / partner setup verification, 29B package version / upload preparation, 29C security review submission execution, 29D listing submission execution, 29E review feedback tracking, and 29F submission wrap-up.
+- Milestone 29 result: submission execution planning and tracking assets are complete.
+- Product rule: no new features now; release beta, run pilot, collect feedback, fix only P0/P1/P2 issues.
+- Next milestone: Milestone 30 Beta Customer Pilot Execution.
+
+## Milestone 30: Beta Customer Pilot Execution
+
+Status: Planned
+
+Planned scope:
+
+- 30A: Select pilot customer/org.
+- 30B: Schedule pilot demo.
+- 30C: Install/validate package.
+- 30D: Run pilot scenarios.
+- 30E: Capture feedback.
+- 30F: Go/No-Go decision.
+- 30G: Pilot success report.
+
+Current next milestone:
+
+```text
+Milestone 30 - Beta Customer Pilot Execution
+```
