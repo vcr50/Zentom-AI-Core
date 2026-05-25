@@ -909,3 +909,22 @@ Customer-facing pilot outreach message:
 - Action items, follow-up owner, and target fix milestone sections documented.
 - Next phase documented: 27E Pilot Success Report.
 - Rollback note: documentation-only milestone; remove `docs/pilot-feedback-review-template.md` and this maintenance entry if the feedback review template is replaced.
+
+27E pilot success report:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/pilot-success-report.md`.
+- Purpose documented: summarize the outcome of a real customer SentinelFlow pilot and decide whether to expand, patch, extend validation, or pause rollout.
+- Pilot summary section documented with customer, org type, Salesforce Org Id, pilot dates, owner fields, objective, and scope completion checklist.
+- Customer profile section documented with industry/use case, org type, workflow evaluated, Salesforce Case usage, participants, success criteria, and fit assessment.
+- Scenarios completed section documented for package validation, permissions, hosted API/DB health, `FLOW_FAILURE` test incident, write-back, risk/policy/recommendation/runbook review, approval/rejection, Case creation, Replay Timeline, dashboard, Org Health Score, and support validation.
+- Success criteria results section documented with pass/fail evidence table and overall success result.
+- Customer feedback summary section documented for what worked well, issues, feature requests, onboarding friction, security/privacy concerns, product value score, and customer quote/summary.
+- Risk and issue summary section documented with severity, type, owner, target milestone, status, and P0/P1 disposition.
+- v1.0.1 patch candidates section documented with candidate rules that keep patch scope focused on blockers, onboarding/docs, stability, replay/audit, approval/execution, and hosted API fixes while excluding major AI architecture changes, hosted HYBRID Ollama, Agentforce production integration, full autonomous remediation, and large object model changes.
+- Roadmap candidates section documented for Agentforce integration, advanced AI/HYBRID hosted model strategy, setup wizard, Named Credential default switch, advanced replay search, adoption analytics, and additional integrations.
+- Support and follow-up plan documented with owners, cadence, customer communication checklist, and open support items.
+- Go/no-go decision and final recommendation sections documented.
+- Milestone 27 marked ready for customer execution and reporting.
+- Rollback note: documentation-only milestone; remove `docs/pilot-success-report.md` and this maintenance entry if the pilot success report template is replaced.
