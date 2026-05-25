@@ -1293,3 +1293,24 @@ Fix only P0/P1/P2 issues.
 - Locked beta rule reaffirmed: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
 - Next phase documented: 30D Run pilot scenarios.
 - Rollback note: documentation-only milestone; remove `docs/beta-pilot-install-validation.md` and this maintenance entry if the install validation template is replaced.
+
+30D run pilot scenarios:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/beta-pilot-scenario-run.md`.
+- Pilot org section documented for customer name, Salesforce org, org type, org id, pilot run date, scenario owner, customer admin/contact, locked beta rule, and prerequisites.
+- Scenario list documented for app/dashboard access, Org Health Score, `FLOW_FAILURE`, risk/policy, AI recommendation/runbook, approval, rejection, approved execution, Case creation, Replay Timeline, audit/error logging, and pass/fail capture.
+- `FLOW_FAILURE` incident test documented with expected incident creation, `Approval Required` status, non-sensitive payload guidance, execution details, evidence, and pass criteria.
+- Risk + policy verification documented with expected risk `95 / CRITICAL` and expected policy `HUMAN_APPROVAL_REQUIRED`.
+- AI recommendation + runbook check documented with expected runbook `FLOW_FAILURE_BASIC_RECOVERY`, customer clarity, unsupported-claim guardrail, and human approval governance.
+- Approval workflow test documented for reviewing the test incident, approving action, state capture, execution availability only after approval, and replay/audit evidence.
+- Rejection workflow test documented for rejecting recommended action, state capture, execution blocking, and no Case/remediation after rejection.
+- Case creation execution test documented for approved `FLOW_FAILURE` action, Salesforce Case creation, field/context validation, link/reference capture, and replay/audit evidence.
+- Replay Timeline verification documented for incident creation, risk/policy/recommendation, approval/rejection, execution, Case creation, timestamps, missing events, and evidence.
+- Dashboard + Org Health Score check documented for dashboard load, card visibility, recent pilot activity, UI clarity, and customer value confirmation.
+- Error logging check documented for successful run log review, controlled failure handling, sensitive-data avoidance, diagnosability, and P0/P1/P2 issue creation.
+- Pass/fail summary documented with scenario result table, evidence, issue ids, final status, P0/P1/P2 counts, backlog separation, and readiness for 30E.
+- Locked beta rule reaffirmed: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
+- Next phase documented: 30E Capture feedback.
+- Rollback note: documentation-only milestone; remove `docs/beta-pilot-scenario-run.md` and this maintenance entry if the scenario run template is replaced.
