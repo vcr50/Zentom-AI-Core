@@ -1782,3 +1782,15 @@ Milestone 33 - Slack Bot / Conversational Incident Assistant
 - Response fields documented for health, critical incidents, pending approvals, incident summary, and help.
 - Authorization model, data access model, safe error responses, audit/logging expectations, validation requirements, and exit criteria documented.
 - Product rule reaffirmed: Slack access does not grant Salesforce access; linked Salesforce records must still enforce Salesforce permissions.
+
+33F - Security Validation Plan:
+
+- Status: Complete at documentation level.
+- Document created: `docs/slack-security-validation-plan.md`.
+- Purpose documented: define security validation for SentinelFlow Slack assistant before any pilot or production Slack integration is enabled.
+- Security goal documented: Slack can notify and summarize while Salesforce remains the system of record for approval, rejection, execution, and audit.
+- Validation scope documented for Slack app ownership, workspace/channel restrictions, credential handling, message content, read-only command authorization, Salesforce link behavior, delivery failure logging, privacy-safe screenshots, and rollback controls.
+- Out-of-scope items documented for Slack-side approval, Slack-side execution, Slack-side remediation, production Agentforce integration, hosted HYBRID Ollama, and broad autonomous agent behavior.
+- Governance, workspace/channel, credential/secret, message content, authorization, inbound request, Salesforce permission, logging/audit, failure-mode, privacy/demo data, rollback, pass/fail, validation evidence, and exit criteria documented.
+- Secret search patterns documented for Slack tokens, webhook URLs, and signing secret environment variables.
+- Product rule reaffirmed: Slack failures must not block SentinelFlow incident creation, approval/rejection, Case creation, Replay Timeline, dashboard loading, or hosted API health.
