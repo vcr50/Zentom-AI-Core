@@ -692,7 +692,7 @@ Rollback note: documentation-only milestone; restore the prior roadmap/maintenan
 
 ## Milestone 26: Post-v1 Stabilization and Customer Rollout
 
-Status: Active
+Status: Complete
 
 Planned scope:
 
@@ -777,3 +777,29 @@ Milestone 26 - Post-v1 Stabilization and Customer Rollout
 - Review cadence, customer communication rules, backlog management, release planning, and success metrics documented.
 - Next phase documented: 26F v1.0.1 Patch Planning.
 - Rollback note: documentation-only milestone; remove `docs/feedback-to-roadmap-process.md` and this maintenance entry if the roadmap process is replaced.
+
+26F v1.0.1 patch planning:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/v1.0.1-patch-planning.md`.
+- Core decision documented: v1.0.1 should focus on bug fixes, onboarding improvements, documentation corrections, and low-risk stability changes.
+- Patch scope documented for bug fixes, onboarding improvements, documentation corrections, low-risk Salesforce package stability changes, low-risk hosted API stability changes, monitoring/logging improvements, approval/execution/replay/audit regressions, and security or privacy fixes.
+- Patch candidate sources documented: production issue tracking, customer onboarding findings, support SLA escalations, usage/adoption metrics, feedback-to-roadmap review, Salesforce debug logs, `Sentinel_Error_Log__c`, hosted API logs, hosted API error logs, hosted DB health checks, Render observations, security review findings, install validation, regression testing, and customer-reported documentation gaps.
+- Must-fix criteria documented: P0/P1 customer blockers, hosted API failures, Salesforce package install blockers, callout/authentication failures, approval/execution defects, replay/audit defects, and data privacy or security issues.
+- Candidate improvements documented for install/onboarding documentation, hosted API and DB validation clarity, callout/authentication troubleshooting, admin-facing error messages, low-risk audit/replay/logging corrections, package metadata corrections, support workflow improvements, and release documentation corrections.
+- Excluded changes documented: major AI architecture change, hosted HYBRID Ollama, Agentforce production integration, full autonomous remediation, and large object model changes.
+- Validation requirements documented for hosted API health, hosted DB health, Salesforce package validation, clean install checks, test incident submission, write-back, risk/policy/recommendation/runbook output, approval/rejection, execution, replay timeline, dashboard, Org Health Score, error logging, security/privacy evidence, and documentation consistency.
+- Release notes requirements documented for version/date, fixed blockers, hosted API fixes, package/install fixes, callout/authentication fixes, approval/execution fixes, replay/audit fixes, security/privacy fixes, onboarding/documentation improvements, known limitations, upgrade instructions, validation summary, rollback guidance, and support escalation.
+- Rollback plan documented for documentation-only issues, Salesforce metadata issues, hosted API issues, authentication issues, approval/execution issues, and replay/audit issues.
+- Patch exit criteria documented with owner assignment, P0/P1 disposition, low-risk scope, validation requirements, rollback notes, release notes ownership, customer communication needs, package validation plan, hosted API validation plan, and maintenance log update.
+- Milestone 26 marked complete.
+- Next phase documented: Milestone 27 Real Customer Pilot.
+- Rollback note: documentation-only milestone; remove `docs/v1.0.1-patch-planning.md` and this maintenance entry if the patch planning process is replaced.
+
+Milestone 26 wrap-up:
+
+- Status: Complete.
+- Completed scope: 26A production issue tracking, 26B customer onboarding checklist, 26C support SLA / response policy, 26D usage monitoring + adoption metrics, 26E feedback-to-roadmap process, and 26F v1.0.1 patch planning.
+- Milestone 26 result: post-v1 stabilization and customer rollout planning is complete.
+- Next milestone: Milestone 27 Real Customer Pilot.
