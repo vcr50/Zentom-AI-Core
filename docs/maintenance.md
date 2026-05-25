@@ -987,3 +987,19 @@ Milestone 28 - AppExchange / AgentExchange Submission Finalization
 - Listing review checklist documented for final copy, assets, support, privacy/security, limitations, unsupported claims, and submission owner approval.
 - Next phase documented: 28C Screenshots + Demo Script Finalization.
 - Rollback note: documentation-only milestone; remove `docs/final-listing-assets.md` and this maintenance entry if the final listing assets plan is replaced.
+
+28C screenshots + demo script finalization:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/screenshots-demo-script-finalization.md`.
+- Purpose documented: create a clean, consistent, privacy-safe screenshot and demo package for the SentinelFlow Salesforce workflow from app launch through incident review, approval, Case creation, replay, and governance explanation.
+- Required screenshots documented: SentinelFlow App Home / Dashboard, Sentinel Incident record, AI Recommendation section, Human Approval panel, Replay Timeline, Policy Decision record, Audit Log list, Case created from approved action, and Org Health Score card.
+- Screenshot naming convention documented with stable lowercase `sentinelflow-##-*` filenames.
+- Demo video flow documented: open SentinelFlow app, show dashboard and Org Health Score, trigger test `FLOW_FAILURE` incident, open created incident, explain risk/policy/recommendation/runbook, approve incident, execute approved action, show created Case, show Replay Timeline, and close with security/governance explanation.
+- Demo script final version documented with marketplace-safe talk track and explicit guardrails around human approval, Viewer read-only access, secret-safe evidence, and excluded full autonomous remediation, hosted HYBRID Ollama, and production Agentforce integration.
+- Visual QA checklist documented for screenshot quality, UI framing, privacy, naming, listing alignment, demo clarity, unsupported claims, and security/privacy explanation.
+- Privacy/sample data rules documented for synthetic data, approved demo orgs, no customer data, no credentials, no regulated data, and standard `FLOW_FAILURE` sample data.
+- Final asset checklist documented for required screenshot filenames, demo video, review, captions/transcript, listing consistency, privacy/security review, and submission owner approval.
+- Next phase documented: 28D Security Review Evidence Cross-check.
+- Rollback note: documentation-only milestone; remove `docs/screenshots-demo-script-finalization.md` and this maintenance entry if the screenshot/demo finalization plan is replaced.
