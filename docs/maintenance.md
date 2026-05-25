@@ -1273,3 +1273,23 @@ Fix only P0/P1/P2 issues.
 - Locked beta rule reaffirmed: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
 - Next phase documented: 30C Install/validate package.
 - Rollback note: documentation-only milestone; remove `docs/beta-pilot-demo-schedule.md` and this maintenance entry if the demo scheduling process is replaced.
+
+30C install/validate package:
+
+- Date: 2026-05-25.
+- Status: Complete at documentation level.
+- Document created: `docs/beta-pilot-install-validation.md`.
+- Pilot org placeholders documented for customer name, Salesforce org, org type, org id, admin, validation owner, and validation date.
+- Package/version section documented for `v1.0.0-rc.1`, package manifest, 17 passing / 0 failing baseline, selected beta pilot org, and install evidence.
+- Permission set assignment section documented for SentinelFlow admin/user access, Case access, Sentinel Incident access, Policy Decision access, Replay/audit access, assigned users, evidence, and result.
+- Hosted API URL documented as `https://zentom-api.onrender.com`.
+- Callout mode documented as default `REMOTE_SITE`, with Named Credential path validated but not default.
+- API health check documented with expected successful hosted API response, actual result, status, evidence, and failure severity guidance.
+- DB health check documented with hosted DB status, vector/search dependency status where applicable, expected pilot workflow support, actual result, status, and evidence.
+- Test incident command documented as `FLOW_FAILURE` with non-sensitive sample payload guidance.
+- Expected validation result documented: hosted API `https://zentom-api.onrender.com`, Risk `95 / CRITICAL`, Policy `HUMAN_APPROVAL_REQUIRED`, Runbook `FLOW_FAILURE_BASIC_RECOVERY`, Status `Approval Required`.
+- Validation evidence checklist documented for package install, permission set assignment, API/DB health, callout configuration, test command/payload, Sentinel Incident record, expected values, and error log result.
+- Pass/fail result section documented for package install, permission sets, hosted API, hosted DB, callout mode, test incident, expected result, error logging, overall status, blockers, P0/P1/P2 issues, and readiness for 30D.
+- Locked beta rule reaffirmed: no new features now; run pilot; collect feedback; fix only P0/P1/P2 issues.
+- Next phase documented: 30D Run pilot scenarios.
+- Rollback note: documentation-only milestone; remove `docs/beta-pilot-install-validation.md` and this maintenance entry if the install validation template is replaced.
