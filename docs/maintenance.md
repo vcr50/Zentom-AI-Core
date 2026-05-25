@@ -1023,3 +1023,24 @@ Milestone 28 - AppExchange / AgentExchange Submission Finalization
 - Final cross-check result documented as substantially complete for submission finalization planning, with required final actions before submission.
 - Next phase documented: 28E Install/Test Org Final Validation.
 - Rollback note: documentation-only milestone; remove `docs/security-review-evidence-cross-check.md` and this maintenance entry if the security evidence cross-check is replaced.
+
+28E install/test org final validation:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/install-test-org-final-validation.md`.
+- Purpose documented: prove the current SentinelFlow submission candidate deploys cleanly, passes tests, connects to hosted Zentom API/database, processes standard `FLOW_FAILURE`, supports approval/execution, creates a Salesforce Case, records Replay Timeline events, logs errors safely, and loads the dashboard.
+- Target validation org section documented with org alias, type, Org Id, username, validation date, owner, and readiness checklist.
+- Package manifest section documented for `apps/sentinelflow-salesforce/manifest/package-sentinelflow-beta.xml`, `v1.0.0-rc.1`, target reference, and manifest checks for stable metadata, permissions, callout metadata, no experimental Agentforce metadata, no temporary files, no local URLs, and no hardcoded secrets.
+- Deployment command section documented for `sf project deploy validate` and optional `sf project deploy start` with `RunLocalTests`, deploy/validation id, status, timing, and required result of clean deploy with 17 passing / 0 failing tests.
+- Test classes run section documented with expected 17 passing / 0 failing result and stable test coverage areas.
+- Permission sets assigned section documented for `SentinelFlow_Admin`, `SentinelFlow_Approver`, and `SentinelFlow_Viewer`, including Admin, Approver, and Viewer behavior checks.
+- Hosted API verification documented for `https://zentom-api.onrender.com`, root health, `/api/health/db`, PostgreSQL, required tables, `missingTables = []`, pgvector, incident receive endpoint, and shared secret behavior.
+- Salesforce incident test documented for standard `FLOW_FAILURE`, expected risk `95`, level `CRITICAL`, policy `HUMAN_APPROVAL_REQUIRED`, runbook `FLOW_FAILURE_BASIC_RECOVERY`, and Sentinel Incident write-back evidence.
+- Approval + execution test documented for approval panel, recommendation/runbook visibility, approval status, execution action `CREATE_CASE`, execution status, incident status, created Case reference, Case subject, priority, and origin.
+- Replay Timeline test documented with expected events from `INCIDENT_RECEIVED` through `CASE_CREATED`, ordering, secret-safe evidence, and demo suitability.
+- Dashboard test documented for app launch, dashboard load, recent incident visibility, status/risk summary, approval queue/status, execution activity, Org Health Score, and role-specific access.
+- Error logging test documented for controlled failure, `Sentinel_Error_Log__c`, status code, endpoint, sanitized payloads, API key exclusion, hosted API error logging, and no secret exposure.
+- Pass/fail summary and final submission readiness result sections documented with required proof points and blocker tracking.
+- Next phase documented: 28F Submission Readiness Wrap-up.
+- Rollback note: documentation-only milestone; remove `docs/install-test-org-final-validation.md` and this maintenance entry if the final validation plan is replaced.
