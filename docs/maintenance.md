@@ -891,3 +891,21 @@ Customer-facing pilot outreach message:
 - Closing questions and follow-up checklist documented for pilot fit, setup ownership, callout approval, Case creation, security/privacy requirements, support issues, v1.0.1 patch routing, and roadmap routing.
 - Next phase documented: 27D Pilot Feedback Review Template, followed by 27E Pilot Success Report.
 - Rollback note: documentation-only milestone; remove `docs/pilot-demo-script.md` and this maintenance entry if the pilot demo script is replaced.
+
+27D pilot feedback review template:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/pilot-feedback-review-template.md`.
+- Pilot customer, pilot date, participants, and scenarios tested sections documented.
+- Scenario checklist documented for package validation, permissions, hosted API/DB health, callout configuration, `FLOW_FAILURE` test incident, write-back, risk/policy/recommendation/runbook review, approval/rejection, Case creation, Replay Timeline, Dashboard, Org Health Score, and support escalation.
+- What worked well section documented for setup, permissions, hosted API, incident intake, risk/policy, recommendation/runbook, approval, Case creation, Replay Timeline, dashboard, Org Health Score, and support experience.
+- Issues found section documented with severity guidance, evidence, owner, status, production issue tracking, v1.0.1 patch routing, roadmap routing, and workaround capture.
+- Feature requests section documented with customer value, priority, target path, and classification guidance.
+- Security/privacy concerns section documented with checklist for secrets, screenshots, replay evidence, error logs, API key handling, human approval boundary, Viewer access, and data privacy constraints.
+- Onboarding friction section documented for package install, permissions, callout setup, health validation, API key setup, test incident, approval panel, Case creation, Replay Timeline, dashboard, and support handoff.
+- Product value score section documented with 1-5 scoring rubric and supporting value signals.
+- Go/no-go recommendation section documented for go, conditional go, extend pilot, patch before expanding, and no-go outcomes.
+- Action items, follow-up owner, and target fix milestone sections documented.
+- Next phase documented: 27E Pilot Success Report.
+- Rollback note: documentation-only milestone; remove `docs/pilot-feedback-review-template.md` and this maintenance entry if the feedback review template is replaced.
