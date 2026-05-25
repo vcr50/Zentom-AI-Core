@@ -1106,3 +1106,22 @@ Milestone 29 - Submission Execution
 - Submission status tracker documented for 29A through 29F.
 - Next phase documented: 29B Package Version / Upload Preparation.
 - Rollback note: documentation-only milestone; remove `docs/submission-execution-plan.md` and this maintenance entry if the submission execution plan is replaced.
+
+29B package version / upload preparation:
+
+- Date: 2026-05-25.
+- Status: Complete.
+- Document created: `docs/package-version-upload-preparation.md`.
+- Purpose documented: confirm package candidate, manifest, validation evidence, metadata scope, upload steps, validation org steps, rollback plan, and readiness criteria before uploading or submitting the package version.
+- Package version target documented for SentinelFlow Salesforce package submission candidate with clean deploy, stable tests, hosted Zentom API, safe callout default, human approval, safe Case creation, Replay Timeline, dashboard, and Org Health Score.
+- Current release candidate documented as `v1.0.0-rc.1`, with stable tests 17 passing / 0 failing, hosted API `https://zentom-api.onrender.com`, default callout mode `REMOTE_SITE`, and Named Credential path validated but not default.
+- Package manifest documented as `apps/sentinelflow-salesforce/manifest/package-sentinelflow-beta.xml` with short reference `manifest/package-sentinelflow-beta.xml`.
+- Pre-upload validation checklist documented for manifest review, deploy validation, tests, hosted API/DB, PostgreSQL, pgvector, Base URL, callout mode, Named Credential posture, shared secret auth, error logging, no hardcoded secrets, no local-only URLs, no public Ollama endpoint, upload owner, and rollback plan.
+- Package metadata included section documented for stable Apex, tests, LWCs, objects, fields, custom metadata, app, tabs, layouts, list views, permission sets, Remote Site fallback, Named Credential metadata, error log object, policy decision metadata, and runbook metadata.
+- Package metadata excluded section documented for experimental Agentforce metadata, full autonomous remediation, hosted HYBRID Ollama config, local-only URLs, hardcoded secrets/API keys, temporary files, old static resources, package drift, large object model changes, customer-specific metadata, and local test configuration.
+- Upload steps documented from owner/access confirmation through manifest/release/commit review, metadata review, validation, hosted API/DB checks, callout mode confirmation, package upload/version creation, evidence capture, and maintenance update.
+- Validation org steps documented for clean org, permission sets, Base URL, `REMOTE_SITE`, hosted API, hosted DB, `FLOW_FAILURE`, Sentinel Incident, approval/execution, Case creation, Replay Timeline, dashboard, Org Health Score, and error logging.
+- Rollback / re-upload plan documented for upload/install/test/API/callout/approval/execution/replay/dashboard/error logging/metadata failures.
+- Upload readiness criteria documented.
+- Next phase documented: 29C Security Review Submission Execution.
+- Rollback note: documentation-only milestone; remove `docs/package-version-upload-preparation.md` and this maintenance entry if the package upload preparation plan is replaced.
