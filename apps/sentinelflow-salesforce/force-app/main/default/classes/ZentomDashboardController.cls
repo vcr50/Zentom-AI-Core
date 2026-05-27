@@ -9,7 +9,46 @@ public with sharing class ZentomDashboardController {
         data.recentExecutions = getRecentExecutions(dateRange);
         data.recentReplayEvents = getRecentReplayEvents(dateRange);
         data.recentCasesCreated = getRecentCasesCreated(dateRange);
+        data.latestAiSignal = getLatestAiSignal(dateRange);
         return data;
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static AiSignalData getLatestAiSignal(String dateRange) {
+        Datetime cutoff = getCutoff(dateRange);
+        List<Sentinel_Incident__c> incidents;
+        if (cutoff == null) {
+            incidents = [
+                SELECT Id, AI_Reasoning_Status__c, AI_Confidence__c, Orchestration_Mode__c, Memory_Used__c, AI_Explanation__c
+                FROM Sentinel_Incident__c
+                WHERE Risk_Level__c = 'CRITICAL' AND AI_Reasoning_Status__c != null
+                ORDER BY CreatedDate DESC
+                LIMIT 1
+            ];
+        } else {
+            incidents = [
+                SELECT Id, AI_Reasoning_Status__c, AI_Confidence__c, Orchestration_Mode__c, Memory_Used__c, AI_Explanation__c
+                FROM Sentinel_Incident__c
+                WHERE Risk_Level__c = 'CRITICAL' AND AI_Reasoning_Status__c != null AND CreatedDate >= :cutoff
+                ORDER BY CreatedDate DESC
+                LIMIT 1
+            ];
+        }
+
+        if (incidents.isEmpty()) {
+            return null;
+        }
+
+        Sentinel_Incident__c incident = incidents[0];
+        AiSignalData signal = new AiSignalData();
+        signal.incidentId = incident.Id;
+        signal.aiStatus = incident.AI_Reasoning_Status__c;
+        signal.confidenceScore = incident.AI_Confidence__c;
+        signal.orchestrationMode = incident.Orchestration_Mode__c;
+        signal.memoryUsed = incident.Memory_Used__c;
+        signal.latestExplanation = incident.AI_Explanation__c;
+        
+        return signal;
     }
 
     @AuraEnabled(cacheable=true)
@@ -387,6 +426,16 @@ public with sharing class ZentomDashboardController {
         @AuraEnabled public List<IncidentRow> recentExecutions;
         @AuraEnabled public List<ReplayEventRow> recentReplayEvents;
         @AuraEnabled public List<IncidentRow> recentCasesCreated;
+        @AuraEnabled public AiSignalData latestAiSignal;
+    }
+
+    public class AiSignalData {
+        @AuraEnabled public Id incidentId;
+        @AuraEnabled public String aiStatus;
+        @AuraEnabled public Decimal confidenceScore;
+        @AuraEnabled public String orchestrationMode;
+        @AuraEnabled public Boolean memoryUsed;
+        @AuraEnabled public String latestExplanation;
     }
 
     public class DashboardSummary {

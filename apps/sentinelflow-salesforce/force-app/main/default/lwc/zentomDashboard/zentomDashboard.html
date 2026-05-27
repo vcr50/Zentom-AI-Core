@@ -123,6 +123,38 @@
                 </article>
             </section>
 
+            <section class="panel ai-preview-panel">
+                <header class="panel-header">
+                    <div>
+                        <span class="section-label">Zentom Engine</span>
+                        <h2>AI Signal</h2>
+                    </div>
+                    <template if:true={hasAiSignal}>
+                        <lightning-button label="View Full AI Trace" variant="base" onclick={openAiTrace}></lightning-button>
+                    </template>
+                </header>
+                <template if:true={hasAiSignal}>
+                    <div class="ai-signal-content">
+                        <div class="ai-metrics">
+                            <div class="ai-metric"><span>AI Status</span><strong>{latestAiSignal.aiStatus}</strong></div>
+                            <div class="ai-metric"><span>Confidence</span><strong>{latestAiSignal.confidenceScore}%</strong></div>
+                            <div class="ai-metric"><span>Orchestration</span><strong>{latestAiSignal.orchestrationMode}</strong></div>
+                            <div class="ai-metric"><span>Memory Used</span><strong>{aiMemoryUsedLabel}</strong></div>
+                        </div>
+                        <div class="ai-explanation">
+                            <span>Latest Explanation:</span>
+                            <p>{latestAiSignal.latestExplanation}</p>
+                        </div>
+                    </div>
+                    <div class="ai-safety-footer">
+                        AI explains and recommends. Policy controls action. Human approval controls execution.
+                    </div>
+                </template>
+                <template if:false={hasAiSignal}>
+                    <p class="empty">No active AI signal detected.</p>
+                </template>
+            </section>
+
             <section class="content-grid">
                 <article class="panel panel-priority">
                     <header class="panel-header">

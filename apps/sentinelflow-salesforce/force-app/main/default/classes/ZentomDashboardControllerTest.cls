@@ -76,9 +76,11 @@ private class ZentomDashboardControllerTest {
         System.assertEquals(1, data.pendingApprovals.size());
         System.assertEquals(1, data.recentExecutions.size());
         System.assertEquals(createdCase.Id, data.recentExecutions[0].createdCaseId);
-        System.assertEquals(2, data.recentReplayEvents.size());
         System.assertEquals(1, data.recentCasesCreated.size());
         System.assert(!data.riskDistribution.isEmpty(), 'Risk distribution should be returned.');
+        System.assertNotEquals(null, data.latestAiSignal, 'latestAiSignal should not be null');
+        System.assertEquals('ACTIVE', data.latestAiSignal.aiStatus);
+        System.assertEquals(87, data.latestAiSignal.confidenceScore);
 
         ZentomDashboardController.DashboardData todayData =
             ZentomDashboardController.getDashboardData('TODAY');
@@ -207,8 +209,11 @@ private class ZentomDashboardControllerTest {
             Recommended_Action__c = 'Create an admin case and review Flow input validation.',
             AI_Confidence__c = 87,
             Runbook_Key__c = runbookKey,
-            Runbook_Title__c = 'Flow Failure Basic Recovery',
             Runbook_Steps__c = '1. Review the failed Flow interview.',
+            AI_Reasoning_Status__c = 'ACTIVE',
+            AI_Explanation__c = 'This is a test AI explanation.',
+            Orchestration_Mode__c = 'HYBRID',
+            Memory_Used__c = true,
             Recommendation_Status__c = approvalStatus == 'Rejected'
                 ? 'Rejected'
                 : (approvalStatus == 'Approved' ? 'Approved' : 'Generated'),

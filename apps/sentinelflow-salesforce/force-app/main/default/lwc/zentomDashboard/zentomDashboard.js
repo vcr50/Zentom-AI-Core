@@ -140,6 +140,18 @@ export default class ZentomDashboard extends NavigationMixin(LightningElement) {
         return this.recentCasesCreated.length > 0;
     }
 
+    get latestAiSignal() {
+        return this.data?.latestAiSignal;
+    }
+
+    get hasAiSignal() {
+        return !!this.latestAiSignal;
+    }
+
+    get aiMemoryUsedLabel() {
+        return this.latestAiSignal?.memoryUsed ? 'Yes' : 'No';
+    }
+
     handleRangeChange(event) {
         this.dateRange = event.target.dataset.range;
         refreshApex(this.wiredDashboard);
@@ -158,6 +170,19 @@ export default class ZentomDashboard extends NavigationMixin(LightningElement) {
                 actionName: 'view'
             }
         });
+    }
+
+    openAiTrace() {
+        if (this.latestAiSignal?.incidentId) {
+            this[NavigationMixin.Navigate]({
+                type: 'standard__recordPage',
+                attributes: {
+                    recordId: this.latestAiSignal.incidentId,
+                    objectApiName: 'Sentinel_Incident__c',
+                    actionName: 'view'
+                }
+            });
+        }
     }
 
     openCase(event) {
