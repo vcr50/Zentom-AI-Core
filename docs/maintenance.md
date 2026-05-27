@@ -19,4 +19,5 @@
 
 ## Active Milestones
 
-### Milestone 35 — Customer Demo Execution / Feedback Capture: Pending
+### Milestone 35 — Customer Demo Execution / Feedback Capture: Active
+- 35A — Customer demo execution plan: Complete
