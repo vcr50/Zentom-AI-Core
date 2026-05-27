@@ -69,3 +69,4 @@
 
 ### Milestone 41 — General Availability Rollout Preparation: In Progress
 - 41A — GA Rollout Plan: Complete
+- 41B — Active Patch Queue Resolution: Complete
