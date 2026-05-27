@@ -67,10 +67,11 @@
 - 40F — Pilot Success Scorecard: Complete
 - 40G — Pilot Closeout / Production Rollout Decision: Complete
 
-### Milestone 41 — General Availability Rollout Preparation: In Progress
+### Milestone 41 — General Availability Rollout Preparation: Complete
 - 41A — GA Rollout Plan: Complete
 - 41B — Active Patch Queue Resolution: Complete
 - 41C — Release Candidate 1 Tag: Complete
 - 41D — Production Deployment Runbook: Complete
 - 41E — GA Security / Access Final Check: Complete
 - 41F — GA Customer Communication Pack: Complete
+- 41G — GA Rollout Wrap-up: Complete
