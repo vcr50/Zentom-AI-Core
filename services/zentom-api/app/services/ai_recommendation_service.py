@@ -14,6 +14,8 @@ def generate_rule_recommendation(payload: dict, risk: dict, policy: dict) -> dic
                 "rootCause": "Required owner lookup was null during Flow execution.",
                 "recommendedAction": "Create an admin case and review Flow input validation.",
                 "confidenceScore": 87,
+                "aiExplanation": "Zentom identified this as a critical Salesforce Flow failure based on the incident type, production context, and error message.",
+                "runbookReason": "FLOW_FAILURE_BASIC_RECOVERY was selected because the incident type is FLOW_FAILURE.",
                 "runbookKey": "FLOW_FAILURE_BASIC_RECOVERY",
                 "recommendationStatus": "Generated",
                 "modelName": "zentom-rule-v1",
@@ -27,6 +29,8 @@ def generate_rule_recommendation(payload: dict, risk: dict, policy: dict) -> dic
                 "fields, and check recent Flow changes."
             ),
             "confidenceScore": 87,
+            "aiExplanation": "Zentom identified a Salesforce Flow failure and recommended basic recovery steps based on the error context.",
+            "runbookReason": "FLOW_FAILURE_BASIC_RECOVERY was selected because the incident type is FLOW_FAILURE.",
             "runbookKey": "FLOW_FAILURE_BASIC_RECOVERY",
             "recommendationStatus": "Generated",
             "modelName": "zentom-rule-v1",
@@ -37,6 +41,8 @@ def generate_rule_recommendation(payload: dict, risk: dict, policy: dict) -> dic
         "rootCause": "Root cause could not be confidently determined from the current payload.",
         "recommendedAction": "Create a Salesforce admin case for manual investigation.",
         "confidenceScore": 70,
+        "aiExplanation": "Zentom identified a general incident requiring administrative review due to insufficient context.",
+        "runbookReason": "GENERAL_INCIDENT_REVIEW was selected because the incident does not match a known specialized runbook.",
         "runbookKey": "GENERAL_INCIDENT_REVIEW",
         "recommendationStatus": "Needs Review",
         "modelName": "zentom-rule-v1",
@@ -133,7 +139,7 @@ def generate_recommendation(
 
 def merge_llm_with_rule_safety(rule_result: dict, llm_result: dict) -> dict:
     merged = dict(rule_result)
-    for key in ["summary", "rootCause", "recommendedAction"]:
+    for key in ["summary", "rootCause", "recommendedAction", "aiExplanation", "runbookReason"]:
         if isinstance(llm_result.get(key), str) and llm_result[key].strip():
             merged[key] = llm_result[key]
 

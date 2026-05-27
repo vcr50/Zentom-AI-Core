@@ -86,6 +86,7 @@ def process_incident(payload: dict, db: Session) -> dict:
         "risk": risk_result,
         "policy": policy_result,
         "recommendation": recommendation_result,
+        "aiTrace": brain_result["aiTrace"],
         "brain": brain_result["brain"],
         "memory": brain_result.get("memory", {}),
     }

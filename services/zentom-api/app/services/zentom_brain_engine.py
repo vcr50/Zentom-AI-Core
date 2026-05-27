@@ -84,6 +84,31 @@ def analyze_incident(payload: dict, db=None) -> dict:
         memory_context=memory_context,
     )
 
+    ai_reasoning_status = "ACTIVE"
+    if recommendation.get("modelName") == "zentom-rule-v1":
+        ai_reasoning_status = "RULE_ONLY"
+    elif "fallback" in recommendation.get("modelName", ""):
+        ai_reasoning_status = "FALLBACK"
+
+    orchestration_mode = settings.AI_MODE or "RULE"
+
+    env = payload.get("environment", "sandbox")
+    inc_type = payload.get("incidentType", "issue").replace("_", " ").lower()
+    risk_level_fmt = risk.get("riskLevel", "UNKNOWN").lower().capitalize()
+    risk_reason = f"{risk_level_fmt} risk because the incident indicates a {env} {inc_type} with business process impact."
+
+    ai_trace = {
+        "aiReasoningStatus": ai_reasoning_status,
+        "aiConfidenceScore": recommendation.get("confidenceScore", 0),
+        "aiExplanation": recommendation.get("aiExplanation", "AI explanation not available."),
+        "riskReason": risk_reason,
+        "policyReason": policy.get("reason", "Policy reason not available."),
+        "runbookReason": recommendation.get("runbookReason", "Runbook reason not available."),
+        "memoryUsed": memory_metadata.get("contextInjected", False),
+        "orchestrationMode": orchestration_mode,
+        "brainVersion": BRAIN_VERSION,
+    }
+
     return {
         "risk": risk,
         "policy": policy,
@@ -92,6 +117,7 @@ def analyze_incident(payload: dict, db=None) -> dict:
             "runbookKey": recommendation.get("runbookKey"),
             "recommendationStatus": recommendation.get("recommendationStatus"),
         },
+        "aiTrace": ai_trace,
         "brain": get_brain_metadata(),
         "memory": memory_metadata,
     }

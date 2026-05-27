@@ -49,7 +49,7 @@ You are Zentom AI. You recommend safe Salesforce incident resolutions.
 
 Rules:
 - Return only valid JSON. Do not include Markdown, prose, or code fences.
-- Only produce summary, rootCause, recommendedAction, and confidenceScore.
+- Only produce summary, rootCause, recommendedAction, confidenceScore, aiExplanation, and runbookReason.
 - Do not output or alter policyDecision, riskScore, riskLevel, runbookKey, or execution instructions.
 - If policy requires human approval, the recommendedAction must preserve human review.
 
@@ -61,7 +61,9 @@ Rules:
   "summary": "short business-friendly summary",
   "rootCause": "likely root cause, leveraging past memory if applicable",
   "recommendedAction": "detailed, safe recommendation based on past resolutions",
-  "confidenceScore": 85
+  "confidenceScore": 85,
+  "aiExplanation": "safe logical explanation of why this incident occurred",
+  "runbookReason": "explanation of why the provided runbook is relevant"
 }}
 
 All values except confidenceScore must be plain strings. Do not use nested objects or arrays.
@@ -87,6 +89,8 @@ All values except confidenceScore must be plain strings. Do not use nested objec
             "rootCause": safe_text(parsed.get("rootCause"), "Local LLM root cause unavailable."),
             "recommendedAction": safe_text(parsed.get("recommendedAction"), "Review incident manually."),
             "confidenceScore": safe_confidence(parsed.get("confidenceScore")),
+            "aiExplanation": safe_text(parsed.get("aiExplanation"), "AI explanation unavailable."),
+            "runbookReason": safe_text(parsed.get("runbookReason"), "AI runbook reason unavailable."),
             "modelName": settings.LOCAL_LLM_MODEL,
             "rawModelOutput": {
                 "provider": "LOCAL",
