@@ -17,12 +17,15 @@
 - 34E — Screenshot QA + privacy check: Complete
 - 34F — Demo pack wrap-up: Complete
 
-## Active Milestones
-
-### Milestone 35 — Customer Demo Execution / Feedback Capture: Active
+### Milestone 35 — Customer Demo Execution / Feedback Capture: ✅ Complete
 - 35A — Customer demo execution plan: Complete
 - 35B — Demo session checklist: Complete
 - 35C — Live demo feedback capture: Complete
 - 35D — Customer questions + objection log: Complete
 - 35E — Demo outcome decision: Complete
 - 35F — Feedback fix / follow-up plan: Complete
+- 35G — Milestone 35 wrap-up: Complete
+
+## Active Milestones
+
+### Milestone 36 — Customer Demo Execution / Live Feedback Results: Pending
