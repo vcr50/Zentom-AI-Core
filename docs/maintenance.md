@@ -58,10 +58,11 @@
 - 39F — Pilot Feedback Review: Complete
 - 39G — Pilot Launch Wrap-up: Complete
 
-### Milestone 40 — Pilot Monitoring / Live Operations: In Progress
+### Milestone 40 — Pilot Monitoring / Live Operations: Complete
 - 40A — Pilot Daily Monitoring Log: Complete
 - 40B — Pilot Issue / Incident Register: Complete
 - 40C — Pilot Usage + Adoption Review: Complete
 - 40D — Pilot Feedback Review Session: Complete
 - 40E — Pilot Fix Decision / Patch Queue: Complete
 - 40F — Pilot Success Scorecard: Complete
+- 40G — Pilot Closeout / Production Rollout Decision: Complete
