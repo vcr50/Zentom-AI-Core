@@ -5,50 +5,35 @@ Provide a structured template for capturing real-time customer reactions, questi
 
 ## 2. Demo Session Details
 - **Date:** 27 May 2026
+- **Customer / Audience:** Enterprise Operations Team + Salesforce Architects
 - **Environment:** Beta Sandbox (`astrosoft`)
+- **Demo Type:** Live Demo
 
-## 3. Participants
-- **Audience:** Enterprise Operations Leaders, Salesforce Architects, IT Security Team
-
-## 4. Customer Reaction Notes
-- **Reaction:** Positive
+## 3. Customer Reaction Notes
+- **Overall Reaction:** Positive
+- Audience liked the operational command center vision, governance workflow structure, and enterprise-style UI architecture.
 - **What worked well:**
-  1. Zentom AI reasoning engine and autonomous workflow orchestration vision
-  2. SentinelFlow replay timeline visualization
-  3. Salesforce-native integration and Customer 360 alignment
-  4. Dark enterprise UI and real-time operational visibility
-  5. Trust/governance positioning
+  1. Replay Timeline feature created strong interest because it showed explainable operational flow.
+  2. Human governance and approval queue increased enterprise trust perception.
+  3. Incident management dashboard looked realistic and production-oriented.
 
-## 5. Main Confusion
-- Relationship between Zentom AI and SentinelFlow layers
-- Multi-agent orchestration terms: MCP, A2A, orchestration mesh
-- **Action Needed:** Simpler messaging:
-  - SentinelFlow = Salesforce command center
-  - Zentom = AI/neural intelligence layer
+## 4. Main Confusion
+- Difference between Zentom AI intelligence engine and SentinelFlow orchestration engine.
+- Several modules displayed “Coming Soon,” making the platform feel partially incomplete.
 
-## 6. P0/P1/P2 Issues Found
-
-**Issue Severity Rules:**
-- **P0** — Demo/product blocker
-- **P1** — Core workflow problem
-- **P2** — Important usability/trust issue
-- **P3** — Nice-to-have improvement
-- **P4** — Future idea
+## 5. P0/P1/P2 Issues Found
 
 | Priority | Issue / Request | Source | Status / Next Step |
 |---|---|---|---|
 | P0 | None | Demo | N/A |
-| P1 | Replay timeline loading latency during high-volume simulation | Demo | Add to fix backlog |
-| P2 | Dashboard filters need better UX clarity | Demo | Add to fix backlog |
-| P3/P4 | Minor mobile responsiveness spacing issues | Demo | Add to fix backlog |
+| P1 | Zentom AI engine not visibly functioning during workflow execution | Demo | Add to fix backlog |
+| P1 | AI actions lacked realtime reasoning visibility | Demo | Add to fix backlog |
+| P2 | Empty states across modules reduced perceived platform maturity | Demo | Add to fix backlog |
+| P2 | Some dashboard sections lacked live telemetry | Demo | Add to fix backlog |
+| P3/P4 | Minor UI spacing and alignment inconsistencies | Demo | Add to fix backlog |
 
-## 7. Feature Requests (To Roadmap)
-- Executive KPI cards
-- Live AI confidence score
-- SLA tracking widgets
-- Drag-and-drop workflow editor
-- Conditional branching visualization
-- Approval escalation paths
-- Replay export/share capability
-- Custom AI agents using customer data
-- Multi-org support
+## 6. Detailed Feature Feedback
+- **Dashboard feedback:** Strong enterprise visual design. Health scoring system was appreciated. *Need: realtime graphs, trend metrics, AI confidence indicators, operational analytics.*
+- **Approval flow feedback:** Zentom Guardian Gate concept received strong positive feedback. Human approval governance was viewed as enterprise-ready. *Suggested adding: escalation chains, approval history, AI explanation panel.*
+- **Replay timeline feedback:** Most impressive feature in the platform. Replay flow improved operational transparency and auditability. *Customers requested: export/share, event drill-down, replay playback visualization.*
+- **Security/trust feedback:** Customers appreciated governance positioning but requested: *RBAC, audit logs, encryption documentation, AI explainability, compliance roadmap.*

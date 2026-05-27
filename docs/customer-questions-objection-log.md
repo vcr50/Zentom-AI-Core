@@ -5,18 +5,22 @@ To systematically capture, track, and address customer questions and objections 
 
 ## 2. Demo/Customer Context
 - **Date:** 27 May 2026
-- **Audience:** Enterprise Operations Leaders, Salesforce Architects, IT Security Team
+- **Audience:** Enterprise Operations Team + Salesforce Architects
 
-## 3. Customer Questions & Objections Log
+## 3. Customer Questions Log
 
-| ID | Concern Category | Question / Objection | Status |
+| ID | Category | Question |
+|---|---|---|
+| Q1 | Functionality | Is Zentom AI currently executing real AI reasoning or placeholder workflows? |
+| Q2 | Integration | Can SentinelFlow integrate with existing enterprise monitoring systems? |
+| Q3 | Governance | How does approval governance prevent risky autonomous actions? |
+
+## 4. Customer Objections Log
+
+| ID | Category | Objection | Action |
 |---|---|---|---|
-| O01 | Compliance | Need compliance certification roadmap (SOC2 / ISO27001) | Roadmap |
-| O02 | Cost | Scaling cost concerns for real-time monitoring | Open |
-| O03 | Access | RBAC requirements | Roadmap |
-| O04 | Security | Encryption architecture details | Open |
-| O05 | Audit | AI audit logs | Open |
-| O06 | Governance | Governance dashboard | Roadmap |
+| O1 | Functionality | Zentom AI functionality appeared inactive or non-operational during parts of the demo. | Fix (P1) |
+| O2 | Operations | Customers wanted more realtime operational automation instead of static UI states. | Fix (P1/P2) |
 
-## 4. Final Objection Summary
-The customer raised important questions around compliance (SOC2/ISO27001 roadmap), scaling costs, RBAC, and encryption architecture. The overall feedback is that technical validation and security reviews are required before a pilot can proceed.
+## 5. Final Objection Summary
+Customers validated the governance workflow and UI architecture, but strongly objected to the platform's perceived static nature. The AI engine needs to be visibly active with real-time reasoning, and there should be fewer empty/placeholder states.
