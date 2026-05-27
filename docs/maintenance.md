@@ -39,3 +39,6 @@
 ### Milestone 37 — Re-demo Execution / Conditional GO Validation: Complete
 - 37A — Re-demo Execution Checklist: Complete
 - 37B — Re-demo Runbook Execution: Complete
+
+### Milestone 38 — Pilot Implementation Readiness: In Progress
+- 38A — Pilot Scope Confirmation: Complete
