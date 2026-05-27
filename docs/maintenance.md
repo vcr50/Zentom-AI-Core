@@ -66,3 +66,6 @@
 - 40E — Pilot Fix Decision / Patch Queue: Complete
 - 40F — Pilot Success Scorecard: Complete
 - 40G — Pilot Closeout / Production Rollout Decision: Complete
+
+### Milestone 41 — General Availability Rollout Preparation: In Progress
+- 41A — GA Rollout Plan: Complete
