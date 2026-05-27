@@ -13,7 +13,7 @@
 
 ### Milestone 34 — Beta 2 Demo Screenshot + Customer Presentation Pack: Active
 - 34A — Screenshot capture checklist: Complete
-- 34B — Demo storyline: Pending
+- 34B — Demo storyline: Complete
 - 34C — Customer presentation outline: Pending
 - 34D — Beta 2 feature summary: Pending
 - 34E — Screenshot QA + privacy check: Pending
