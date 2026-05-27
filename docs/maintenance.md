@@ -23,3 +23,4 @@
 - 35A — Customer demo execution plan: Complete
 - 35B — Demo session checklist: Complete
 - 35C — Live demo feedback capture: Complete
+- 35D — Customer questions + objection log: Complete
