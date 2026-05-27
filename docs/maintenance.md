@@ -35,3 +35,6 @@
 - 36E — Command Center AI Preview Panel: Complete
 - 36F — Realtime Telemetry + Dashboard Filter UX Plan: Complete
 - 36G — Milestone 36 Wrap-up + Re-demo Readiness: Complete
+
+### Milestone 37 — Re-demo Execution / Conditional GO Validation: In Progress
+- 37A — Re-demo Execution Checklist: Complete
