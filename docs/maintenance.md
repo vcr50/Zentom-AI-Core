@@ -25,3 +25,4 @@
 - 35C — Live demo feedback capture: Complete
 - 35D — Customer questions + objection log: Complete
 - 35E — Demo outcome decision: Complete
+- 35F — Feedback fix / follow-up plan: Complete
