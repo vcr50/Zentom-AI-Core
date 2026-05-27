@@ -73,3 +73,4 @@
 - 41C — Release Candidate 1 Tag: Complete
 - 41D — Production Deployment Runbook: Complete
 - 41E — GA Security / Access Final Check: Complete
+- 41F — GA Customer Communication Pack: Complete
