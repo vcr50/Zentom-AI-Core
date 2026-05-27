@@ -62,3 +62,4 @@
 - 40A — Pilot Daily Monitoring Log: Complete
 - 40B — Pilot Issue / Incident Register: Complete
 - 40C — Pilot Usage + Adoption Review: Complete
+- 40D — Pilot Feedback Review Session: Complete
