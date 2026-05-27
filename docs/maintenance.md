@@ -28,4 +28,6 @@
 
 ## Active Milestones
 
-### Milestone 36 — Customer Demo Execution / Live Feedback Results: Pending
+### Milestone 36 — Customer Demo Execution / Live Feedback Results: In Progress
+- 36A/36B — Live Demo Feedback Capture & Decision: Complete
+- 36C — Convert Demo Feedback into Fix Backlog: Complete
