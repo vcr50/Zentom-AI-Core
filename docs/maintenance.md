@@ -16,5 +16,5 @@
 - 34B — Demo storyline: Complete
 - 34C — Customer presentation outline: Complete
 - 34D — Beta 2 feature summary: Complete
-- 34E — Screenshot QA + privacy check: Pending
+- 34E — Screenshot QA + privacy check: Complete
 - 34F — Demo pack wrap-up: Pending
