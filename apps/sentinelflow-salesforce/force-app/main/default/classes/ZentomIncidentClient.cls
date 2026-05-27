@@ -182,6 +182,7 @@ public with sharing class ZentomIncidentClient {
         Map<String, Object> risk = asMap(responsePayload.get('risk'));
         Map<String, Object> policy = asMap(responsePayload.get('policy'));
         Map<String, Object> recommendation = asMap(responsePayload.get('recommendation'));
+        Map<String, Object> aiTrace = asMap(responsePayload.get('aiTrace'));
 
         Boolean requiresApproval = asBoolean(policy.get('requiresApproval'));
         String status = requiresApproval == true ? 'Approval Required' : 'Analyzed';
@@ -215,7 +216,14 @@ public with sharing class ZentomIncidentClient {
             Execution_Status__c = 'Not Started',
             Next_Action__c = requiresApproval == true
                 ? 'Awaiting human approval before execution'
-                : 'No approval required'
+                : 'No approval required',
+            AI_Reasoning_Status__c = asString(aiTrace.get('aiReasoningStatus')),
+            AI_Explanation__c = truncateLongText(asString(aiTrace.get('aiExplanation'))),
+            Risk_Reason__c = truncateLongText(asString(aiTrace.get('riskReason'))),
+            Runbook_Reason__c = truncateLongText(asString(aiTrace.get('runbookReason'))),
+            Memory_Used__c = asBoolean(aiTrace.get('memoryUsed')),
+            Orchestration_Mode__c = asString(aiTrace.get('orchestrationMode')),
+            Brain_Version__c = asString(aiTrace.get('brainVersion'))
         );
         insert incident;
 

@@ -13,6 +13,12 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>c:zentomAiExplanationPanel</componentName>
+                <identifier>c_zentomAiExplanationPanel</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentName>c:zentomApprovalPanel</componentName>
                 <identifier>c_zentomApprovalPanel</identifier>
             </componentInstance>

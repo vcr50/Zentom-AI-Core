@@ -1,0 +1,106 @@
+.explanation-panel {
+    background-color: #1a1c23;
+    border: 1px solid #2d3139;
+    border-radius: 8px;
+    padding: 1rem;
+    color: #e0e2e6;
+    font-family: 'Inter', 'Salesforce Sans', sans-serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #2d3139;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.ai-icon {
+    margin-right: 8px;
+    color: #00a1e0;
+}
+
+.panel-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.metrics-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.metric-badge {
+    background-color: #242730;
+    border: 1px solid #363b45;
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #8c92a0;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.05em;
+}
+
+.metric-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.value-highlight {
+    color: #00a1e0;
+}
+
+.section {
+    margin-bottom: 1.25rem;
+    background-color: #242730;
+    border-left: 3px solid #00a1e0;
+    padding: 0.75rem 1rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #8c92a0;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.section-content {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #e0e2e6;
+}
+
+.safety-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #2d3139;
+    display: flex;
+    align-items: flex-start;
+}
+
+.safety-icon {
+    color: #ffb75d;
+    margin-right: 0.5rem;
+}
+
+.safety-text {
+    font-size: 0.8rem;
+    color: #8c92a0;
+    font-style: italic;
+    line-height: 1.3;
+}

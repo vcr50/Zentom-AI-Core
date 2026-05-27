@@ -1,0 +1,58 @@
+<template>
+    <div class="explanation-panel" if:true={hasData}>
+        <div class="panel-header">
+            <lightning-icon icon-name="utility:custom_apps" size="small" class="ai-icon" variant="inverse"></lightning-icon>
+            <h2 class="panel-title">Zentom AI Explanation</h2>
+        </div>
+
+        <div class="metrics-row">
+            <div class="metric-badge">
+                <span class="metric-label">AI Status</span>
+                <span class="metric-value value-highlight">{status}</span>
+            </div>
+            <div class="metric-badge">
+                <span class="metric-label">Confidence</span>
+                <span class="metric-value">{confidence}%</span>
+            </div>
+            <div class="metric-badge">
+                <span class="metric-label">Mode</span>
+                <span class="metric-value">{orchestrationMode}</span>
+            </div>
+            <div class="metric-badge">
+                <span class="metric-label">Memory</span>
+                <span class="metric-value">{memoryUsed}</span>
+            </div>
+            <div class="metric-badge">
+                <span class="metric-label">Engine</span>
+                <span class="metric-value" style="color: #8c92a0; font-weight: normal;">{brainVersion}</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">AI Explanation</div>
+            <div class="section-content">{explanation}</div>
+        </div>
+
+        <div class="section" style="border-left-color: #ff5c5c;">
+            <div class="section-title">Risk Reason</div>
+            <div class="section-content">{riskReason}</div>
+        </div>
+
+        <div class="section" style="border-left-color: #ffb75d;">
+            <div class="section-title">Policy Reason</div>
+            <div class="section-content">{policyReason}</div>
+        </div>
+
+        <div class="section" style="border-left-color: #3bb371;">
+            <div class="section-title">Runbook Reason</div>
+            <div class="section-content">{runbookReason}</div>
+        </div>
+
+        <div class="safety-footer">
+            <lightning-icon icon-name="utility:shield" size="x-small" class="safety-icon"></lightning-icon>
+            <div class="safety-text">
+                AI explains and recommends. Policy controls action. Human approval is required for critical incidents.
+            </div>
+        </div>
+    </div>
+</template>

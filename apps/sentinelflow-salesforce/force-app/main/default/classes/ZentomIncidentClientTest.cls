@@ -18,7 +18,13 @@ private class ZentomIncidentClientTest {
                 '"rootCause":"Required owner lookup was null during Flow execution.",' +
                 '"recommendedAction":"Create an admin case and review Flow input validation.",' +
                 '"confidenceScore":87,"runbookKey":"FLOW_FAILURE_BASIC_RECOVERY",' +
-                '"recommendationStatus":"Generated"}}';
+                '"recommendationStatus":"Generated"},' +
+                '"aiTrace":{"aiReasoningStatus":"ACTIVE","aiConfidenceScore":87,' +
+                '"aiExplanation":"Zentom identified this as a critical Flow failure because the owner field is missing in a production workflow.",' +
+                '"riskReason":"Production incident with high business process impact.",' +
+                '"policyReason":"Human approval is required because the risk level is CRITICAL.",' +
+                '"runbookReason":"FLOW_FAILURE_BASIC_RECOVERY was selected because the incident type is FLOW_FAILURE.",' +
+                '"memoryUsed":true,"orchestrationMode":"HYBRID","brainVersion":"zentom-brain-v1"}}';
         }
 
         ZentomIncidentMock(String expectedEndpoint, Integer statusCode, String responseBody) {
@@ -79,7 +85,9 @@ private class ZentomIncidentClientTest {
                 Zentom_Incident_Id__c, Status__c, AI_Summary__c, Root_Cause__c,
                 Recommended_Action__c, AI_Confidence__c, Runbook_Key__c,
                 Runbook_Title__c, Runbook_Steps__c, Recommendation_Status__c,
-                Approval_Status__c, Execution_Status__c, Next_Action__c
+                Approval_Status__c, Execution_Status__c, Next_Action__c,
+                AI_Reasoning_Status__c, AI_Explanation__c, Risk_Reason__c,
+                Runbook_Reason__c, Memory_Used__c, Orchestration_Mode__c, Brain_Version__c
             FROM Sentinel_Incident__c
             LIMIT 1
         ];
@@ -108,6 +116,13 @@ private class ZentomIncidentClientTest {
         System.assertEquals('Pending Approval', incident.Approval_Status__c);
         System.assertEquals('Not Started', incident.Execution_Status__c);
         System.assertEquals('Awaiting human approval before execution', incident.Next_Action__c);
+        System.assertEquals('ACTIVE', incident.AI_Reasoning_Status__c);
+        System.assertEquals('Zentom identified this as a critical Flow failure because the owner field is missing in a production workflow.', incident.AI_Explanation__c);
+        System.assertEquals('Production incident with high business process impact.', incident.Risk_Reason__c);
+        System.assertEquals('FLOW_FAILURE_BASIC_RECOVERY was selected because the incident type is FLOW_FAILURE.', incident.Runbook_Reason__c);
+        System.assertEquals(true, incident.Memory_Used__c);
+        System.assertEquals('HYBRID', incident.Orchestration_Mode__c);
+        System.assertEquals('zentom-brain-v1', incident.Brain_Version__c);
 
         Zentom_Policy_Decision__c policy = [
             SELECT Incident__c, Decision__c, Requires_Approval__c, Reason__c,
