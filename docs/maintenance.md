@@ -36,5 +36,6 @@
 - 36F — Realtime Telemetry + Dashboard Filter UX Plan: Complete
 - 36G — Milestone 36 Wrap-up + Re-demo Readiness: Complete
 
-### Milestone 37 — Re-demo Execution / Conditional GO Validation: In Progress
+### Milestone 37 — Re-demo Execution / Conditional GO Validation: Complete
 - 37A — Re-demo Execution Checklist: Complete
+- 37B — Re-demo Runbook Execution: Complete
