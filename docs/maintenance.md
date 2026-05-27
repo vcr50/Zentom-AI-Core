@@ -64,3 +64,4 @@
 - 40C — Pilot Usage + Adoption Review: Complete
 - 40D — Pilot Feedback Review Session: Complete
 - 40E — Pilot Fix Decision / Patch Queue: Complete
+- 40F — Pilot Success Scorecard: Complete
