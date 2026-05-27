@@ -57,3 +57,6 @@
 - 39E — Pilot Monitoring Log: Complete
 - 39F — Pilot Feedback Review: Complete
 - 39G — Pilot Launch Wrap-up: Complete
+
+### Milestone 40 — Pilot Monitoring / Live Operations: In Progress
+- 40A — Pilot Daily Monitoring Log: Complete
