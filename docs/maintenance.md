@@ -28,9 +28,10 @@
 
 ## Active Milestones
 
-### Milestone 36 — Customer Demo Execution / Live Feedback Results: In Progress
+### Milestone 36 — Customer Demo Execution / Live Feedback Results: Complete
 - 36A/36B — Live Demo Feedback Capture & Decision: Complete
 - 36C — Activate Functional Zentom AI Reasoning Signal: Complete
 - 36D — Salesforce AI Explanation Panel: Complete
 - 36E — Command Center AI Preview Panel: Complete
 - 36F — Realtime Telemetry + Dashboard Filter UX Plan: Complete
+- 36G — Milestone 36 Wrap-up + Re-demo Readiness: Complete
