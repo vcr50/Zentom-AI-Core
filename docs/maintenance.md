@@ -15,6 +15,6 @@
 - 34A — Screenshot capture checklist: Complete
 - 34B — Demo storyline: Complete
 - 34C — Customer presentation outline: Complete
-- 34D — Beta 2 feature summary: Pending
+- 34D — Beta 2 feature summary: Complete
 - 34E — Screenshot QA + privacy check: Pending
 - 34F — Demo pack wrap-up: Pending
