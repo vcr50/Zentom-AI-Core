@@ -21,3 +21,4 @@
 
 ### Milestone 35 — Customer Demo Execution / Feedback Capture: Active
 - 35A — Customer demo execution plan: Complete
+- 35B — Demo session checklist: Complete
