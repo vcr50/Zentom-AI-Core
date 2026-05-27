@@ -60,3 +60,4 @@
 
 ### Milestone 40 — Pilot Monitoring / Live Operations: In Progress
 - 40A — Pilot Daily Monitoring Log: Complete
+- 40B — Pilot Issue / Incident Register: Complete
