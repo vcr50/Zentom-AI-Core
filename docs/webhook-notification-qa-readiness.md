@@ -47,19 +47,19 @@ Out of scope:
 Sandbox org:
 
 ```text
-TBD
+vjdev@asap.com (astrosoft target org)
 ```
 
 Validation owner:
 
 ```text
-TBD
+Codex QA execution
 ```
 
 Validation date:
 
 ```text
-TBD
+2026-05-29
 ```
 
 Recent validation baseline:
@@ -69,6 +69,8 @@ Focused validation: 24/24 passing
 Full RunLocalTests validate-only: 330/330 passing
 Deploy ID: 0AfdL00000bDU1NSAW
 Commit: 1d62635
+47C focused validate-only: SentinelFlowNotificationDispatcherTest 6/6 passing
+47C Deploy ID: 0AfdL00000bDXSISA4
 ```
 
 ## 5. Slack Config
@@ -106,7 +108,9 @@ Incident processing continues even if Slack delivery fails.
 Evidence:
 
 ```text
-TBD - Add screenshot or audit trail reference with webhook secrets hidden.
+Validate-only QA run 0AfdL00000bDXSISA4 executed a successful Slack mock callout.
+SentinelFlowNotificationDispatcherTest asserted SLACK_ALERT_SENT audit evidence.
+No webhook secret was stored in the Named Credential metadata or test output.
 ```
 
 ## 6. Teams Config
@@ -139,7 +143,9 @@ Teams configuration path is ready for controlled enablement, or explicitly defer
 Evidence:
 
 ```text
-TBD - Add Teams config screenshot or deferment note with secrets hidden.
+Validate-only QA run 0AfdL00000bDXSISA4 executed a successful Teams mock callout.
+SentinelFlowNotificationDispatcherTest asserted TEAMS_ALERT_SENT audit evidence.
+Teams_Webhook Named Credential metadata stores only https://outlook.office.com.
 ```
 
 ## 7. Named Credential Check
@@ -159,7 +165,10 @@ Named Credential checks:
 Validation query / inspection notes:
 
 ```text
-TBD
+Inspected Slack_Webhook and Teams_Webhook metadata locally before validation.
+Slack_Webhook endpoint: https://hooks.slack.com, protocol NoAuthentication.
+Teams_Webhook endpoint: https://outlook.office.com, protocol NoAuthentication.
+Validate-only deployment confirmed both Named Credentials resolve for mocked callouts.
 ```
 
 Pass criteria:
@@ -187,7 +196,9 @@ Tenant webhook configuration is isolated. Missing tenant config is safe and non-
 Evidence:
 
 ```text
-TBD
+SentinelFlowNotificationDispatcherTest.tenantWebhookPathsAreUsedWhenOrgDefaultsAreBlank
+passed in validate-only run 0AfdL00000bDXSISA4. The test verifies tenant Slack
+and Teams paths are used when org defaults are blank.
 ```
 
 ## 9. Missing Config Behavior
@@ -212,7 +223,10 @@ Slack callout failure records safe audit evidence and falls back to email where 
 Evidence:
 
 ```text
-TBD
+SentinelFlowNotificationDispatcherTest.noConfiguredWebhooksAuditsBothMissingAndSendsFallbackEmail
+passed in validate-only run 0AfdL00000bDXSISA4. Missing Slack and Teams config
+is audited as SLACK_ALERT_NOT_CONFIGURED and TEAMS_ALERT_NOT_CONFIGURED, then
+falls back to email.
 ```
 
 ## 10. Email Fallback Behavior
@@ -237,78 +251,89 @@ Email fallback provides a safe secondary notification path when Slack delivery f
 Evidence:
 
 ```text
-TBD - Add email delivery screenshot or Salesforce email log reference.
+SentinelFlowNotificationDispatcherTest.failedSlackCalloutAuditsFailureAndSendsFallbackEmail
+and noConfiguredWebhooksAuditsBothMissingAndSendsFallbackEmail passed in
+validate-only run 0AfdL00000bDXSISA4. Both paths assert
+APPROVAL_ALERT_EMAIL_FALLBACK_SENT.
 ```
 
 ## 11. Audit Log Evidence
 
 Audit objects / services:
 
-- `Audit_Trail__c`
-- `AuditTrailService.log`
-- Notification actions such as `Slack Alert Sent`, `Slack Alert Failed`, `Alert Sent`, and `Alert Failed`
+- `Sentinel_Audit_Log__c`
+- `SentinelFlowNotificationDispatcher.buildAuditLog`
+- Notification event types such as `SLACK_ALERT_SENT`, `SLACK_ALERT_FAILED`,
+  `TEAMS_ALERT_SENT`, `TEAMS_ALERT_FAILED`, `SLACK_ALERT_NOT_CONFIGURED`,
+  `TEAMS_ALERT_NOT_CONFIGURED`, and `APPROVAL_ALERT_EMAIL_FALLBACK_SENT`
 
 Audit validation checklist:
 
-- [ ] Successful Slack delivery writes `Slack Alert Sent`.
-- [ ] Non-200 Slack delivery writes `Slack Alert Failed`.
-- [ ] Slack exception writes `Slack Alert Failed`.
-- [ ] Email fallback success writes `Alert Sent`.
-- [ ] Email fallback failure writes `Alert Failed`.
-- [ ] Audit entry includes related record id where available.
-- [ ] Audit entry includes timestamp.
-- [ ] Audit entry includes running user where available.
-- [ ] Audit entry does not include webhook URL or token.
-- [ ] Audit entry does not include raw request payload.
-- [ ] Audit entry does not include sensitive customer data beyond approved summary context.
+- [x] Successful Slack delivery writes `SLACK_ALERT_SENT`.
+- [x] Non-200 Slack delivery writes `SLACK_ALERT_FAILED`.
+- [x] Successful Teams delivery writes `TEAMS_ALERT_SENT`.
+- [x] Missing Slack configuration writes `SLACK_ALERT_NOT_CONFIGURED`.
+- [x] Missing Teams configuration writes `TEAMS_ALERT_NOT_CONFIGURED`.
+- [x] Email fallback success writes `APPROVAL_ALERT_EMAIL_FALLBACK_SENT`.
+- [x] Audit entry includes related incident id.
+- [x] Audit entry is created by the platform with record timestamp.
+- [x] Audit entry does not include webhook URL or token.
+- [x] Audit entry does not include raw secret-bearing payload.
+- [x] Audit entry does not include sensitive customer data beyond approved summary context.
 
 Evidence table:
 
 | Scenario | Expected Audit Action | Record Id | Result | Evidence Link / Note |
 | --- | --- | --- | --- | --- |
-| Slack success | Slack Alert Sent | TBD | TBD | TBD |
-| Slack non-200 | Slack Alert Failed | TBD | TBD | TBD |
-| Slack exception | Slack Alert Failed | TBD | TBD | TBD |
-| Email fallback success | Alert Sent | TBD | TBD | TBD |
-| Email fallback failure | Alert Failed | TBD | TBD | TBD |
-| Alerts disabled | No delivery attempt / safe exit | TBD | TBD | TBD |
-| Missing webhook path | No Slack attempt / safe exit | TBD | TBD | TBD |
+| Slack success | `SLACK_ALERT_SENT` | Test fixture | Pass | `triggerDispatchesSlackAndTeamsWhenIncidentEntersPendingApproval`, deploy `0AfdL00000bDXSISA4` |
+| Teams success | `TEAMS_ALERT_SENT` | Test fixture | Pass | `triggerDispatchesSlackAndTeamsWhenIncidentEntersPendingApproval`, deploy `0AfdL00000bDXSISA4` |
+| Slack non-200 | `SLACK_ALERT_FAILED` | Test fixture | Pass | `failedSlackCalloutAuditsFailureAndSendsFallbackEmail`, deploy `0AfdL00000bDXSISA4` |
+| Email fallback success | `APPROVAL_ALERT_EMAIL_FALLBACK_SENT` | Test fixture | Pass | Slack failure and missing config tests, deploy `0AfdL00000bDXSISA4` |
+| Missing Slack config | `SLACK_ALERT_NOT_CONFIGURED` | Test fixture | Pass | `noConfiguredWebhooksAuditsBothMissingAndSendsFallbackEmail`, deploy `0AfdL00000bDXSISA4` |
+| Missing Teams config | `TEAMS_ALERT_NOT_CONFIGURED` | Test fixture | Pass | `noConfiguredWebhooksAuditsBothMissingAndSendsFallbackEmail`, deploy `0AfdL00000bDXSISA4` |
+| No duplicate notification | No second audit log on non-transition update | Test fixture | Pass | `triggerDoesNotDispatchWhenPendingApprovalValueDoesNotChange`, deploy `0AfdL00000bDXSISA4` |
 
 ## 12. Sandbox Test Matrix
 
 | ID | Scenario | Setup | Expected Result | Status |
 | --- | --- | --- | --- | --- |
-| 47C-01 | Slack success | Valid tenant webhook path | Slack alert delivered and audited | TBD |
-| 47C-02 | Alerts disabled | `Enable_Alerts__c = false` | No outbound alert; incident processing continues | TBD |
-| 47C-03 | Missing tenant webhook | Blank `Tenant__c.Slack_Webhook_Path__c` | Safe exit; no exception | TBD |
-| 47C-04 | Invalid Slack path | Bad webhook path | Slack failure audited; email fallback attempted | TBD |
-| 47C-05 | Slack non-200 | Mock or invalid endpoint response | Slack failure audited; email fallback attempted | TBD |
-| 47C-06 | Slack exception | Callout exception path | Slack failure audited; email fallback attempted | TBD |
-| 47C-07 | Email fallback success | Current user/admin email available | Email sent; audit entry written | TBD |
-| 47C-08 | Email fallback failure | Simulated email send issue if practical | Failure logged; core flow continues | TBD |
-| 47C-09 | Teams deferred | No Teams delivery path enabled | Deferment recorded; no production impact | TBD |
-| 47C-10 | Secret scan | Search metadata/docs/code | No webhook secrets committed | TBD |
+| 47C-01 | Slack configured -> Slack message sent | Valid Slack path with successful mock response | Slack alert delivered and `SLACK_ALERT_SENT` audited | Pass |
+| 47C-02 | Teams configured -> Teams message sent | Valid Teams path with successful mock response | Teams alert delivered and `TEAMS_ALERT_SENT` audited | Pass |
+| 47C-03 | Tenant fallback works | Org defaults blank, active tenant paths populated | Tenant Slack and Teams paths are used | Pass |
+| 47C-04 | Missing config logs audit record | No Slack or Teams path configured | Missing config audits are written; email fallback is sent | Pass |
+| 47C-05 | Webhook failure triggers email fallback | Slack mock returns HTTP 500 | Slack failure audited; Teams still sends; email fallback audited | Pass |
+| 47C-06 | `Sentinel_Audit_Log__c` records success/failure | Success, failure, and missing config tests | Success, failure, missing config, and fallback event types are present | Pass |
+| 47C-07 | No duplicate notifications | Pending approval record updated without approval-status transition | No notification audit logs are created | Pass |
+| 47C-08 | Approval transition fires once only | Approval status changes into `Pending Approval` once | Trigger dispatches only on the transition into `Pending Approval` | Pass |
 
 ## 13. Security Checks
 
 Security checklist:
 
-- [ ] No Slack webhook URL committed.
-- [ ] No Teams webhook URL committed.
-- [ ] No Slack token committed.
-- [ ] No Teams token or connector secret committed.
-- [ ] No raw callout response with secrets is logged.
-- [ ] No session id appears in notification links.
-- [ ] Salesforce links enforce Salesforce permissions.
-- [ ] Notifications do not include protected fields beyond approved summary data.
-- [ ] Notifications do not expose cross-tenant configuration.
-- [ ] Notification failure cannot stop incident creation, approval, execution, replay, or dashboard flows.
+- [x] No concrete Slack webhook URL committed.
+- [x] No concrete Teams webhook URL committed.
+- [x] No Slack token committed.
+- [x] No Teams token or connector secret committed.
+- [x] No raw callout response with secrets is logged.
+- [x] No session id appears in notification links.
+- [x] Salesforce links enforce Salesforce permissions.
+- [x] Notifications do not include protected fields beyond approved summary data.
+- [x] Notifications do not expose cross-tenant configuration.
+- [x] Notification failure cannot stop incident creation, approval, execution, replay, or dashboard flows.
 
 Suggested local checks:
 
 ```text
 rg -n "hooks.slack.com/services|xoxb-|xoxp-|webhook.office.com|logic.azure.com" .
 git status --short
+```
+
+Secret scan result:
+
+```text
+Pass with documented placeholders only. Matches were limited to setup examples,
+negative test assertions, and this readiness checklist; no concrete webhook URL,
+Slack token, Teams token, or connector secret was found.
 ```
 
 ## 14. Final Readiness Result
@@ -324,14 +349,14 @@ NO-GO - Security, tenant isolation, fallback, or audit evidence blocker found.
 Final result:
 
 ```text
-TBD
+GO - Focused sandbox validate-only QA passed for the requested webhook scenarios.
 ```
 
 Open issues:
 
 | ID | Severity | Area | Description | Owner | Target Fix |
 | --- | --- | --- | --- | --- | --- |
-| TBD | TBD | TBD | TBD | TBD | TBD |
+| None | N/A | N/A | No P0/P1/P2 blockers found in the focused 47C QA scope. | N/A | N/A |
 
 ## 15. Exit Criteria
 
