@@ -24,3 +24,7 @@ build/
 .sfdx/
 .vercel/
 coverage/
+coverage-results/
+scratch/
+test-results/
+*.test-result.json
