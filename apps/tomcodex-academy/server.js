@@ -50,19 +50,14 @@ app.post("/api/academy/verify-lab", async (req, res) => {
     });
   }
 
-  // Generate Unlock Decision using resolved values
-  const resolvedLabId = params.labId || (result.ok ? result.data.labId : null);
+  // Generate Unlock Decision dynamically using module progression map
   const resolvedModuleId = params.moduleId || (result.ok ? result.data.moduleId : "admin-1");
-  const nextModuleId = resolvedModuleId === "admin-1" ? "admin-2" : "unknown";
-  const passingScore = result.ok ? (result.data.passingScore || 80) : 80;
+  const resolvedLabId = params.labId || (result.ok ? result.data.labId : null);
 
   const unlockDecision = getUnlockDecision({
     userId: user.id,
     moduleId: resolvedModuleId,
-    nextModuleId,
-    tier: user.tier,
-    labId: resolvedLabId,
-    passingScore
+    tier: user.tier
   });
 
   const currentPassport = passport || getSkillPassport(user.id);

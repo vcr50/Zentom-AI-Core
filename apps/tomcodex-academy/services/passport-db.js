@@ -1,3 +1,5 @@
+import { moduleProgression } from "zentom-ai-core";
+
 const passports = new Map();
 
 export function getSkillPassport(userId) {
@@ -77,33 +79,76 @@ export function updateSkillPassport({ userId, skillPassportUpdate, result }) {
   return passport;
 }
 
-export function getUnlockDecision({ userId, moduleId, nextModuleId, tier, labId, passingScore }) {
+export function getUnlockDecision({ userId, moduleId, tier }) {
   const passport = getSkillPassport(userId);
-  const bestScore = passport.bestScores[labId] || 0;
-  const passed = bestScore >= passingScore;
 
-  if (tier === "free") {
+  // Find current module configuration
+  const currentConfig = moduleProgression.find(m => m.moduleId === moduleId);
+  if (!currentConfig) {
+    return {
+      moduleId,
+      nextModuleId: "unknown",
+      eligibleToUnlock: false,
+      reason: `Module configuration not found for ${moduleId}.`
+    };
+  }
+
+  const nextModuleId = currentConfig.nextModuleId;
+  if (!nextModuleId) {
+    return {
+      moduleId,
+      nextModuleId: null,
+      eligibleToUnlock: false,
+      reason: `No subsequent module after ${moduleId}.`
+    };
+  }
+
+  // Find next module configuration to see its entry requirements
+  const nextConfig = moduleProgression.find(m => m.moduleId === nextModuleId);
+  if (!nextConfig) {
     return {
       moduleId,
       nextModuleId,
       eligibleToUnlock: false,
-      reason: `${nextModuleId === "admin-2" ? "Module 2" : nextModuleId} requires Founder Access.`
+      reason: `Configuration not found for next module ${nextModuleId}.`
     };
   }
 
-  if (passed) {
+  // 1. Check prerequisites: user must pass all required labs of the current module
+  const requiredLabs = currentConfig.requiredLabs || [];
+  const minPassingScore = currentConfig.minPassingScore || 80;
+
+  for (const requiredLabId of requiredLabs) {
+    const bestScore = passport.bestScores[requiredLabId] || 0;
+    if (bestScore < minPassingScore) {
+      return {
+        moduleId,
+        nextModuleId,
+        eligibleToUnlock: false,
+        reason: `Lab score of ${bestScore} is below the passing score of ${minPassingScore}.`
+      };
+    }
+  }
+
+  // 2. Check next module entry tier eligibility
+  if (nextConfig.requiredTier === "founder" && tier !== "founder") {
+    // If the next module requires Founder Access and user doesn't have it
     return {
       moduleId,
       nextModuleId,
-      eligibleToUnlock: true,
-      reason: `Lab score is ${bestScore} and passing score is ${passingScore}.`
+      eligibleToUnlock: false,
+      reason: `Module 2 requires Founder Access.`
     };
   }
+
+  // All prerequisites passed, and tier criteria satisfies!
+  const mainLabId = requiredLabs[0];
+  const mainLabScore = passport.bestScores[mainLabId] || 0;
 
   return {
     moduleId,
     nextModuleId,
-    eligibleToUnlock: false,
-    reason: `Lab score of ${bestScore} is below the passing score of ${passingScore}.`
+    eligibleToUnlock: true,
+    reason: `Lab score is ${mainLabScore} and passing score is ${minPassingScore}.`
   };
 }
