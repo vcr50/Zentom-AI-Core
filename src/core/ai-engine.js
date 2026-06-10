@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import { routeTask } from "./task-router.js";
 import { checkQuota, consumeQuota } from "./quota-manager.js";
 import { errorResponse, successResponse } from "./response-normalizer.js";
+import { applySafetyGuard } from "./safety-guard.js";
 import { logUsage } from "./usage-logger.js";
 
 dotenv.config();
@@ -13,6 +14,17 @@ export class AIEngine {
     const hasPersonalKey = Boolean(request.personalApiKey);
 
     try {
+      const safety = applySafetyGuard({ task, params, request });
+
+      if (!safety.allowed) {
+        return errorResponse({
+          task,
+          code: "AI_SAFETY_BLOCKED",
+          message: safety.reason,
+          status: 400
+        });
+      }
+
       const quota = checkQuota({ userId, tier, hasPersonalKey });
 
       if (!quota.allowed) {

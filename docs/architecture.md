@@ -1,10 +1,11 @@
 # Architecture
 
-This package exposes a small AI orchestration layer with three concerns:
+This package exposes a small AI orchestration layer with four concerns:
 
-- task routing
-- rule-based workflows
+- reusable core engine services
+- product-specific intelligence layers
 - provider integration points
+- sanitized knowledge placeholders
 
 Sensitive product flows, customer examples, credentials, and production
 configuration should stay in private internal documentation.

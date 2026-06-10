@@ -4,6 +4,11 @@ export function normalizeAnswer(value) {
     .toLowerCase();
 }
 
+export function percentageScore(passedCount, total) {
+  if (!total) return 0;
+  return Math.round((passedCount / total) * 100);
+}
+
 export function verifyTextAnswer(answer, criterion) {
   const normalized = normalizeAnswer(answer);
   const expected = criterion.expectedKeywords || criterion.expectedValues || [];

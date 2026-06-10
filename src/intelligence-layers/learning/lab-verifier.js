@@ -1,4 +1,4 @@
-import { verifyNumberAnswer, verifyTextAnswer } from "../../rules/lab-rules.js";
+import { percentageScore, verifyNumberAnswer, verifyTextAnswer } from "./learning-rules.js";
 
 export function verifyAcademyLab({ lab, studentAnswers }) {
   if (!lab?.criteria?.length) {
@@ -17,7 +17,7 @@ export function verifyAcademyLab({ lab, studentAnswers }) {
 
   const passedCount = results.filter((item) => item.passed).length;
   const total = results.length;
-  const score = Math.round((passedCount / total) * 100);
+  const score = percentageScore(passedCount, total);
   const passed = score >= (lab.passingScore || 80);
 
   return {

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { aiEngine } from "../src/index.js";
-import { resetQuotaForTests } from "../src/engine/quota-manager.js";
-import { resetUsageLogsForTests } from "../src/engine/usage-logger.js";
+import { resetQuotaForTests } from "../src/core/quota-manager.js";
+import { resetUsageLogsForTests } from "../src/core/usage-logger.js";
 
 process.env.NODE_ENV = "test";
 process.env.FREE_DAILY_AI_LIMIT = "1";

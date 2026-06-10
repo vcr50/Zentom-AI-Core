@@ -1,4 +1,4 @@
-import { verifyAcademyLab } from "../adapters/academy/lab-verifier.js";
+import { verifyAcademyLab } from "../intelligence-layers/learning/lab-verifier.js";
 
 export async function routeTask(task, params) {
   switch (task) {
