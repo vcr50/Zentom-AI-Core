@@ -385,5 +385,49 @@ export const labCriteria = [
         minimumMatches: 1
       }
     ]
+  },
+  {
+    moduleId: "admin-10",
+    labId: "admin-10-lab-1",
+    labTitle: "Bulk Import and Duplicate Management for Student Success CRM",
+    skillId: "salesforce-data-management",
+    passingScore: 80,
+    criteria: [
+      {
+        id: "q1",
+        question: "How many Student records did you import using Data Import Wizard?",
+        type: "text",
+        expectedKeywords: ["10", "ten", "5", "five", "20", "twenty"],
+        minimumMatches: 1
+      },
+      {
+        id: "q2",
+        question: "What tool did you use to import the Student records?",
+        type: "text",
+        expectedKeywords: ["Data Import Wizard", "Import Wizard", "wizard"],
+        minimumMatches: 1
+      },
+      {
+        id: "q3",
+        question: "What field did you use in your Matching Rule to detect duplicate students?",
+        type: "text",
+        expectedKeywords: ["Email__c", "Email", "email"],
+        minimumMatches: 1
+      },
+      {
+        id: "q4",
+        question: "What action did you set in your Duplicate Rule when a match is found?",
+        type: "text",
+        expectedKeywords: ["Block", "block", "Alert", "Report"],
+        minimumMatches: 1
+      },
+      {
+        id: "q5",
+        question: "What is the key difference between Data Import Wizard and Data Loader?",
+        type: "text",
+        expectedKeywords: ["50,000", "50000", "record limit", "millions", "desktop", "browser", "install", "Data Loader"],
+        minimumMatches: 1
+      }
+    ]
   }
 ];

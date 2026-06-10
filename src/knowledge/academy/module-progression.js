@@ -111,7 +111,12 @@ export const moduleProgression = [
     moduleId: "admin-10",
     moduleName: "Data Management and Import Tools",
     requiredTier: "founder",
-    prerequisites: [],
+    prerequisites: [
+      {
+        labId: "admin-10-lab-1",
+        minPassingScore: 80
+      }
+    ],
     nextModuleId: null
   }
 ];
