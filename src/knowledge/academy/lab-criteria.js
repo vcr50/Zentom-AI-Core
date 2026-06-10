@@ -300,5 +300,47 @@ export const labCriteria = [
         minimumMatches: 1
       }
     ]
+  },
+  {
+    moduleId: "admin-8",
+    labId: "admin-8-lab-1",
+    labTitle: "Build Intermediate Flow Automation for Student Success CRM",
+    skillId: "salesforce-flow-automation-intermediate",
+    passingScore: 80,
+    criteria: [
+      {
+        id: "q1",
+        question: "What is the API name of your intermediate flow?",
+        type: "text",
+        expectedKeywords: ["Student_Status_Update_Automation", "Enrollment_Follow_Up_Flow", "Student_Follow_Up_Flow"],
+        minimumMatches: 1
+      },
+      {
+        id: "q2",
+        question: "Which object triggers your flow?",
+        type: "text",
+        expectedKeywords: ["Student__c", "Enrollment__c"],
+        minimumMatches: 1
+      },
+      {
+        id: "q3",
+        question: "Which Flow element did you use to branch logic?",
+        type: "text",
+        expectedKeywords: ["Decision"]
+      },
+      {
+        id: "q4",
+        question: "Which Flow element did you use to create a follow-up task or record?",
+        type: "text",
+        expectedKeywords: ["Create Records", "Create Record"]
+      },
+      {
+        id: "q5",
+        question: "Why is a fault path important in Salesforce Flow?",
+        type: "text",
+        expectedKeywords: ["error handling", "failure", "debug", "prevent automation failure", "handle errors"],
+        minimumMatches: 1
+      }
+    ]
   }
 ];
