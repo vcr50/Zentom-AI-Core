@@ -212,5 +212,49 @@ export const labCriteria = [
         minimumMatches: 2
       }
     ]
+  },
+  {
+    moduleId: "admin-6",
+    labId: "admin-6-lab-1",
+    labTitle: "Create Reports and Dashboards for Student Success CRM",
+    skillId: "salesforce-reporting-dashboards",
+    passingScore: 80,
+    criteria: [
+      {
+        id: "q1",
+        question: "What report did you create to group Students by Status?",
+        type: "text",
+        expectedKeywords: ["Students by Status", "Student Status"],
+        minimumMatches: 1
+      },
+      {
+        id: "q2",
+        question: "What report did you create to track Enrollments by Course?",
+        type: "text",
+        expectedKeywords: ["Enrollments by Course", "Enrollment by Course"],
+        minimumMatches: 1
+      },
+      {
+        id: "q3",
+        question: "What report did you create to track Pending Fee Payments?",
+        type: "text",
+        expectedKeywords: ["Pending Fee Payments", "Pending Fees", "Fee Payments"],
+        minimumMatches: 1
+      },
+      {
+        id: "q4",
+        question: "What dashboard did you create for Student Success CRM?",
+        type: "text",
+        expectedKeywords: ["Student Success CRM Dashboard", "Student Success Dashboard"],
+        minimumMatches: 1
+      },
+      {
+        id: "q5",
+        question: "Name any three dashboard components you added.",
+        type: "text",
+        expectedKeywords: ["chart", "bar chart", "pie chart", "table", "metric", "gauge", "report chart"],
+        minimumMatches: 3
+      }
+    ]
   }
 ];

@@ -63,6 +63,18 @@ export const moduleProgression = [
     moduleId: "admin-6",
     moduleName: "Reports and Dashboards",
     requiredTier: "founder",
+    prerequisites: [
+      {
+        labId: "admin-6-lab-1",
+        minPassingScore: 80
+      }
+    ],
+    nextModuleId: "admin-7"
+  },
+  {
+    moduleId: "admin-7",
+    moduleName: "Flow Automation Foundations",
+    requiredTier: "founder",
     prerequisites: [],
     nextModuleId: null
   }
