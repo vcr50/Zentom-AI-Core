@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "start": "node examples/academy-verify-lab.example.js",
-    "test": "node tests/ai-engine.test.js && node tests/academy-flow.test.js"
+    "test": "node tests/ai-engine.test.js && node tests/academy-flow.test.js && node tests/academy-handler.test.js"
   },
   "keywords": [
     "ai",

@@ -1,12 +1,30 @@
-import { aiEngine } from "zentom-ai-core";
+import { createAcademyAiHandler } from "zentom-ai-core";
 
-export function registerAcademyAiRoute(app) {
-  app.post("/api/ai/run", async (req, res) => {
-    const result = await aiEngine.run(req.body.task, req.body.params, {
-      userId: req.session?.user?.id,
-      tier: req.session?.user?.tier || "free"
-    });
+export function registerAcademyAiRoute(app, { skillPassportService }) {
+  app.post("/api/ai/run", createAcademyAiHandler({
+    async updateSkillPassport({ userId, update }) {
+      await skillPassportService.updateLabProgress(userId, update);
+    }
+  }));
+}
 
-    res.json(result);
+/*
+Expected Check My Work request body:
+
+{
+  "task": "verify-lab",
+  "moduleId": "admin-module-1",
+  "skillId": "admin-hands-on-basics",
+  "params": {
+    "lab": {
+      "labId": "admin-module-1-lab",
+      "labTitle": "Admin Module 1 Hands-on Lab",
+      "passingScore": 80,
+      "criteria": []
+    },
+    "studentAnswers": {}
+  }
+}
+*/
   });
 }
