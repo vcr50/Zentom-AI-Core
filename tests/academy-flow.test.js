@@ -70,4 +70,49 @@ assert.equal(passportUpdate.score, 100);
 assert.ok(passportUpdate.feedback);
 assert.ok(passportUpdate.verifiedAt);
 
+// Test Admin Module 4 Lab Verification
+const req4 = {
+  session: {
+    user: {
+      id: "academy-test-user",
+      tier: "founder"
+    }
+  },
+  body: {
+    task: "verify-lab",
+    params: {
+      moduleId: "admin-4",
+      labId: "admin-4-lab-1",
+      studentAnswers: {
+        q1: "Student Success CRM",
+        q2: "Student__c",
+        q3: "Course__c",
+        q4: "Enrollment__c",
+        q5: "Student Page Layout",
+        q6: "Active Students"
+      }
+    }
+  }
+};
+
+const result4 = await aiEngine.run(req4.body.task, req4.body.params, {
+  userId: req4.session?.user?.id,
+  tier: req4.session?.user?.tier || "free"
+});
+
+assert.equal(result4.ok, true);
+assert.equal(result4.data.passed, true);
+assert.equal(result4.data.score, 100);
+
+const passportUpdate4 = buildSkillPassportUpdate({
+  labResult: result4.data,
+  moduleId: "admin-4",
+  skillId: "salesforce-app-user-experience"
+});
+
+assert.equal(passportUpdate4.moduleId, "admin-4");
+assert.equal(passportUpdate4.skillId, "salesforce-app-user-experience");
+assert.equal(passportUpdate4.status, "verified");
+assert.equal(passportUpdate4.score, 100);
+
 console.log("academy flow test passed");

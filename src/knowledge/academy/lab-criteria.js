@@ -122,5 +122,52 @@ export const labCriteria = [
         minimumMatches: 2
       }
     ]
+  },
+  {
+    moduleId: "admin-4",
+    labId: "admin-4-lab-1",
+    labTitle: "Configure Page Layouts and App Experience",
+    skillId: "salesforce-app-user-experience",
+    passingScore: 80,
+    criteria: [
+      {
+        id: "q1",
+        question: "What is the exact name of the Lightning App you created?",
+        type: "text",
+        expectedKeywords: ["Student Success CRM"]
+      },
+      {
+        id: "q2",
+        question: "What is the API name of the Student tab you created?",
+        type: "text",
+        expectedKeywords: ["Student__c"]
+      },
+      {
+        id: "q3",
+        question: "What is the API name of the Course tab you created?",
+        type: "text",
+        expectedKeywords: ["Course__c"]
+      },
+      {
+        id: "q4",
+        question: "What is the API name of the Enrollment tab you created?",
+        type: "text",
+        expectedKeywords: ["Enrollment__c"]
+      },
+      {
+        id: "q5",
+        question: "Name the customized Student Page Layout you configured.",
+        type: "text",
+        expectedKeywords: ["Student Layout", "Student Page Layout"],
+        minimumMatches: 1
+      },
+      {
+        id: "q6",
+        question: "What is the name of the customized List View you created for Students?",
+        type: "text",
+        expectedKeywords: ["Active Students", "All Active Students"],
+        minimumMatches: 1
+      }
+    ]
   }
 ];

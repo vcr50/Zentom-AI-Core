@@ -39,7 +39,12 @@ export const moduleProgression = [
     moduleId: "admin-4",
     moduleName: "Page Layouts, Lightning App, and User Experience",
     requiredTier: "founder",
-    prerequisites: [],
+    prerequisites: [
+      {
+        labId: "admin-4-lab-1",
+        minPassingScore: 80
+      }
+    ],
     nextModuleId: null
   }
 ];
