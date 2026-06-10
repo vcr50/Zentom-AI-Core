@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
         <apexClass>RevenuePulseService</apexClass>
@@ -37,10 +37,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SelfHealingEngine</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BusinessImpactCalculator</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -52,28 +48,9 @@
         <apexClass>ZentomAIClient</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>LicenseController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LicenseService</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+
     <classAccesses>
         <apexClass>SubscriptionService</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RetryLogService</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>HealTelemetryService</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AgentforceActionRegistry</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

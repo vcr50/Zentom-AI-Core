@@ -814,9 +814,6 @@ public with sharing class SentinelFlowPortalController {
     /**
      * Returns aggregated heal metrics for the dashboard telemetry panel.
      */
-    @AuraEnabled(cacheable=false)
-    public static HealTelemetryService.HealMetrics getHealMetrics() {
-        return HealTelemetryService.getHealMetrics();
-    }
+
 }
 

@@ -72,7 +72,7 @@ global with sharing class ZentomWebhookListener {
             }
             
             String action = (String) afData.get('action');
-            Integer confidence = (Integer) afData.get('confidence');
+            Decimal confidence = (Decimal) afData.get('confidence');
             Decimal riskScore = (Decimal) afData.get('riskScore');
             String executionMode = (String) afData.get('executionMode');
             Boolean agentforceReady = (Boolean) afData.get('agentforceReady');
@@ -80,13 +80,18 @@ global with sharing class ZentomWebhookListener {
             // ── STEP 4: Execute if cleared by Policy Engine ──
             if (agentforceReady == true) {
                 try {
+                    ZentomPolicyEngine.ExecutionMode mode = ZentomPolicyEngine.ExecutionMode.valueOf(executionMode);
+                    
+                    ZentomRiskEngine.RiskScore risk = new ZentomRiskEngine.RiskScore();
+                    risk.totalScore = riskScore;
+                    
                     ZentomExecutionController.executeAction(
-                        Id.valueOf(incidentId), action, confidence, executionMode
+                        Id.valueOf(incidentId), action, (Integer) confidence.intValue(), risk, mode
                     );
                     
                     // ── STEP 5: Send evaluation feedback ──
                     ZentomAIClient.sendEvaluationFeedback(
-                        Id.valueOf(incidentId), true, action, confidence
+                        Id.valueOf(incidentId), true, action, (Integer) confidence.intValue()
                     );
                     
                     System.debug('[ZentomWebhook] Executed action "' + action + '" for incident ' + incidentId);
@@ -95,7 +100,7 @@ global with sharing class ZentomWebhookListener {
                     System.debug(LoggingLevel.ERROR, 
                         '[ZentomWebhook] Execution failed for ' + incidentId + ': ' + e.getMessage());
                     ZentomAIClient.sendEvaluationFeedback(
-                        Id.valueOf(incidentId), false, action, confidence
+                        Id.valueOf(incidentId), false, action, (Integer) confidence.intValue()
                     );
                 }
             } else {
