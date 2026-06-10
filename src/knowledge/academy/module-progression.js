@@ -25,7 +25,19 @@ export const moduleProgression = [
   },
   {
     moduleId: "admin-3",
-    moduleName: "Student Success CRM Security & Access",
+    moduleName: "Security and Access Control",
+    requiredTier: "founder",
+    prerequisites: [
+      {
+        labId: "admin-3-lab-1",
+        minPassingScore: 80
+      }
+    ],
+    nextModuleId: "admin-4"
+  },
+  {
+    moduleId: "admin-4",
+    moduleName: "Page Layouts, Lightning App, and User Experience",
     requiredTier: "founder",
     prerequisites: [],
     nextModuleId: null

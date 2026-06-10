@@ -79,5 +79,48 @@ export const labCriteria = [
         minimumMatches: 2
       }
     ]
+  },
+  {
+    moduleId: "admin-3",
+    labId: "admin-3-lab-1",
+    labTitle: "Configure Security for Student Success CRM",
+    skillId: "salesforce-security-foundations",
+    passingScore: 80,
+    criteria: [
+      {
+        id: "q1",
+        question: "What Permission Set did you create for Student Success CRM users?",
+        type: "text",
+        expectedKeywords: ["Student Success User", "Student Success CRM User"],
+        minimumMatches: 1
+      },
+      {
+        id: "q2",
+        question: "Which object did you give access to in the Permission Set?",
+        type: "text",
+        expectedKeywords: ["Student__c", "Course__c", "Enrollment__c"],
+        minimumMatches: 1
+      },
+      {
+        id: "q3",
+        question: "Which permission allows a user to create new records?",
+        type: "text",
+        expectedKeywords: ["Create"]
+      },
+      {
+        id: "q4",
+        question: "Why are Permission Sets better than editing Profiles for extra access?",
+        type: "text",
+        expectedKeywords: ["flexible", "additional access", "user specific", "without changing profile"],
+        minimumMatches: 1
+      },
+      {
+        id: "q5",
+        question: "Name any two permissions you enabled for Student__c.",
+        type: "text",
+        expectedKeywords: ["Read", "Create", "Edit", "Delete", "View All", "Modify All"],
+        minimumMatches: 2
+      }
+    ]
   }
 ];
