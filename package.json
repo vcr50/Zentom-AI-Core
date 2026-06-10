@@ -1,0 +1,24 @@
+{
+  "name": "zentom-ai-core",
+  "version": "0.1.0",
+  "description": "Reusable AI orchestration layer for product workflows.",
+  "type": "module",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "start": "node examples/academy-verify-lab.example.js",
+    "test": "node tests/ai-engine.test.js"
+  },
+  "keywords": [
+    "ai",
+    "llm",
+    "orchestration",
+    "rules",
+    "workflow"
+  ],
+  "author": "Private",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
