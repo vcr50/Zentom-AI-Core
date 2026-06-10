@@ -1,4 +1,8 @@
 # Integration Tests
 
-End-to-end tests across Salesforce intake, Zentom API, engines, database, and dashboard.
+Workspace for cross-service integration validation.
 
+## Confidentiality
+
+Do not publish customer flows, production service topology, private endpoints,
+credentials, tenant identifiers, or incident examples in this README.

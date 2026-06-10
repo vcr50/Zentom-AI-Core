@@ -1,21 +1,11 @@
-# SentinelFlow Salesforce Package
+# Salesforce Package
 
-Salesforce DX metadata for SentinelFlow.
+Salesforce DX source for the product package.
 
-Planned components:
+## Confidentiality
 
-- `Sentinel_Incident__c`
-- `Sentinel_Audit_Log__c`
-- `Zentom_Policy__c`
-- `Zentom_Action__c`
-- `Sentinel_Incident_Event__e`
-- `SentinelIncidentPublisher.cls`
-- `ZentomApiClient.cls`
-- `SentinelCaseCreator.cls`
-- `sentinelflowDashboard`
-- `zentomIncidentDetail`
-- `zentomReplayViewer`
-- `Zentom_Admin`
-- `Zentom_Approver`
-- `Zentom_Viewer`
+Do not publish object names, Apex class names, permission model details,
+customer org details, deployment targets, or package architecture in this
+README.
 
+Keep implementation notes in approved private documentation.
