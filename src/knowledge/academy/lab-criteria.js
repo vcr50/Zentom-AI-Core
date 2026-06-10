@@ -256,5 +256,49 @@ export const labCriteria = [
         minimumMatches: 3
       }
     ]
+  },
+  {
+    moduleId: "admin-7",
+    labId: "admin-7-lab-1",
+    labTitle: "Build Flow Automations for Student Success CRM",
+    skillId: "salesforce-flow-automation",
+    passingScore: 80,
+    criteria: [
+      {
+        id: "q1",
+        question: "What type of Flow did you create to automate Student registration?",
+        type: "text",
+        expectedKeywords: ["Record-Triggered", "Record Triggered"],
+        minimumMatches: 1
+      },
+      {
+        id: "q2",
+        question: "Which object triggers your record-triggered flow?",
+        type: "text",
+        expectedKeywords: ["Student__c", "Student"],
+        minimumMatches: 1
+      },
+      {
+        id: "q3",
+        question: "What is the API name of the Flow you created?",
+        type: "text",
+        expectedKeywords: ["Student_Registration_Automation", "Student_Welcome_Flow", "Student_Welcome"],
+        minimumMatches: 1
+      },
+      {
+        id: "q4",
+        question: "What element in your flow evaluates conditions to branch logic?",
+        type: "text",
+        expectedKeywords: ["Decision"],
+        minimumMatches: 1
+      },
+      {
+        id: "q5",
+        question: "What global variable refers to the record that triggered the flow?",
+        type: "text",
+        expectedKeywords: ["$Record", "Record"],
+        minimumMatches: 1
+      }
+    ]
   }
 ];
