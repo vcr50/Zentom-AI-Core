@@ -6,28 +6,7 @@ const basePayload = {
   tier: "free",
   params: {
     moduleId: "admin-1",
-    skillId: "salesforce-platform-foundations",
-    lab: {
-      labId: "admin-1-lab-1",
-      labTitle: "Explore Salesforce and Create Basic Records",
-      moduleId: "admin-1",
-      moduleName: "Salesforce Platform Foundations",
-      passingScore: 80,
-      criteria: [
-        {
-          id: "q1",
-          question: "What is the exact Account Name you created?",
-          type: "text",
-          expectedKeywords: ["TomCodeX Training Institute"]
-        },
-        {
-          id: "q2",
-          question: "How many records did you create?",
-          type: "number",
-          expectedValue: 2
-        }
-      ]
-    }
+    labId: "admin-1-lab-1"
   }
 };
 
@@ -46,7 +25,7 @@ async function getPassport(userId) {
 }
 
 async function proveJourney() {
-  console.log("Starting TomCodeX Academy student journey proof (Attempts & Unlock Decision)...");
+  console.log("Starting TomCodeX Academy student journey proof (Criteria from Knowledge Layer)...");
 
   // ==========================================
   // SCENARIO 1: Failed Attempt
@@ -54,12 +33,15 @@ async function proveJourney() {
   console.log("\n--- Scenario 1: Failed Attempt (Incorrect answers) ---");
   const failedPayload = {
     ...basePayload,
-    tier: "founder", // Even a founder fails if answers are wrong
+    tier: "founder",
     params: {
       ...basePayload.params,
       studentAnswers: {
         q1: "Wrong Account Name",
-        q2: 0
+        q2: "Wrong Student",
+        q3: "Wrong Account Name",
+        q4: "Wrong Account Name",
+        q5: "Wrong Account Name"
       }
     }
   };
@@ -87,7 +69,10 @@ async function proveJourney() {
       ...basePayload.params,
       studentAnswers: {
         q1: "TomCodeX Training Institute",
-        q2: 2
+        q2: "Demo Student",
+        q3: "TomCodeX Training Institute",
+        q4: "My Active Accounts",
+        q5: "Account Name, Phone"
       }
     }
   };
@@ -121,7 +106,10 @@ async function proveJourney() {
       ...basePayload.params,
       studentAnswers: {
         q1: "TomCodeX Training Institute",
-        q2: 2
+        q2: "Demo Student",
+        q3: "TomCodeX Training Institute",
+        q4: "My Active Accounts",
+        q5: "Account Name, Phone"
       }
     }
   };
@@ -143,7 +131,7 @@ async function proveJourney() {
   console.log("\nFinal Passport State from DB:");
   console.log(JSON.stringify(finalPassportRes.passport, null, 2));
 
-  console.log("\nJourney proved successfully with attempts history & unlock decisions!");
+  console.log("\nJourney proved successfully with criteria from knowledge layer!");
 }
 
 proveJourney().catch((error) => {

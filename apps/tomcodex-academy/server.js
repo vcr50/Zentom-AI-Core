@@ -34,9 +34,8 @@ app.post("/api/academy/verify-lab", async (req, res) => {
   let passport = null;
 
   if (result.ok) {
-    const lab = params.lab || {};
-    const moduleId = lab.moduleId || params.moduleId;
-    const skillId = lab.skillId || params.skillId;
+    const moduleId = result.data.moduleId || params.moduleId;
+    const skillId = result.data.skillId || params.skillId;
 
     skillPassportUpdate = buildSkillPassportUpdate({
       labResult: result.data,
@@ -51,19 +50,18 @@ app.post("/api/academy/verify-lab", async (req, res) => {
     });
   }
 
-  // Generate Unlock Decision
-  const lab = params.lab || {};
-  const labId = lab.labId;
-  const moduleId = lab.moduleId || "admin-1";
-  const nextModuleId = moduleId === "admin-1" ? "admin-2" : "unknown";
-  const passingScore = lab.passingScore || 80;
+  // Generate Unlock Decision using resolved values
+  const resolvedLabId = params.labId || (result.ok ? result.data.labId : null);
+  const resolvedModuleId = params.moduleId || (result.ok ? result.data.moduleId : "admin-1");
+  const nextModuleId = resolvedModuleId === "admin-1" ? "admin-2" : "unknown";
+  const passingScore = result.ok ? (result.data.passingScore || 80) : 80;
 
   const unlockDecision = getUnlockDecision({
     userId: user.id,
-    moduleId,
+    moduleId: resolvedModuleId,
     nextModuleId,
     tier: user.tier,
-    labId,
+    labId: resolvedLabId,
     passingScore
   });
 
@@ -77,8 +75,8 @@ app.post("/api/academy/verify-lab", async (req, res) => {
       completedLabsCount: currentPassport.completedLabs.length,
       skillsCount: Object.keys(currentPassport.skills).length,
       attemptsCount: currentPassport.attempts?.length || 0,
-      verifiedAt: currentPassport.verifiedAt?.[labId] || null,
-      failedAttemptsCount: currentPassport.failedAttemptsCount?.[labId] || 0
+      verifiedAt: currentPassport.verifiedAt?.[resolvedLabId] || null,
+      failedAttemptsCount: currentPassport.failedAttemptsCount?.[resolvedLabId] || 0
     }
   });
 });
