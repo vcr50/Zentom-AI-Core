@@ -169,5 +169,48 @@ export const labCriteria = [
         minimumMatches: 1
       }
     ]
+  },
+  {
+    moduleId: "admin-5",
+    labId: "admin-5-lab-1",
+    labTitle: "Create Validation Rules for Student Success CRM",
+    skillId: "salesforce-data-quality-rules",
+    passingScore: 80,
+    criteria: [
+      {
+        id: "q1",
+        question: "What validation rule did you create to require Student Email?",
+        type: "text",
+        expectedKeywords: ["Student_Email_Required", "Email Required"],
+        minimumMatches: 1
+      },
+      {
+        id: "q2",
+        question: "Which object contains your Student Email validation rule?",
+        type: "text",
+        expectedKeywords: ["Student__c"]
+      },
+      {
+        id: "q3",
+        question: "What validation rule did you create for Enrollment Status?",
+        type: "text",
+        expectedKeywords: ["Enrollment_Status_Required", "Status Required"],
+        minimumMatches: 1
+      },
+      {
+        id: "q4",
+        question: "Why are validation rules important in Salesforce?",
+        type: "text",
+        expectedKeywords: ["data quality", "prevent incorrect data", "required", "business rule"],
+        minimumMatches: 1
+      },
+      {
+        id: "q5",
+        question: "Name any two fields you protected using validation rules.",
+        type: "text",
+        expectedKeywords: ["Email", "Phone", "Status", "Enrollment Status", "Course"],
+        minimumMatches: 2
+      }
+    ]
   }
 ];

@@ -45,6 +45,25 @@ export const moduleProgression = [
         minPassingScore: 80
       }
     ],
+    nextModuleId: "admin-5"
+  },
+  {
+    moduleId: "admin-5",
+    moduleName: "Validation Rules and Data Quality",
+    requiredTier: "founder",
+    prerequisites: [
+      {
+        labId: "admin-5-lab-1",
+        minPassingScore: 80
+      }
+    ],
+    nextModuleId: "admin-6"
+  },
+  {
+    moduleId: "admin-6",
+    moduleName: "Reports and Dashboards",
+    requiredTier: "founder",
+    prerequisites: [],
     nextModuleId: null
   }
 ];
