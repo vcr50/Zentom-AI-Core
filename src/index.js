@@ -5,3 +5,4 @@ export { buildSkillPassportUpdate } from "./intelligence-layers/learning/skill-p
 export * as learningIntelligence from "./intelligence-layers/learning/index.js";
 export * as operationsIntelligence from "./intelligence-layers/operations/index.js";
 export { moduleProgression } from "./knowledge/academy/module-progression.js";
+export { evaluateCertificateEligibility } from "./intelligence-layers/learning/certificate-eligibility.js";

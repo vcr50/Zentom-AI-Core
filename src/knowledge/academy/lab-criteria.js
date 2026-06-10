@@ -342,5 +342,48 @@ export const labCriteria = [
         minimumMatches: 1
       }
     ]
+  },
+  {
+    moduleId: "admin-9",
+    labId: "admin-9-lab-1",
+    labTitle: "Build a Student Graduation Approval Process",
+    skillId: "salesforce-approval-processes",
+    passingScore: 80,
+    criteria: [
+      {
+        id: "q1",
+        question: "What is the API name of the Approval Process you created?",
+        type: "text",
+        expectedKeywords: ["Student_Graduation_Approval", "Graduation_Approval"],
+        minimumMatches: 1
+      },
+      {
+        id: "q2",
+        question: "What object is the Approval Process built on?",
+        type: "text",
+        expectedKeywords: ["Student__c"]
+      },
+      {
+        id: "q3",
+        question: "What field and value did you set as Entry Criteria?",
+        type: "text",
+        expectedKeywords: ["Status__c", "Pending Graduation", "Pending"],
+        minimumMatches: 1
+      },
+      {
+        id: "q4",
+        question: "What Final Approval Action did you configure?",
+        type: "text",
+        expectedKeywords: ["Field Update", "Status__c", "Graduated", "field update"],
+        minimumMatches: 1
+      },
+      {
+        id: "q5",
+        question: "What is the key difference between an Approval Process and a Record-Triggered Flow?",
+        type: "text",
+        expectedKeywords: ["human", "manual", "approve", "decision", "automatic", "automated"],
+        minimumMatches: 1
+      }
+    ]
   }
 ];
