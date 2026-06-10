@@ -38,5 +38,46 @@ export const labCriteria = [
         minimumMatches: 2
       }
     ]
+  },
+  {
+    moduleId: "admin-2",
+    labId: "admin-2-lab-1",
+    labTitle: "Create Student Success CRM Core Objects",
+    skillId: "salesforce-object-modeling",
+    passingScore: 80,
+    criteria: [
+      {
+        id: "q1",
+        question: "What is the API name of the Student object you created?",
+        type: "text",
+        expectedKeywords: ["Student__c"]
+      },
+      {
+        id: "q2",
+        question: "What is the API name of the Course object you created?",
+        type: "text",
+        expectedKeywords: ["Course__c"]
+      },
+      {
+        id: "q3",
+        question: "What is the API name of the Enrollment object you created?",
+        type: "text",
+        expectedKeywords: ["Enrollment__c"]
+      },
+      {
+        id: "q4",
+        question: "Which object connects Student and Course?",
+        type: "text",
+        expectedKeywords: ["Enrollment__c", "Enrollment"],
+        minimumMatches: 1
+      },
+      {
+        id: "q5",
+        question: "Name any two fields you created on Student__c.",
+        type: "text",
+        expectedKeywords: ["Email", "Phone", "Status", "Student ID", "Date of Birth"],
+        minimumMatches: 2
+      }
+    ]
   }
 ];

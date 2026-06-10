@@ -67,8 +67,14 @@ export function updateSkillPassport({ userId, skillPassportUpdate, result }) {
   // Preserve best score
   passport.bestScores[labId] = Math.max(passport.bestScores[labId] || 0, score);
 
-  // Update skills map
-  passport.skills["Salesforce Platform Foundations"] = {
+  // Update skills map dynamically
+  const skillId = skillPassportUpdate?.skillId || result?.data?.skillId || "salesforce-platform-foundations";
+  const skillName = skillId
+    .split("-")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+  passport.skills[skillName] = {
     status: passport.bestScores[labId] >= 80 ? "Verified" : "Needs Improvement",
     score: passport.bestScores[labId],
     source: "Zentom AI Learning Intelligence"
@@ -115,17 +121,16 @@ export function getUnlockDecision({ userId, moduleId, tier }) {
   }
 
   // 1. Check prerequisites: user must pass all required labs of the current module
-  const requiredLabs = currentConfig.requiredLabs || [];
-  const minPassingScore = currentConfig.minPassingScore || 80;
-
-  for (const requiredLabId of requiredLabs) {
-    const bestScore = passport.bestScores[requiredLabId] || 0;
-    if (bestScore < minPassingScore) {
+  const prerequisites = currentConfig.prerequisites || [];
+  
+  for (const prereq of prerequisites) {
+    const bestScore = passport.bestScores[prereq.labId] || 0;
+    if (bestScore < prereq.minPassingScore) {
       return {
         moduleId,
         nextModuleId,
         eligibleToUnlock: false,
-        reason: `Lab score of ${bestScore} is below the passing score of ${minPassingScore}.`
+        reason: `Lab score of ${bestScore} is below the passing score of ${prereq.minPassingScore}.`
       };
     }
   }
@@ -142,13 +147,13 @@ export function getUnlockDecision({ userId, moduleId, tier }) {
   }
 
   // All prerequisites passed, and tier criteria satisfies!
-  const mainLabId = requiredLabs[0];
-  const mainLabScore = passport.bestScores[mainLabId] || 0;
+  const mainPrereq = prerequisites[0] || {};
+  const mainLabScore = passport.bestScores[mainPrereq.labId] || 0;
 
   return {
     moduleId,
     nextModuleId,
     eligibleToUnlock: true,
-    reason: `Lab score is ${mainLabScore} and passing score is ${minPassingScore}.`
+    reason: `Lab score is ${mainLabScore} and passing score is ${mainPrereq.minPassingScore || 80}.`
   };
 }
