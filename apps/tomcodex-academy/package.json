@@ -1,0 +1,14 @@
+{
+  "name": "tomcodex-academy-backend",
+  "version": "0.1.0",
+  "description": "TomCodeX Academy backend integration using Zentom AI Core.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "prove": "node prove-journey.js"
+  },
+  "dependencies": {
+    "express": "^4.18.3",
+    "zentom-ai-core": "file:../.."
+  }
+}
